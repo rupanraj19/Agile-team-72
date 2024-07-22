@@ -12,5 +12,8 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.6"
   }
 }
