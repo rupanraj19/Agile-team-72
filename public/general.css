@@ -1,0 +1,338 @@
+/* variables */
+:root{
+    --c-dark: #212529;
+    --c-brand:  #4ed670;
+    --c-brand-light: #b7e1c5;
+    --c-brand-rgb: 78, 87, 212;
+    --c-body: #727272;
+    --c-footer-body: #e8e8e8;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.8);
+    --transition: all 0.5s ease;
+  }
+  
+  header{
+    background-color: var(--c-brand);
+  }
+  
+  /* navbar */
+  .navbar {
+      box-shadow: var(--box-shadow);
+  }
+  
+  .social-icons a {
+      width: 28px;
+      height: 28px;
+      display: inline-flex;
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.25);
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+  }
+  
+  .social-icons a:hover {
+      background-color: #fff;
+      color: var(--c-brand);
+  }
+  
+
+  .navbar .navbar-nav .nav-link {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-family: 200;
+      color: black;
+  }
+  
+  .navbar .navbar-nav .nav-link:hover {
+      color: white;
+  }
+  
+  .navbar .navbar-nav .nav-link.active {
+      color: #fcfcfc;
+  }
+  
+  .navbar-brand {
+      font-size: 28px;
+      font-weight: 700;
+  }
+
+  .navbar-brand img{
+    height: 50px;
+  }
+  
+  .navbar-brand .dot {
+      color: var(--c-brand-light);
+  }
+  .nav-link{
+      position: relative;
+  }
+  
+  .nav-link::after{
+      content: '';
+      opacity: 0;
+      transition: all 0.2s;
+      height: 2px;
+      width: 100%;
+      background-color: rgb(19, 78, 4);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+  }
+  
+  .nav-link:hover::after{
+     opacity: 1;
+  }
+  
+  /* login button */
+  .login-btn {
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    border: 2px solid var(--c-brand);
+    background-color: white;
+    color: white;
+    position: relative;
+    letter-spacing: 1px;
+   }
+   
+   .login-btn::before {
+    content: 'LOGIN';
+    /*Button's value/text-content */
+    position: absolute;
+    top: -14%;
+    left: 7%;
+    background-color: var(--c-brand-light);
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.15s ease-in-out;
+    font-weight: bold;
+   }
+   
+   .login-btn:hover::before {
+    top: 0;
+    left: 0;
+   }
+  
+  
+  /* footer */
+  footer {
+      padding-top: 120px;
+      background-color: var(--c-footer-body);
+  }
+  
+  .footer-top {
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .footer-bottom{
+      padding-top: 40px;
+      padding-bottom: 40px;
+  }
+  
+  footer li, footer p, footer a {
+      color:rgb(0, 0, 0);
+  
+  }
+  
+  footer ul{
+      list-style: none;
+      padding:0 ;
+  
+  }
+  
+  footer .line{
+      width: 40px;
+      height: 4px;
+      background-color: var(--c-brand);
+      margin-top: 12px;
+      margin-bottom: 24px;
+  }
+  
+  .social-icons a{
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--c-brand-light);
+      border-radius: 100px;
+  }
+  
+  .social-icons a:hover {
+      background-color: var(--c-brand);
+      color: white;
+  }
+  
+    
+    .social-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--c-brand-light);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+      height: 50px;
+      width: 200px;
+    }
+    
+    .social-card::before, .social-card::after {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+      transition: 0.25s linear;
+      z-index: 1;
+    }
+    
+    .social-card::before {
+      content: "";
+      left: 0;
+      justify-content: flex-end;
+      background-color: var(--c-brand);
+    }
+    
+    .social-card::after {
+      content: "";
+      right: 0;
+      justify-content: flex-start;
+      background-color: var(--c-brand-light);
+    }
+    
+    .social-card:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    
+    .social-card:hover span {
+      opacity: 0;
+      z-index: -3;
+    }
+    
+    .social-card:hover::before {
+      opacity: 0.5;
+      transform: translateY(-100%);
+    }
+    
+    .social-card:hover::after {
+      opacity: 0.5;
+      transform: translateY(100%);
+    }
+    
+    .social-card span {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: whitesmoke;
+      font-family: 'Fira Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      opacity: 1;
+      transition: opacity 0.25s;
+      z-index: 2;
+    }
+    
+    .social-card .social-link {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25%;
+      height: 100%;
+      color: whitesmoke;
+      font-size: 24px;
+      text-decoration: none;
+      transition: 0.25s;
+    }
+    
+    .social-card .social-link svg {
+      text-shadow: 1px 1px rgba(31, 74, 121, 0.7);
+      transform: scale(1);
+    }
+    
+    .social-card .social-link:hover {
+      background-color: rgba(249, 244, 255, 0.774);
+      animation: bounce_613 0.4s linear;
+    }
+    
+    @keyframes bounce_613 {
+      40% {
+        transform: scale(1.4);
+      }
+    
+      60% {
+        transform: scale(0.8);
+      }
+    
+      80% {
+        transform: scale(1.2);
+      }
+    
+      100% {
+        transform: scale(1);
+      }
+    }
+  
+  /* toggle switch for dark mode */
+  /* The switch - the box around the slider */
+  .switch {
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .switchslider {
+    --background: black;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: .5s;
+    border-radius: 30px;
+  }
+  
+  .switchslider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: var(--background);
+    transition: .5s;
+  }
+  
+  input:checked + .switchslider {
+    background-color: #af1f27;
+  }
+  
+  input:checked + .switchslider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+  }
+  
+  
