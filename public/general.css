@@ -9,16 +9,28 @@
     --box-shadow: 0px 15px 25px rgba(0,0,0,0.8);
     --transition: all 0.5s ease;
   }
+<<<<<<< HEAD
 
   header{
     background-color: var(--c-brand);
   }
 
+=======
+  
+  header{
+    background-color: var(--c-brand);
+  }
+  
+>>>>>>> aboutus
   /* navbar */
   .navbar {
       box-shadow: var(--box-shadow);
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .social-icons a {
       width: 28px;
       height: 28px;
@@ -30,18 +42,27 @@
       justify-content: center;
       border-radius: 100px;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .social-icons a:hover {
       background-color: #fff;
       color: var(--c-brand);
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
 
   .navbar .navbar-nav .nav-link {
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
       font-family: 200;
       color: black;
   }
+<<<<<<< HEAD
 
   .navbar .navbar-nav .nav-link:hover {
       color: white;
@@ -51,6 +72,17 @@
       color: #fcfcfc;
   }
 
+=======
+  
+  .navbar .navbar-nav .nav-link:hover {
+      color: white;
+  }
+  
+  .navbar .navbar-nav .nav-link.active {
+      color: #fcfcfc;
+  }
+  
+>>>>>>> aboutus
   .navbar-brand {
       font-size: 28px;
       font-weight: 700;
@@ -59,14 +91,22 @@
   .navbar-brand img{
     height: 50px;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .navbar-brand .dot {
       color: var(--c-brand-light);
   }
   .nav-link{
       position: relative;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .nav-link::after{
       content: '';
       opacity: 0;
@@ -78,11 +118,19 @@
       bottom: 0;
       left: 0;
   }
+<<<<<<< HEAD
 
   .nav-link:hover::after{
      opacity: 1;
   }
 
+=======
+  
+  .nav-link:hover::after{
+     opacity: 1;
+  }
+  
+>>>>>>> aboutus
   /* login button */
   .login-btn {
     padding: 10px;
@@ -94,7 +142,11 @@
     position: relative;
     letter-spacing: 1px;
    }
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> aboutus
    .login-btn::before {
     content: 'LOGIN';
     /*Button's value/text-content */
@@ -111,28 +163,46 @@
     transition: 0.15s ease-in-out;
     font-weight: bold;
    }
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> aboutus
    .login-btn:hover::before {
     top: 0;
     left: 0;
    }
+<<<<<<< HEAD
 
 
+=======
+  
+  
+>>>>>>> aboutus
   /* footer */
   footer {
       padding-top: 120px;
       background-color: var(--c-footer-body);
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .footer-top {
       padding-bottom: 40px;
       border-bottom: 1px solid rgba(255,255,255,0.1);
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .footer-bottom{
       padding-top: 40px;
       padding-bottom: 40px;
   }
+<<<<<<< HEAD
 
   footer li, footer p, footer a {
       color:rgb(0, 0, 0);
@@ -145,6 +215,20 @@
 
   }
 
+=======
+  
+  footer li, footer p, footer a {
+      color:rgb(0, 0, 0);
+  
+  }
+  
+  footer ul{
+      list-style: none;
+      padding:0 ;
+  
+  }
+  
+>>>>>>> aboutus
   footer .line{
       width: 40px;
       height: 4px;
@@ -152,7 +236,11 @@
       margin-top: 12px;
       margin-bottom: 24px;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .social-icons a{
       width: 40px;
       height: 40px;
@@ -162,13 +250,22 @@
       background-color: var(--c-brand-light);
       border-radius: 100px;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .social-icons a:hover {
       background-color: var(--c-brand);
       color: white;
   }
+<<<<<<< HEAD
 
 
+=======
+  
+    
+>>>>>>> aboutus
     .social-card {
       position: relative;
       display: flex;
@@ -181,7 +278,11 @@
       height: 50px;
       width: 200px;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card::before, .social-card::after {
       position: absolute;
       display: flex;
@@ -191,40 +292,68 @@
       transition: 0.25s linear;
       z-index: 1;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card::before {
       content: "";
       left: 0;
       justify-content: flex-end;
       background-color: var(--c-brand);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card::after {
       content: "";
       right: 0;
       justify-content: flex-start;
       background-color: var(--c-brand-light);
     }
+<<<<<<< HEAD
 
     .social-card:hover {
       box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
 
+=======
+    
+    .social-card:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    
+>>>>>>> aboutus
     .social-card:hover span {
       opacity: 0;
       z-index: -3;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card:hover::before {
       opacity: 0.5;
       transform: translateY(-100%);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card:hover::after {
       opacity: 0.5;
       transform: translateY(100%);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card span {
       position: absolute;
       display: flex;
@@ -240,7 +369,11 @@
       transition: opacity 0.25s;
       z-index: 2;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card .social-link {
       position: relative;
       display: flex;
@@ -253,21 +386,34 @@
       text-decoration: none;
       transition: 0.25s;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card .social-link svg {
       text-shadow: 1px 1px rgba(31, 74, 121, 0.7);
       transform: scale(1);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     .social-card .social-link:hover {
       background-color: rgba(249, 244, 255, 0.774);
       animation: bounce_613 0.4s linear;
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> aboutus
     @keyframes bounce_613 {
       40% {
         transform: scale(1.4);
       }
+<<<<<<< HEAD
 
       60% {
         transform: scale(0.8);
@@ -277,11 +423,26 @@
         transform: scale(1.2);
       }
 
+=======
+    
+      60% {
+        transform: scale(0.8);
+      }
+    
+      80% {
+        transform: scale(1.2);
+      }
+    
+>>>>>>> aboutus
       100% {
         transform: scale(1);
       }
     }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   /* toggle switch for dark mode */
   /* The switch - the box around the slider */
   .switch {
@@ -291,14 +452,22 @@
     width: 3.5em;
     height: 2em;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   /* Hide default HTML checkbox */
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   /* The slider */
   .switchslider {
     --background: black;
@@ -312,7 +481,11 @@
     transition: .5s;
     border-radius: 30px;
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> aboutus
   .switchslider:before {
     position: absolute;
     content: "";
@@ -325,13 +498,26 @@
     background: var(--background);
     transition: .5s;
   }
+<<<<<<< HEAD
 
   input:checked + .switchslider {
     background-color: #af1f27;
   }
 
+=======
+  
+  input:checked + .switchslider {
+    background-color: #af1f27;
+  }
+  
+>>>>>>> aboutus
   input:checked + .switchslider:before {
     transform: translateX(100%);
     box-shadow: inset 15px -4px 0px 15px #fff000;
   }
+<<<<<<< HEAD
 
+=======
+  
+  
+>>>>>>> aboutus
