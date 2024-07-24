@@ -4,77 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-
-      <!-- header -->
-      <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container">
-        <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/articles">Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/program">Program</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">Contact</a>
-                </li>
-            </ul>
-            <!-- login button  -->
-            <a class="ms-auto login-btn" href="/login">
-                <button> LOGIN
-                </button>
-            </a>
-            </div>
+    <nav>
+        <img src="/assets/ASP.png" alt="Logo">
+        <div class="center-links">
+            <a href="/">Home</a>
         </div>
-        </nav>
-    </header>
-    <!-- header end -->
-
-    <section>
-        <div class="container login-container pt-4 mt-3">
-            <div class="form_area">
-                <p class="title">SIGN UP</p>
-                <form action="">
-                    <div class="form_group">
-                        <label class="sub_title" for="name">Name</label>
-                        <input placeholder="Enter your full name" class="form_style" type="text">
-                    </div>
-                    <div class="form_group">
-                        <label class="sub_title" for="email">Email</label>
-                        <input placeholder="Enter your email" id="email" class="form_style" type="email">
-                    </div>
-                    <div class="form_group">
-                        <label class="sub_title" for="password">Password</label>
-                        <input placeholder="Enter your password" id="password" class="form_style" type="password">
-                    </div>
-                    <div>
-                        <button class="signup-btn">SIGN UP</button>
-                        <p>Have an Account? <a class="link" href="">Login Here!</a></p><a class="link" href="">
-                    </a></div><a class="link" href="">
-
-            </a></form></div><a class="link" href="">
-        </a></div>
-    </section>
-
-    <!-- footer -->
-    <%- include('partials/footer') %>
-    <!-- footer end -->
+        <div class="login-link">
+            <a href="/register">Register</a>
+        </div>
+    </nav>
+    <h1>Login Page</h1>
 </body>
 </html>
