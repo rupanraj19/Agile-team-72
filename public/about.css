@@ -1,0 +1,187 @@
+/* variables */
+/* variables */
+:root{
+    --c-dark: #212529;
+    --c-brand:  #1da00c;
+    --c-brand-light: #b7e1c5;
+    --c-brand-rgb: 78, 87, 212;
+    --c-team-body: #dddebb;
+    --c-footer-body: #e8e8e8;
+    --box-shadow: 0px 15px 25px rgba(0,0,0,0.8);
+    --c-border:  #F0A500;
+    --transition: all 0.5s ease;
+}
+  
+
+.first-section {
+    line-height: 1.7;
+    color: var(--c-body);
+     /* The image used */
+     background: url("assets/about.png");
+     /* Full height */
+     height: 100%; 
+     /* Center and scale the image nicely */
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+   
+}
+
+.intro{
+    padding-left: 45%;
+    
+}
+
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--c-dark);
+}
+
+a{
+    text-decoration: none;
+    color: var(--c-brand);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--c-brand-light);
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+.section-padding{
+    padding-top: 200px;
+    
+}
+
+.middle-section {
+    background-color: var(--c-brand-light) ;
+}
+
+.team-section {
+    background-color: var(--c-team-body);
+}
+
+/* hof */
+.hof-text h1{
+    font-size: 64px;
+    font-weight: 800;
+}
+
+.hof-title{
+  color: #000000;
+}
+
+/* image zoom */
+.image-zoom {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper{
+    position: relative;
+    overflow: hidden;
+}
+
+.image-zoom-wrapper img{
+    border-radius: 5px;
+    border: var(--c-border) 5px solid;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    height: auto;
+}
+
+.image-zoom-wrapper img{
+    transition: var(--transition);
+
+}
+
+.image-zoom:hover .image-zoom-wrapper img{
+    transform: scale(1.1);
+  
+}
+
+/* readmore btn */
+
+/* inspired form gumroad website */
+.rd-more-button {
+    --bg: #73777B;
+    --hover-bg: #ff9790;
+    --hover-text: #000;
+    color: #fff;
+    border: 1px solid var(--bg);
+    border-radius: 4px;
+    padding: 0.8em 2em;
+    background: var(--bg);
+    transition: 0.2s;
+}
+  
+.rd-more-button:hover {
+    color: var(--hover-text);
+    transform: translate(-0.25rem,-0.25rem);
+    background: var(--hover-bg);
+    box-shadow: 0.25rem 0.25rem var(--bg);
+}
+  
+.rd-more-button:active {
+    transform: translate(0);
+    box-shadow: none;
+}
+
+/* load more btn */
+
+.ld-btn {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica,"sans-serif";
+    transition: all .2s;
+    padding: 10px 20px;
+    border-radius: 100px;
+    background:  #a00c0c ;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-left: 48%;
+    
+}
+  
+.ld-btn:hover {
+    background: var(--c-brand-light);
+}
+  
+.ld-btn  i {
+    width: 32px;
+    margin-left: 10px;
+    transition: transform .3s ease-in-out;
+}
+  
+.ld-btn:hover i {
+    transform: translateX(5px);
+}
+  
+.ld-btn:active {
+    transform: scale(0.95);
+}
+  
+/* more */
+#more{
+    display: none;
+}  
+
+/* dark mode */
+.dark-mode {
+  background-color: black;
+  color: white;
+  --c-dark: #ffffff;
+  --c-brand:  black;
+  --c-brand-light: rgb(49, 48, 48);
+  --c-body: black;
+  --c-border: white;
+  --box-shadow: 0px 15px 25px rgba(255, 255, 255, 0.8);  
+}
