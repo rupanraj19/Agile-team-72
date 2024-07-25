@@ -42,6 +42,10 @@ app.get("/register", (req, res) => {
   res.render("registerPage");
 });
 
+app.get("/games", (req, res) => {
+  res.render("programGamesPage");
+});
+
 app.get("/aboutMentalHealth", (req, res) => {
   res.render("aboutMentalHealth");
 });
