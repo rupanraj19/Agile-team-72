@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program Games Page</title>
     <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/game.css">
 </head>
 <body>
     <nav>
@@ -22,6 +23,10 @@
     </nav>
     <div class="content">
         <h1>Program Games Page</h1>
+        <div class="breathing-game">
+            <div class="circle" id="circle">Breathe In</div>
+            <div class="instructions" id="instructions">Inhale... Hold... Exhale...</div>
+        </div>
     </div>
     <footer>
         <img src="/ASP.png" alt="Logo" class="footer-logo">
@@ -36,13 +41,23 @@
             <div class="footer-divider"></div>
             <div class="contact-us">
                 <h3>Contact Us</h3>
-                <a href="https://instagram.com" target="_blank">Instagram</a>
-                <a href="https://twitter.com" target="_blank">X</a>
-                <a href="https://facebook.com" target="_blank">Facebook</a>
-                <a href="https://youtube.com" target="_blank">YouTube</a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="/assets/instagram.png" alt="Instagram" class="social-icons">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="/assets/twitter.png" alt="Twitter" class="social-icons">
+                </a>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="/assets/facebook.png" alt="Facebook" class="social-icons">
+                </a>
+                <a href="https://youtube.com" target="_blank">
+                    <img src="/assets/youtube.png" alt="YouTube" class="social-icons">
+                </a>
             </div>
         </div>
     </footer>
+
+    <script src="/breathingGame.js"></script>
 </body>
 <script src="/bootstrap.bundle.min.js"></script>
 </html>
