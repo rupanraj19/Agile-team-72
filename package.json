@@ -6,7 +6,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Team 72",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",

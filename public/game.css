@@ -1,0 +1,36 @@
+/* public/game.css */
+
+.breathing-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-align: center;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+/* Footer adjustments */
+.footer-links a {
+    font-size: 14px;
+}
+
+.social-icons img {
+    width: 24px;
+    margin: 0 10px;
+}
