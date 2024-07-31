@@ -51,7 +51,7 @@
     </div>
 
     <main>
-        <section class="section-padding">
+        <section class="conditions-section">
             <div class="container">
                 <div class="row">
                     <div class="col-12" >
@@ -64,61 +64,61 @@
             <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner" role="listbox">
                 <div class="slider carousel-item active">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="card">
                       <div class="card-img">
-                        <img src="" class="img-fluid">
+                        <img src="assets/conditions/bipolar.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6></h6>
+                        <h6>Bipolar Disorder</h6>
                     </div>
                     </div>
                   </div>
                 </div>
                 <div class="slider carousel-item">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="card">
                       <div class="card-img">
-                        <img src="" class="img-fluid">
+                        <img src="assets/conditions/schizo.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6></h6>
+                        <h6>Schizophrenia</h6>
                     </div>
                     </div>
                   </div>
                 </div>
                 <div class="slider carousel-item">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="card">
                       <div class="card-img">
-                        <img src="" class="img-fluid">
+                        <img src="assets/conditions/disorder.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6></h6>
+                        <h6>Personality Disorder</h6>
                     </div>
                     </div>
                   </div>
                 </div>
                 <div class="slider carousel-item">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="card">
                       <div class="card-img">
-                        <img src="" class="img-fluid">
+                        <img src="assets/conditions/ptsd.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6></h6>
+                        <h6>PTSD</h6>
                     </div>
                     </div>
                   </div>
                 </div>
                 <div class="slider carousel-item">
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <div class="card">
                       <div class="card-img">
-                        <img src="" class="img-fluid">
+                        <img src="assets/conditions/anxiety.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6></h6>
+                        <h6>Anxiety disorders</h6>
                     </div>
                     </div>
                   </div>
@@ -142,4 +142,23 @@
 
 </body>
 <script src="/bootstrap.bundle.min.js"></script>
+<script>
+  // carousel animation/slider
+
+let items = document.querySelectorAll('.carousel .carousel-item')
+
+items.forEach((el) => {
+    const minPerSlide = 4
+    let next = el.nextElementSibling
+    for (let i=1; i<minPerSlide; i++) {
+        if (!next) {
+            // wrap carousel by using first child
+            next = items[0]
+        }
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+})
+</script>
 </html>

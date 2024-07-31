@@ -59,3 +59,8 @@
 .slider .card-content h6, .slider .card-content p {
     color:#fff
 }
+
+img{
+    max-width: 130%;
+    height: auto;
+}
