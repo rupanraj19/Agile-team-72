@@ -12,9 +12,15 @@
 }
 
 .contact{
+    background-color: #000;
     position: relative;
     text-align: center;
     color: white;
+}
+
+.contact-img {
+  max-width: 100%;
+  height: auto;
 }
 
 .contact-text {
@@ -49,9 +55,6 @@
   }
 
   .form-field {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 0.5em;
     border-radius: 10px;
     padding: 0.6em;
