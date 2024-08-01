@@ -1,10 +1,6 @@
 /* public/game.css */
 
 .breathing-game {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 70vh;
 }
 
@@ -13,9 +9,6 @@
     height: 200px;
     border-radius: 50%;
     background-color: lightblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 24px;
     text-align: center;
 }
@@ -91,4 +84,65 @@
     }to{
         left: 100%;
     }
+}
+
+/* game before and after effect */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.before-after {
+  max-width: 100%;
+  height: 80vh;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #000;
+
+}
+
+.before-after .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 11%;
+  overflow: hidden;
+}
+
+.before-after .img.front-img {
+  z-index: 1;
+  clip-path: polygon(0 0, 60% 0, 48% 100%, 0 100%);
+}
+
+.game-img-slider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 2;
+}
+
+/* Separate -webkit-slider-thumb and -moz-range-thumb for Chrome and Firefox */
+.game-img-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 100%;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #c2c2c2;
+  border-radius: 0;
+}
+
+.game-img-slider::-moz-range-thumb {
+  -moz-appearance: none;
+  width: 7px;
+  height: 100%;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #c2c2c2;
+  border-radius: 0;
 }

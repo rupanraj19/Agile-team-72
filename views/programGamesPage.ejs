@@ -47,12 +47,27 @@
     <!-- header end -->
 
     <main>
+        <section class="before-after">
+            <div class="row">
+                <div class="col-lg-12 col-md-6">
+                    <img class="img img-fluid back-img" src="assets/game2.png" alt="before" />
+                    <img class="img img-fluid front-img" src="assets/game1.png" alt="after" />
+
+                    <input type="range" min="1" max="100" value="50" class="game-img-slider d-flex justify-content-center align-items-center" name="game-img-slider" id="game-img-slider" />
+                </div>
+            </div>
+          </section>
+
         <section>
-            <div class="content">
-                <h1>Program Games Page</h1>
-                <div class="breathing-game">
-                    <div class="circle" id="circle">Breathe In</div>
-                    <div class="instructions" id="instructions">Inhale... Hold... Exhale...</div>
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <h1>Program Games Page</h1>
+                    <div class="container">
+                        <div class="breathing-game d-flex justify-content-center align-items-center">
+                            <div class="circle d-flex justify-content-center align-items-center" id="circle">Breathe In</div>
+                            <div class="instructions" id="instructions">Inhale... Hold... Exhale...</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -93,5 +108,16 @@
 
     <script src="/breathingGame.js"></script>
 </body>
+<script>
+const slider = document.getElementById("game-img-slider");
+slider.addEventListener("input", function () {
+  const frontImage = document.querySelector(".front-img");
+  const value = this.value;
+
+  frontImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+});
+
+
+</script>
 <script src="/bootstrap.bundle.min.js"></script>
 </html>

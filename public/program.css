@@ -115,77 +115,59 @@
     background-color: var(--c-bg4);
 }
 
+.games-section-img {
+    width: 100%;
+    height: auto;
+}
+
 /* game card */
-.game-card {
-    --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);
-    width: 190px;
-    height: 254px;
-    padding: 5px;
-    border-radius: 1rem;
-    overflow: visible;
-    background: #74ebd5;
-    background: var(--background);
-    position: relative;
-    z-index: 1;
-    cursor: crosshair;
-}
-
-.game-card::before,
-.game-card::after {
-    content: "";
+.one-div {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    z-index: -1;
-}
+    left: 75%;
+    bottom: 135%;
+    height: 250px;
+    width: 200px;
+    background-color: rgb(15, 15, 15);
+    transform-style: preserve-3d;
+    animation: rot 0.5s infinite ease;
+    border-radius: 20px;
+    box-shadow: 0 0 50px 0px, inset 0 0 90px 0px;
+    color: white;
+    transition: 1.5s;
 
-.game-card::before {
-    background: linear-gradient(to bottom right, #f6d365 0%, #fda085 100%);
-    transform: rotate(2deg);
-}
+  }
 
-  .game-card::after {
-    background: linear-gradient(to top right, #84fab0 0%, #8fd3f4 100%);
-    transform: rotate(-2deg);
-}
-
-.game-card-info {
-    --color: #292b2c;
-    background: var(--color);
-    color: var(--color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    border-radius: 0.7rem;
-    position: relative;
-    z-index: 2;
-}
-
-.game-card .title {
-    font-weight: bold;
-    letter-spacing: 0.1em;
-}
-
-.game-card:hover::before,
-.game-card:hover::after {
+  .one-div .text {
     opacity: 0;
-}
+    transition: all 0.5s;
+  }
 
-.game-card:hover .game-card-info {
-    color: #74ebd5;
-    transition: color 1s;
-}
+  .one-div:hover.one-div .text {
+    scale: 1.2;
+    opacity: 0.7;
+  }
+
+  .one-div:hover {
+    box-shadow: 0 0 30px 100px black, inset 5px 5px 5px 0px rgb(31, 31, 31);
+  }
+
+  @keyframes rot {
+    0% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
+
+    50% {
+      transform: rotateX(-15deg) translateY(-10px);
+    }
+
+    100% {
+      transform: rotateX(-15deg) translateY(0px);
+    }
+  }
 
 /* game on button */
 .game-button {
     position: relative;
-    left: 45%;
     height: 50px;
     padding: 0 30px;
     border: 2px solid #000;
