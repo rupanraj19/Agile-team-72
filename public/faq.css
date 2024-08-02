@@ -1,0 +1,53 @@
+:root {
+--c-brand:  #4ed670;
+--c-brand-light: #b7e1c5;
+--c-body: #727272;
+--c-bg4: #dddebb;
+}
+
+body{
+    background-image: url("assets/faq.png");
+    background-repeat: no-repeat;
+}
+
+.faq-section {
+    height: 200vh;
+}
+.faq-section h1{
+    font-size: 4rem;
+}
+.hover-text{
+    font-size: 10rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: transparent;
+    -webkit-text-stroke: 3px rgb(218, 15, 0);
+    position: relative;
+}
+
+.hover-text::before{
+    content: "Questions";
+    position: absolute;
+    width:0%;
+    height: 100%;
+    overflow: hidden;
+    color: rgb(115, 255, 0);
+    transition: 1s ease-in-out;
+}
+
+.hover-text:hover::before{
+    width: 65%;
+    filter: drop-shadow(0 0 25px rgb(123, 126, 128));
+}
+
+.accordion-button {
+    background-color: #f0f8ff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem; /* Rounded corners */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #e0f7fa;
+    color: #000;
+}
+
