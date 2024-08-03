@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles Page</title>
+    <title><%= article.title %></title>
     <link rel="stylesheet" href="/main.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
                             <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/articles">Articles</a>
+                            <a class="nav-link" href="/articles">Articles</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/program">Program</a>
@@ -46,14 +46,28 @@
     <!-- header end -->
 
     <div class="content">
-        <h1>Articles Page</h1>
-        <ul>
-            <% articles.forEach(article => { %>
-                <li>
-                    <a href="/readArticle/<%= article.article_id %>"><%= article.title %></a>
-                </li>
-            <% }); %>
-        </ul>
+        <h1><%= article.title %></h1>
+        <p><%= article.content %></p>
+
+        <% if (user) { %>
+            <!-- Comment Form -->
+            <form action="/comment" method="POST">
+                <input type="hidden" name="article_id" value="<%= article.article_id %>">
+                <textarea name="content" required></textarea>
+                <button type="submit">Submit Comment</button>
+            </form>
+
+            <!-- Review Form -->
+            <form action="/review" method="POST">
+                <input type="hidden" name="article_id" value="<%= article.article_id %>">
+                <label for="rating">Rating (1-5):</label>
+                <input type="number" name="rating" min="1" max="5" required>
+                <textarea name="comment"></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        <% } else { %>
+            <p>Please <a href="/login">log in</a> to comment or review this article.</p>
+        <% } %>
     </div>
 
     <!-- footer -->
