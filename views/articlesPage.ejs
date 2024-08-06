@@ -5,51 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles Page</title>
     <link rel="stylesheet" href="/main.css">
-
+    <!--  JS Script for searching and filtering  -->
+    <script>
+        function filterArticles() {
+            const source = document.querySelector('input[name="source"]:checked')?.value || 'all';
+            const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(el => el.value.toLowerCase());
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+    
+            document.querySelectorAll('.article').forEach(article => {
+                const articleSource = article.dataset.source;
+                const articleCategory = article.dataset.category.toLowerCase();
+                const articleTitle = article.querySelector('.title') ? article.querySelector('.title').textContent.toLowerCase() : '';
+                const articleDescription = article.querySelector('.description') ? article.querySelector('.description').textContent.toLowerCase() : '';
+    
+                const sourceMatch = (source === 'all' || articleSource === source);
+                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(articleCategory);
+                const searchMatch = articleTitle.includes(searchTerm) || articleDescription.includes(searchTerm);
+    
+                article.style.display = sourceMatch && categoryMatch && searchMatch ? '' : 'none';
+            });
+        }
+    </script>
 </head>
 <body>
-        <!-- header -->
-        <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light ">
+    <!-- header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-            <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/articles">Articles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/program">Program</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                </ul>
-                <!-- login button  -->
-                <a class="ms-auto" href="/login">
-                    <button class="login-btn"> LOGIN
-                    </button>
-                </a>
+                <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/articles">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/program">Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                    <!-- login button  -->
+                    <a class="ms-auto" href="/login">
+                        <button class="login-btn"> LOGIN
+                        </button>
+                    </a>
                 </div>
             </div>
-            </nav>
-        </header>
-        <!-- header end -->
+        </nav>
+    </header>
+    <!-- header end -->
 
     <div class="content">
-        <h1>Articles Page</h1>
-    </div>
+        <h1>Filter Articles</h1>
+        <div>
+            <h3>Source</h3>
+            <label>
+                <input type="radio" name="source" value="all" checked onclick="filterArticles()"> All
+            </label>
+            <label>
+                <input type="radio" name="source" value="cna" onclick="filterArticles()"> Channel News Asia
+            </label>
+            <label>
+                <input type="radio" name="source" value="mhf" onclick="filterArticles()"> Mental Health Foundation
+            </label>
+        </div>
 
+        <div>
+            <h3>Category</h3>
+            <% const categories = new Set(); %>
+            <% cnaArticles.forEach(article => categories.add(article.category)); %>
+            <% mhfArticles.forEach(article => categories.add(article.category)); %>
+            <% Array.from(categories).forEach(category => { %>
+                <label>
+                    <input type="checkbox" name="category" value="<%= category %>" onclick="filterArticles()"> <%= category %>
+                </label>
+            <% }); %>
+        </div>
+
+        <div>
+            <h3>Search</h3>
+            <input type="text" id="search" onkeyup="filterArticles()" placeholder="Search articles...">
+        </div>
+
+        <h1>Channel News Asia Articles</h1>
+        <ul>
+            <% cnaArticles.forEach(article => { %>
+                <li class="article" data-source="cna" data-category="<%= article.category %>">
+                    <strong>Category:</strong> <%= article.category %><br>
+                    <strong>Title:</strong> <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
+                </li>
+            <% }); %>
+        </ul>
+
+        <h1>Mental Health Foundation Articles</h1>
+        <ul>
+            <% mhfArticles.forEach(article => { %>
+                <li class="article" data-source="mhf" data-category="<%= article.category %>">
+                    <strong>Category:</strong> <%= article.category %><br>
+                    <strong>Description:</strong> <span class="description"><%= article.description %></span><br>
+                    <a href="<%= article.link %>" target="_blank">Read more</a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
 
     <!-- footer -->
     <%- include('partials/footer') %>
