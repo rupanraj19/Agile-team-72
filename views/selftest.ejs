@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mental Health Self-Assessment</title>
+  <link rel="stylesheet" href="/bootstrap.min.css"> <!-- Bootstrap CSS -->
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Mental Health Self-Assessment</h1>
+    <form id="assessmentForm">
+      <!-- Questions will be inserted here -->
+    </form>
+    <div class="text-center mt-4">
+      <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
+    </div>
+    <div class="mt-4" id="results"></div>
+  </div>
+  <script src="/bootstrap.bundle.min.js"></script>
+  <script>
+    const questionSections = [
+      {
+        heading: "About Interest and Pleasure:",
+        questions: [
+          { question: "Over the last two weeks, how often have you felt little interest or pleasure in doing things?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "How often have you felt down, depressed, or hopeless?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+        ]
+      },
+      {
+        heading: "About Sleep and Energy:",
+        questions: [
+          { question: "How often have you had trouble falling or staying asleep, or sleeping too much?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "How often have you felt tired or had little energy?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+        ]
+      },
+      {
+        heading: "About Appetite:",
+        questions: [
+          { question: "How often have you had a poor appetite or overeating?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+        ]
+      },
+      {
+        heading: "About Anxiety and Nervousness:",
+        questions: [
+          { question: "Over the last two weeks, how often have you felt nervous, anxious, or on edge?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "How often have you not been able to stop or control worrying?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "How often have you had trouble relaxing?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+        ]
+      },
+      {
+        heading: "About Physical Symptoms:",
+        questions: [
+          { question: "How often have you felt your heart racing, chest pain, or a sense of tightness?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "How often have you experienced physical symptoms such as headaches, muscle pain, or stomach problems?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+        ]
+      }
+    ];
+
+    function displayQuestions() {
+      const form = document.getElementById('assessmentForm');
+      let questionIndex = 0;
+
+      questionSections.forEach(section => {
+        const sectionHeading = document.createElement('h3');
+        sectionHeading.textContent = section.heading;
+        form.appendChild(sectionHeading);
+
+        section.questions.forEach(q => {
+          const questionDiv = document.createElement('div');
+          questionDiv.className = 'form-group';
+
+          const questionLabel = document.createElement('label');
+          questionLabel.setAttribute('for', `question${questionIndex}`);
+          questionLabel.textContent = q.question;
+          questionDiv.appendChild(questionLabel);
+
+          q.options.forEach((option, optIndex) => {
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'form-check';
+
+            const optionInput = document.createElement('input');
+            optionInput.className = 'form-check-input';
+            optionInput.type = 'radio';
+            optionInput.name = `question${questionIndex}`;
+            optionInput.id = `question${questionIndex}option${optIndex}`;
+            optionInput.value = optIndex;
+
+            const optionLabel = document.createElement('label');
+            optionLabel.className = 'form-check-label';
+            optionLabel.setAttribute('for', `question${questionIndex}option${optIndex}`);
+            optionLabel.textContent = option;
+
+            optionDiv.appendChild(optionInput);
+            optionDiv.appendChild(optionLabel);
+            questionDiv.appendChild(optionDiv);
+          });
+
+          form.appendChild(questionDiv);
+          questionIndex++;
+        });
+      });
+    }
+
+    function checkAnswers() {
+      let score = 0;
+      let unanswered = false;
+      const totalQuestions = questionSections.reduce((sum, section) => sum + section.questions.length, 0);
+
+      for (let i = 0; i < totalQuestions; i++) {
+        const options = document.getElementsByName(`question${i}`);
+        let answered = false;
+
+        for (let j = 0; j < options.length; j++) {
+          if (options[j].checked) {
+            score += parseInt(options[j].value);
+            answered = true;
+            break;
+          }
+        }
+
+        if (!answered) {
+          unanswered = true;
+        }
+      }
+
+      const results = document.getElementById('results');
+      if (unanswered) {
+        results.innerHTML = '<div class="alert alert-danger">Please answer all the questions.</div>';
+      } else {
+        let resultText;
+        if (score <= totalQuestions) {
+          resultText = "Minimal or no depression";
+        } else if (score <= totalQuestions * 2) {
+          resultText = "Mild depression";
+        } else if (score <= totalQuestions * 3) {
+          resultText = "Moderate depression";
+        } else {
+          resultText = "Severe depression";
+        }
+
+        results.innerHTML = `<div class="alert alert-info">Your assessment score is ${score}. ${resultText}</div>`;
+      }
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', checkAnswers);
+    window.onload = displayQuestions;
+  </script>
+</body>
+</html>

@@ -150,6 +150,9 @@ app.get("/termsOfUse", (req, res) => {
   res.render("termsOfUse");
 });
 
+app.get("/selftest", (req, res) => {
+  res.render("selftest");
+})
 // Register route
 app.post("/register", async (req, res) => {
   const { username, password, email } = req.body;
