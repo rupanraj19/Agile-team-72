@@ -14,7 +14,9 @@
   "author": "Team 72",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.7.3",
     "bcrypt": "^5.1.1",
+    "cheerio": "^1.0.0-rc.12",
     "connect-flash": "^0.1.1",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
