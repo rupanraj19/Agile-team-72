@@ -12,23 +12,15 @@
             const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(el => el.value.toLowerCase());
             const searchTerm = document.getElementById('search').value.toLowerCase();
     
-            console.log("Filtering with source:", source);
-            console.log("Filtering with categories:", selectedCategories);
-            console.log("Filtering with search term:", searchTerm);
-    
             document.querySelectorAll('.article').forEach(article => {
                 const articleSource = article.dataset.source;
                 const articleCategory = article.dataset.category.toLowerCase();
                 const articleTitle = article.querySelector('.title') ? article.querySelector('.title').textContent.toLowerCase() : '';
                 const articleDescription = article.querySelector('.description') ? article.querySelector('.description').textContent.toLowerCase() : '';
     
-                console.log("Article:", articleTitle, articleDescription);
-    
                 const sourceMatch = (source === 'all' || articleSource === source);
                 const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(articleCategory);
                 const searchMatch = articleTitle.includes(searchTerm) || articleDescription.includes(searchTerm);
-    
-                console.log("Matches - Source:", sourceMatch, "Category:", categoryMatch, "Search:", searchMatch);
     
                 article.style.display = sourceMatch && categoryMatch && searchMatch ? '' : 'none';
             });

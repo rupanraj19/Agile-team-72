@@ -25,8 +25,6 @@ const scrapeChannelNewsAsia = async (page = 0) => {
         }
       });
   
-      console.log(`Channel News Asia Articles - Page ${page}:`, articles);
-  
       const nextPageLink = $('a.pager__link[title="Go to next page"]').attr('href');
       if (nextPageLink) {
         const nextPageNumber = new URLSearchParams(nextPageLink).get('page');
