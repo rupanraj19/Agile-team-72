@@ -7,6 +7,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
 const sqlite3 = require("sqlite3").verbose();
 const crypto = require("crypto");
+const { scrapeChannelNewsAsia, scrapeMentalHealthFoundation } = require('./scraper');
 
 const app = express();
 
@@ -80,14 +81,18 @@ app.get("/", (req, res) => {
   res.render("homePage", { user: req.user });
 });
 
-app.get("/articles", (req, res) => {
-  global.db.all("SELECT * FROM articles", [], (err, articles) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send("Server Error");
-    }
-    res.render("articlesPage", { articles, user: req.user });
-  });
+app.get('/articles', async (req, res) => {
+  try {
+    const [cnaArticles, mhfArticles] = await Promise.all([
+      scrapeChannelNewsAsia(),
+      scrapeMentalHealthFoundation()
+    ]);
+
+    res.render('articlesPage', { cnaArticles, mhfArticles });
+  } catch (error) {
+    console.error('Error scraping articles:', error);
+    res.status(500).send('Error scraping articles');
+  }
 });
 
 app.get("/readArticle/:id", (req, res) => {
