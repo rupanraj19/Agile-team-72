@@ -17,7 +17,6 @@
   /* navbar */
   .navbar {
       box-shadow: var(--box-shadow);
-      height: 60px;
   }
 
   .social-icons a {
