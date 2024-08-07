@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+@font-palette-values --Purples {
+    font-family: 'Rocher';
+    base-palette: 6;
+}
+
+.purples {
+    font-palette: --Purples;
+}
+
+
+body {
+    font-family: 'Rocher';
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(79,9,121,1) 78%, rgba(176,0,255,1) 100%);
+}
+
+.form-group {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+
+.section {
+    margin-top: 20px;
+    padding: 30px;
+    border-radius: 90px;
+    border-radius: 50px;
+    background: radial-gradient(circle, rgba(71,24,93,1) 1%, rgba(47,26,52,1) 98%);
+    box-shadow:  10px 10px 30px #af9662;
+
+}
+
+/* radio point */
+.form-check{
+    padding-left: 5%;
+}
+
+/* submit button */
+
+#submitBtn {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #000000;
+    transition: all 1000ms;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid #2c9caf;
+  }
+
+#submitBtn:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+    outline: 2px solid #70bdca;
+    box-shadow: 4px 5px 17px -4px #268391;
+  }
+
+#submitBtn::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #2c9caf;
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
+  }
+
+#submitBtn:hover::before {
+    width: 250%;
+  }

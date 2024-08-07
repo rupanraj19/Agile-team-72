@@ -5,10 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mental Health Self-Assessment</title>
   <link rel="stylesheet" href="/bootstrap.min.css"> <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/test.css">
 </head>
 <body>
   <div class="container mt-5">
-    <h1 class="text-center">Mental Health Self-Assessment</h1>
+    <h1 class="text-center purples">Mental Health Self-Assessment</h1>
     <form id="assessmentForm">
       <!-- Questions will be inserted here -->
     </form>
@@ -23,62 +24,74 @@
       {
         heading: "About Interest and Pleasure:",
         questions: [
-          { question: "Over the last two weeks, how often have you felt little interest or pleasure in doing things?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
-          { question: "How often have you felt down, depressed, or hopeless?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+          { question: "1. Over the last two weeks, how often have you felt little interest or pleasure in doing things?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "2. How often have you felt down, depressed, or hopeless?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
         ]
       },
       {
         heading: "About Sleep and Energy:",
         questions: [
-          { question: "How often have you had trouble falling or staying asleep, or sleeping too much?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
-          { question: "How often have you felt tired or had little energy?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+          { question: "3. How often have you had trouble falling or staying asleep, or sleeping too much?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "4. How often have you felt tired or had little energy?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
         ]
       },
       {
         heading: "About Appetite:",
         questions: [
-          { question: "How often have you had a poor appetite or overeating?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+          { question: "5. How often have you had a poor appetite or overeating?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
         ]
       },
       {
         heading: "About Anxiety and Nervousness:",
         questions: [
-          { question: "Over the last two weeks, how often have you felt nervous, anxious, or on edge?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
-          { question: "How often have you not been able to stop or control worrying?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
-          { question: "How often have you had trouble relaxing?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+          { question: "6. Over the last two weeks, how often have you felt nervous, anxious, or on edge?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "7. How often have you not been able to stop or control worrying?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "8. How often have you had trouble relaxing?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
         ]
       },
       {
         heading: "About Physical Symptoms:",
         questions: [
-          { question: "How often have you felt your heart racing, chest pain, or a sense of tightness?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
-          { question: "How often have you experienced physical symptoms such as headaches, muscle pain, or stomach problems?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
+          { question: "9. How often have you felt your heart racing, chest pain, or a sense of tightness?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] },
+          { question: "10. How often have you experienced physical symptoms such as headaches, muscle pain, or stomach problems?", options: ["Not at all", "Several days", "More than half the days", "Nearly every day"] }
         ]
       }
     ];
 
     function displayQuestions() {
-      const form = document.getElementById('assessmentForm');
-      let questionIndex = 0;
+      const form = document.getElementById('assessmentForm'); // Get the form element by its ID
+      let questionIndex = 0; // Initialize the question index to track question numbering
 
+      // Iterate through each section of questions
       questionSections.forEach(section => {
+        // Create a div for each section
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'section';
+
+        // Create and append the section heading
         const sectionHeading = document.createElement('h3');
         sectionHeading.textContent = section.heading;
-        form.appendChild(sectionHeading);
+        sectionDiv.appendChild(sectionHeading);
 
+        // Iterate through each question in the section
         section.questions.forEach(q => {
+          // Create a div to wrap the question
           const questionDiv = document.createElement('div');
           questionDiv.className = 'form-group';
 
+          // Create and append the question label
           const questionLabel = document.createElement('label');
           questionLabel.setAttribute('for', `question${questionIndex}`);
           questionLabel.textContent = q.question;
           questionDiv.appendChild(questionLabel);
 
+          // Iterate through each option for the current question
           q.options.forEach((option, optIndex) => {
+            // Create a div to wrap the radio button and its label
             const optionDiv = document.createElement('div');
             optionDiv.className = 'form-check';
 
+            // Create the radio input element
             const optionInput = document.createElement('input');
             optionInput.className = 'form-check-input';
             optionInput.type = 'radio';
@@ -86,19 +99,27 @@
             optionInput.id = `question${questionIndex}option${optIndex}`;
             optionInput.value = optIndex;
 
+            // Create the label for the radio input
             const optionLabel = document.createElement('label');
             optionLabel.className = 'form-check-label';
             optionLabel.setAttribute('for', `question${questionIndex}option${optIndex}`);
             optionLabel.textContent = option;
 
+            // Append the radio input and its label to the option div
             optionDiv.appendChild(optionInput);
             optionDiv.appendChild(optionLabel);
+
+            // Append the option div to the question div
             questionDiv.appendChild(optionDiv);
           });
 
-          form.appendChild(questionDiv);
-          questionIndex++;
+          // Append the question div to the section div
+          sectionDiv.appendChild(questionDiv);
+          questionIndex++; // Increment the question index
         });
+
+        // Append the section div to the form
+        form.appendChild(sectionDiv);
       });
     }
 
