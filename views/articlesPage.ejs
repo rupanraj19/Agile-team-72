@@ -68,88 +68,112 @@
             </div>
         </div>
         </nav>
-</header>
+    </header>
     <!-- header end -->
 
     <main>
-        <section class="filter-section">
-            <div class="container">
-                <h1>Filter Articles</h1>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="sourceDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Source
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="sourceDropdown">
-                        <label class="dropdown-item">
-                            <input type="radio" name="source" value="all" checked onclick="filterArticles()"> All
-                        </label>
-                        <label class="dropdown-item">
-                            <input type="radio" name="source" value="cna" onclick="filterArticles()"> Channel News Asia
-                        </label>
-                        <label class="dropdown-item">
-                            <input type="radio" name="source" value="mhf" onclick="filterArticles()"> Mental Health Foundation
-                        </label>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Category
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                        <% const categories = new Set(); %>
-                        <% cnaArticles.forEach(article => categories.add(article.category)); %>
-                        <% mhfArticles.forEach(article => categories.add(article.category)); %>
-                        <% Array.from(categories).forEach(category => { %>
-                            <label class="dropdown-item">
-                                <input type="checkbox" name="category" value="<%= category %>" onclick="filterArticles()"> <%= category %>
-                            </label>
-                        <% }); %>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="search-bar py-5">
-            <div class="container">
-                <div class="row height d-flex justify-content-center align-items-center">
-                    <div class="col-md-8">
-                        <div class="search">
-                            <input type="text" id="search" class="form-control" onkeyup="filterArticles()" placeholder="Search articles...">
+        <section id="main-display">
+            <div class="container-fluid">
+                <div class="row fixture mt-0">
+                    <div class="col-12 p-0">
+                        <div class="position-relative">
+                            <img class="img img-fluid w-100" src="assets/articles.png" alt="articles background">
+                            <div class="area position-absolute top-0 start-0 w-100 h-100">
+                                <ul class="circles">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="articles-section">
-            <div class="container">
-                <h1>Channel News Asia Articles</h1>
-                <ul>
-                    <% cnaArticles.forEach(article => { %>
-                        <li class="article" data-source="cna" data-category="<%= article.category %>">
-                            <strong>Category:</strong> <%= article.category %><br>
-                            <strong>Title:</strong> <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
-                        </li>
+        <div class="container-fluid">
+          <div class="row">
+            <!-- Sidebar for filters -->
+            <aside class="col-md-3 p-3 bg-white border-end">
+              <section class="filter-section">
+                <h2>Filter</h2>
+                <!-- Source Dropdown -->
+                <div class="dropdown mb-3">
+                  <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="sourceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Source
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="sourceDropdown">
+                    <li><label class="dropdown-item"><input type="radio" name="source" value="all" checked onclick="filterArticles()"> All</label></li>
+                    <li><label class="dropdown-item"><input type="radio" name="source" value="cna" onclick="filterArticles()"> Channel News Asia</label></li>
+                    <li><label class="dropdown-item"><input type="radio" name="source" value="mhf" onclick="filterArticles()"> Mental Health Foundation</label></li>
+                  </ul>
+                </div>
+                <!-- Category Dropdown -->
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Category
+                  </button>
+                  <ul class="dropdown-menu overflow-auto" aria-labelledby="categoryDropdown" style="max-height: 200px;">
+                    <% const categories = new Set(); %>
+                    <% cnaArticles.forEach(article => categories.add(article.category)); %>
+                    <% mhfArticles.forEach(article => categories.add(article.category)); %>
+                    <% Array.from(categories).forEach(category => { %>
+                      <li><label class="dropdown-item"><input type="checkbox" name="category" value="<%= category %>" onclick="filterArticles()"> <%= category %></label></li>
                     <% }); %>
+                  </ul>
+                </div>
+              </section>
+            </aside>
+            <!-- Main content for articles -->
+            <div class="col-md-9">
+              <!-- Search Bar -->
+              <section class="search-bar py-5">
+                <div class="row height d-flex justify-content-center align-items-center">
+                  <div class="col-md-8">
+                    <div class="search">
+                      <input type="text" id="search" class="form-control" onkeyup="filterArticles()" placeholder="Search articles...">
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!-- Articles Sections -->
+              <section class="articles-section">
+                <h2>Channel News Asia Articles</h2>
+                <ul>
+                  <% cnaArticles.forEach(article => { %>
+                    <li class="article" data-source="cna" data-category="<%= article.category %>">
+                      <strong>Category:</strong> <%= article.category %><br>
+                      <strong>Title:</strong> <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
+                    </li>
+                  <% }); %>
                 </ul>
+              </section>
+              <section class="articles-section mt-4">
+                <h2>Mental Health Foundation Articles</h2>
+                <ul>
+                  <% mhfArticles.forEach(article => { %>
+                    <li class="article" data-source="mhf" data-category="<%= article.category %>">
+                      <strong>Category:</strong> <%= article.category %><br>
+                      <strong>Description:</strong> <span class="description"><%= article.description %></span><br>
+                      <a href="<%= article.link %>" target="_blank">Read more</a>
+                    </li>
+                  <% }); %>
+                </ul>
+              </section>
             </div>
-        </section>
+          </div>
+        </div>
+      </main>
 
-        <section class="articles-section">
-            <div class="container">
-                <h1>Mental Health Foundation Articles</h1>
-                <ul>
-                    <% mhfArticles.forEach(article => { %>
-                        <li class="article" data-source="mhf" data-category="<%= article.category %>">
-                            <strong>Category:</strong> <%= article.category %><br>
-                            <strong>Description:</strong> <span class="description"><%= article.description %></span><br>
-                            <a href="<%= article.link %>" target="_blank">Read more</a>
-                        </li>
-                    <% }); %>
-                </ul>
-            </div>
-        </section>
-    </main>
+
+
 
     <!-- footer -->
     <%- include('partials/footer') %>

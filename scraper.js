@@ -4,82 +4,84 @@ const cheerio = require("cheerio");
 // Define a common User-Agent header to mimic a real browser
 const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36";
 
-const scrapeChannelNewsAsia = async (page = 0) => {
+// Helper function to add a delay
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+const scrapeChannelNewsAsia = async (page = 0, articles = []) => {
   try {
-      // URL with page number as a query parameter
-      const url = `https://www.channelnewsasia.com/topic/mental-health?sort_by=field_release_date_value&sort_order=DESC&page=${page}`;
-      
-      // Request with User-Agent header
-      const { data } = await axios.get(url, {
-          headers: { 'User-Agent': userAgent }
-      });
-      
-      const $ = cheerio.load(data);
-      const articles = [];
+    const url = `https://www.channelnewsasia.com/topic/mental-health?sort_by=field_release_date_value&sort_order=DESC&page=${page}`;
 
-      $('h6.h6.list-object__heading').each((index, element) => {
-          const titleElement = $(element).find('a.h6__link.list-object__heading-link');
-          const title = titleElement.text().trim();
-          const link = 'https://www.channelnewsasia.com' + titleElement.attr('href');
-          const categoryElement = $(element).closest('div').find('p.list-object__category a.link');
-          const category = categoryElement.text().trim();
+    // Request with User-Agent header
+    const { data } = await axios.get(url, {
+      headers: { 'User-Agent': userAgent }
+    });
 
-          if (title && link && category) {
-              articles.push({ title, link, category });
-          }
-      });
+    const $ = cheerio.load(data);
 
-      const nextPageLink = $('a.pager__link[title="Go to next page"]').attr('href');
-      if (nextPageLink) {
-          const nextPageNumber = new URLSearchParams(nextPageLink).get('page');
-          if (nextPageNumber) {
-              articles.push(...await scrapeChannelNewsAsia(nextPageNumber));
-          }
+    $('h6.h6.list-object__heading').each((index, element) => {
+      const titleElement = $(element).find('a.h6__link.list-object__heading-link');
+      const title = titleElement.text().trim();
+      const link = 'https://www.channelnewsasia.com' + titleElement.attr('href');
+      const categoryElement = $(element).closest('div').find('p.list-object__category a.link');
+      const category = categoryElement.text().trim();
+
+      if (title && link && category) {
+        articles.push({ title, link, category });
       }
+    });
 
-      return articles;
+    const nextPageLink = $('a.pager__link[title="Go to next page"]').attr('href');
+    if (nextPageLink) {
+      const nextPageNumber = new URLSearchParams(nextPageLink).get('page');
+      if (nextPageNumber) {
+        await delay(2000); // Add delay to avoid overloading the server
+        return await scrapeChannelNewsAsia(nextPageNumber, articles);
+      }
+    }
+
+    return articles;
   } catch (error) {
-      console.error(`Error scraping Channel News Asia - Page ${page}:`, error);
-      return [];
+    console.error(`Error scraping Channel News Asia - Page ${page}:`, error.message);
+    return articles; // Return the articles gathered so far
   }
 };
 
 const scrapeMentalHealthFoundation = async () => {
   try {
-      const url = 'https://www.mentalhealth.org.uk/explore-mental-health/articles';
-      
-      // Request with User-Agent header
-      const { data } = await axios.get(url, {
-          headers: { 'User-Agent': userAgent }
-      });
-      
-      const $ = cheerio.load(data);
-      const articles = [];
+    const url = 'https://www.mentalhealth.org.uk/explore-mental-health/articles';
 
-      $('.mhf-tile').each((index, element) => {
-          const titleElement = $(element).find('.mhf-button--secondary');
-          const title = titleElement.text().trim();
-          const link = $(element).find('.mhf-button--secondary').attr('href');
-          const category = $(element).find('h3.h4.m-b-6 div').text().trim();
-          const description = $(element).find('p').text().trim();
+    // Request with User-Agent header
+    const { data } = await axios.get(url, {
+      headers: { 'User-Agent': userAgent }
+    });
 
-          // Adjust link if it's relative
-          const fullLink = link.startsWith('http') ? link : `https://www.mentalhealth.org.uk${link}`;
+    const $ = cheerio.load(data);
+    const articles = [];
 
-          if (title && link && description) {
-              articles.push({
-                  title: 'Read more',
-                  link: fullLink,
-                  category,
-                  description
-              });
-          }
-      });
+    $('.mhf-tile').each((index, element) => {
+      const titleElement = $(element).find('.mhf-button--secondary');
+      const title = titleElement.text().trim();
+      const link = $(element).find('.mhf-button--secondary').attr('href');
+      const category = $(element).find('h3.h4.m-b-6 div').text().trim();
+      const description = $(element).find('p').text().trim();
 
-      return articles;
+      // Adjust link if it's relative
+      const fullLink = link.startsWith('http') ? link : `https://www.mentalhealth.org.uk${link}`;
+
+      if (title && fullLink && description) {
+        articles.push({
+          title,
+          link: fullLink,
+          category,
+          description
+        });
+      }
+    });
+
+    return articles;
   } catch (error) {
-      console.error('Error scraping Mental Health Foundation:', error);
-      return [];
+    console.error('Error scraping Mental Health Foundation:', error.message);
+    return [];
   }
 };
 
