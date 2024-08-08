@@ -124,18 +124,11 @@
 }
 
 .before-after {
-<<<<<<< HEAD
+
   max-width: 100%;
   height: 70vh;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: #000;
-
-=======
-    max-width: 100%;
-    height: 80vh;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    background-color: #000;
->>>>>>> d0a99f13156e140f7f6532a3ac4eed7fc8dd1a11
 }
 
 .before-after .img {
