@@ -4,7 +4,7 @@ const cheerio = require("cheerio");
 // Define a common User-Agent header to mimic a real browser
 const userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36";
 
-const scrapeChannelNewsAsia = async (page = 0, maxPages = 15) => {
+const scrapeChannelNewsAsia = async (page = 0, maxPages = 10) => {
     try {
         // URL with page number as a query parameter
         const url = `https://www.channelnewsasia.com/topic/mental-health?sort_by=field_release_date_value&sort_order=DESC&page=${page}`;
