@@ -83,12 +83,33 @@ app.get("/", (req, res) => {
 
 app.get('/articles', async (req, res) => {
   try {
-    const [cnaArticles, mhfArticles] = await Promise.all([
-      scrapeChannelNewsAsia(),
-      scrapeMentalHealthFoundation()
-    ]);
+    const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
-    res.render('articlesPage', { cnaArticles, mhfArticles });
+    global.db.all(`SELECT * FROM cna_articles WHERE scraped_at > ?`, [oneDayAgo], async (err, cnaArticles) => {
+      if (err) {
+        console.error("Error fetching CNA articles:", err.message);
+        return res.status(500).send("Server Error");
+      }
+
+      if (cnaArticles.length === 0) {
+        cnaArticles = await scrapeChannelNewsAsia();
+        await storeCnaArticlesInDb(cnaArticles);
+      }
+
+      global.db.all(`SELECT * FROM mhf_articles WHERE scraped_at > ?`, [oneDayAgo], async (err, mhfArticles) => {
+        if (err) {
+          console.error("Error fetching MHF articles:", err.message);
+          return res.status(500).send("Server Error");
+        }
+
+        if (mhfArticles.length === 0) {
+          mhfArticles = await scrapeMentalHealthFoundation();
+          await storeMhfArticlesInDb(mhfArticles);
+        }
+
+        res.render('articlesPage', { cnaArticles, mhfArticles });
+      });
+    });
   } catch (error) {
     console.error('Error scraping articles:', error);
     res.status(500).send('Error scraping articles');
@@ -196,6 +217,26 @@ app.get("/logout", (req, res) => {
     res.redirect('/');
   });
 });
+
+const storeCnaArticlesInDb = async (articles) => {
+  const insertStmt = `INSERT INTO cna_articles (title, link, category) VALUES (?, ?, ?)`;
+
+  articles.forEach(article => {
+      global.db.run(insertStmt, [article.title, article.link, article.category], (err) => {
+          if (err) console.error("Error storing CNA article:", err.message);
+      });
+  });
+};
+
+const storeMhfArticlesInDb = async (articles) => {
+  const insertStmt = `INSERT INTO mhf_articles (title, link, category, description) VALUES (?, ?, ?, ?)`;
+
+  articles.forEach(article => {
+      global.db.run(insertStmt, [article.title, article.link, article.category, article.description], (err) => {
+          if (err) console.error("Error storing MHF article:", err.message);
+      });
+  });
+};
 
 // Start the server
 const PORT = 3000;
