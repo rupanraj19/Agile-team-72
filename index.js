@@ -89,18 +89,26 @@ app.get('/articles', async (req, res) => {
   try {
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
-    // Fetch CNA articles
     global.db.all(`SELECT * FROM cna_articles WHERE scraped_at > ?`, [oneDayAgo], async (err, cnaArticles) => {
       if (err) {
         console.error("Error fetching CNA articles:", err.message);
         return res.status(500).send("Server Error");
       }
 
-      // Fetch MHF articles
+      if (cnaArticles.length === 0) {
+        cnaArticles = await scrapeChannelNewsAsia();
+        await storeCnaArticlesInDb(cnaArticles);
+      }
+
       global.db.all(`SELECT * FROM mhf_articles WHERE scraped_at > ?`, [oneDayAgo], async (err, mhfArticles) => {
         if (err) {
           console.error("Error fetching MHF articles:", err.message);
           return res.status(500).send("Server Error");
+        }
+
+        if (mhfArticles.length === 0) {
+          mhfArticles = await scrapeMentalHealthFoundation();
+          await storeMhfArticlesInDb(mhfArticles);
         }
 
         // Fetch comments
