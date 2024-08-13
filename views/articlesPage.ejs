@@ -144,17 +144,43 @@
                 </div>
               </section>
               <!-- Articles Sections -->
-              <section class="articles-section">
+              <section class="articles-section mt-4">
                 <h2>Channel News Asia Articles</h2>
-                <ul>
+                <ul class="list-unstyled">
                   <% cnaArticles.forEach(article => { %>
-                    <li class="article" data-source="cna" data-category="<%= article.category %>">
+                    <li class="article mb-4 p-3 border rounded" data-source="cna" data-category="<%= article.category %>">
                       <strong>Category:</strong> <%= article.category %><br>
                       <strong>Title:</strong> <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
-                    </li>
-                  <% }); %>
-                </ul>
+
+                                                 <!-- Comment Box -->
+                                                 <div class="mt-3">
+                                                  <h5>Leave a Comment:</h5>
+                                                  <form action="/comments/add-comment" method="post">
+                                                      <input type="hidden" name="articleId" value="<%= article.article_id %>">
+                                                      <input type="hidden" name="articleType" value="cna">
+                                                      <div class="form-group">
+                                                          <textarea class="form-control" name="comment" rows="3" placeholder="Enter your comment" required></textarea>
+                                                      </div>
+                                                      <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                                  </form>
+                                              </div>
+
+                                              <!-- Display Comments -->
+                                              <div class="mt-4">
+                                                  <h5>Comments:</h5>
+                                                  <% comments.filter(c => c.article_id === article.article_id && c.article_type === 'cna').forEach(comment => { %>
+                                                      <div class="comment mb-2">
+                                                          <strong>User <%= comment.user_id %>:</strong>
+                                                          <p><%= comment.comment %></p>
+                                                          <small><%= new Date(comment.timestamp * 1000).toLocaleString() %></small>
+                                                      </div>
+                                                  <% }); %>
+                                              </div>
+                                          </li>
+                                      <% }); %>
+                                  </ul>
               </section>
+
               <section class="articles-section mt-4">
                 <h2>Mental Health Foundation Articles</h2>
                 <ul>

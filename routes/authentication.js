@@ -12,6 +12,7 @@
 
   // Route for handling login POST request using Passport.js
   router.post("/login", (req, res, next) => {
+    req.session.user_id = user.user_id; // Store the user ID in the session
     passport.authenticate("local", {
       successRedirect: "/",
       failureRedirect: "/auth/login",
