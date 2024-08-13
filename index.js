@@ -4,11 +4,13 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
+const passportConfig = require('./config/passport');
 const bcrypt = require('bcrypt');
 const sqlite3 = require("sqlite3").verbose();
 const crypto = require("crypto");
 const { scrapeChannelNewsAsia, scrapeMentalHealthFoundation } = require('./scraper');
 const chatbotRoutes = require('./routes/chatbot');
+const commentRoutes = require('./routes/comments');
 
 const app = express();
 
@@ -22,7 +24,13 @@ app.use(
 );
 app.use(flash());
 
+app.use((req, res, next) => {
+  console.log("User ID:", req.user ? req.user.user_id : "Not logged in");
+  next();
+});
+
 // Passport middleware
+passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
@@ -90,46 +98,48 @@ app.get('/articles', async (req, res) => {
   try {
     const oneDayAgo = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
 
+    // Fetch CNA articles
     global.db.all(`SELECT * FROM cna_articles WHERE scraped_at > ?`, [oneDayAgo], async (err, cnaArticles) => {
       if (err) {
         console.error("Error fetching CNA articles:", err.message);
         return res.status(500).send("Server Error");
       }
 
+      // If no CNA articles were found, scrape and store new ones
       if (cnaArticles.length === 0) {
         cnaArticles = await scrapeChannelNewsAsia();
         await storeCnaArticlesInDb(cnaArticles);
       }
 
+      // Fetch MHF articles
       global.db.all(`SELECT * FROM mhf_articles WHERE scraped_at > ?`, [oneDayAgo], async (err, mhfArticles) => {
         if (err) {
           console.error("Error fetching MHF articles:", err.message);
           return res.status(500).send("Server Error");
         }
 
+        // If no MHF articles were found, scrape and store new ones
         if (mhfArticles.length === 0) {
           mhfArticles = await scrapeMentalHealthFoundation();
           await storeMhfArticlesInDb(mhfArticles);
         }
 
-        res.render('articlesPage', { cnaArticles, mhfArticles });
+        // Fetch comments for both CNA and MHF articles
+        global.db.all(`SELECT * FROM comments WHERE article_type = 'cna' OR article_type = 'mhf'`, (err, comments) => {
+          if (err) {
+            console.error("Error fetching comments:", err.message);
+            return res.status(500).send("Server Error");
+          }
+
+          // Render the articles page with articles and comments
+          res.render('articlesPage', { cnaArticles, mhfArticles, comments });
+        });
       });
     });
   } catch (error) {
     console.error('Error scraping articles:', error);
     res.status(500).send('Error scraping articles');
   }
-});
-
-app.get("/readArticle/:id", (req, res) => {
-  const { id } = req.params;
-  global.db.get("SELECT * FROM articles WHERE article_id = ?", [id], (err, article) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send("Server Error");
-    }
-    res.render("readArticle", { article });
-  });
 });
 
 app.get("/program", (req, res) => {
@@ -219,7 +229,8 @@ app.get("/logout", (req, res) => {
       console.error(err);
       return res.status(500).send("Server Error");
     }
-    res.redirect('/');
+    req.flash("success_msg", "You are logged out");
+    res.redirect("/login");
   });
 });
 
@@ -243,6 +254,8 @@ const storeMhfArticlesInDb = async (articles) => {
   });
 };
 
+// Use comments routes
+app.use('/comments', commentRoutes);
 app.use('/chatbot', chatbotRoutes);
 
 // Start the server
