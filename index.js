@@ -100,7 +100,6 @@ app.get('/articles', async (req, res) => {
         return res.status(500).send("Server Error");
       }
 
-      // If no CNA articles were found, scrape and store new ones
       if (cnaArticles.length === 0) {
         cnaArticles = await scrapeChannelNewsAsia();
         await storeCnaArticlesInDb(cnaArticles);
@@ -113,14 +112,18 @@ app.get('/articles', async (req, res) => {
           return res.status(500).send("Server Error");
         }
 
-        // If no MHF articles were found, scrape and store new ones
         if (mhfArticles.length === 0) {
           mhfArticles = await scrapeMentalHealthFoundation();
           await storeMhfArticlesInDb(mhfArticles);
         }
 
-        // Fetch comments for both CNA and MHF articles
-        global.db.all(`SELECT * FROM comments WHERE article_type = 'cna' OR article_type = 'mhf'`, (err, comments) => {
+        // Fetch comments with user names
+        global.db.all(`
+          SELECT comments.*, users.user_name
+          FROM comments
+          LEFT JOIN users ON comments.user_id = users.user_id
+          WHERE comments.article_type = 'cna' OR comments.article_type = 'mhf'
+        `, (err, comments) => {
           if (err) {
             console.error("Error fetching comments:", err.message);
             return res.status(500).send("Server Error");
@@ -136,6 +139,7 @@ app.get('/articles', async (req, res) => {
     res.status(500).send('Error scraping articles');
   }
 });
+
 
 app.get("/program", (req, res) => {
   res.render("programPage");
