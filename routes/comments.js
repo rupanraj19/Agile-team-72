@@ -7,19 +7,21 @@ router.post('/add-comment', (req, res) => {
     const userId = req.user ? req.user.user_id : null; // Ensure user is logged in
 
     if (!userId) {
-        return res.status(403).send("User not authenticated");
+        // Redirect to login page with a flash message
+        req.flash('error', 'You need to be logged in to comment.');
+        return res.redirect('/login');
     }
 
     // Insert the comment into the database
     global.db.run(
         `INSERT INTO comments (article_id, article_type, user_id, comment) VALUES (?, ?, ?, ?)`,
         [articleId, articleType, userId, comment],
-        (err) => {
+        function (err) {
             if (err) {
                 console.error("Error inserting comment:", err.message);
                 return res.status(500).send("Server Error");
             }
-            // Redirect to the articles page
+            // Redirect back to the articles page after successful comment submission
             res.redirect('/articles');
         }
     );
