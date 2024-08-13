@@ -4,45 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program Games Page</title>
-    <!-- <link rel="stylesheet" href="/main.css"> -->
     <link rel="stylesheet" href="/game.css">
 </head>
 <body>
     <!-- header -->
     <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light ">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-            <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/articles">Articles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/program">Program</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                </ul>
-                <!-- login button  -->
-                <a class="ms-auto" href="/login">
-                    <button class="login-btn"> LOGIN
-                    </button>
-                </a>
+                <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/articles">Articles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/program">Program</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                    <!-- login button  -->
+                    <a class="ms-auto" href="/login">
+                        <button class="login-btn"> LOGIN
+                        </button>
+                    </a>
                 </div>
             </div>
-            </nav>
+        </nav>
     </header>
     <!-- header end -->
 
@@ -52,19 +51,19 @@
                 <div class="col-lg-12 col-md-6">
                     <img class="img img-fluid back-img" src="assets/game2.png" alt="before" />
                     <img class="img img-fluid front-img" src="assets/game1.png" alt="after" />
-
                     <input type="range" min="1" max="100" value="50" class="game-img-slider d-flex justify-content-center align-items-center" name="game-img-slider" id="game-img-slider" />
                 </div>
             </div>
-          </section>
+        </section>
 
-        <section>
+        <section class="mt-4">
             <div class="row">
                 <div class="col-12 mt-4">
                     <h1>Program Games Page</h1>
                     <div class="container">
                         <div class="breathing-game d-flex justify-content-center align-items-center">
-                            <div class="circle d-flex justify-content-center align-items-center" id="circle">Breathe In</div>
+                            <div class="circle breathe-in-circle d-flex justify-content-center align-items-center" id="breathe-in-circle">Breathe In</div>
+                            <div class="circle breathe-out-circle d-flex justify-content-center align-items-center" id="breathe-out-circle">Breathe Out</div>
                             <div class="instructions" id="instructions">Inhale... Hold... Exhale...</div>
                         </div>
                     </div>
@@ -74,33 +73,28 @@
 
         <section class="infinite-scroll">
             <div class="row">
-                <div class="col-12" >
+                <div class="col-12">
                     <div class="section-title pt-2">
                         <h1 class="text-center">More games</h1>
                     </div>
+                </div>
+                <div class="slider" style="--width: 100px; --height: 50px; --quantity: 10;">
+                    <div class="list">
+                        <div class="item" style="--position: 1"><img src="images/slider1_1.png" alt="">text</div>
+                        <div class="item" style="--position: 2"><img src="images/slider1_2.png" alt="">text</div>
+                        <div class="item" style="--position: 3"><img src="images/slider1_3.png" alt="">text</div>
+                        <div class="item" style="--position: 4"><img src="images/slider1_4.png" alt="">text</div>
+                        <div class="item" style="--position: 5"><img src="images/slider1_5.png" alt="">text</div>
+                        <div class="item" style="--position: 6"><img src="images/slider1_6.png" alt="">text</div>
+                        <div class="item" style="--position: 7"><img src="images/slider1_7.png" alt="">text</div>
+                        <div class="item" style="--position: 8"><img src="images/slider1_8.png" alt="">text</div>
+                        <div class="item" style="--position: 9"><img src="images/slider1_9.png" alt="">text</div>
+                        <div class="item" style="--position: 10"><img src="images/slider1_10.png" alt="">text</div>
+                    </div>
+                </div>
             </div>
-            <div class="slider" style="
-            --width: 100px;
-            --height: 50px;
-            --quantity: 10;">
-            <div class="list">
-                <div class="item" style="--position: 1"><img src="images/slider1_1.png" alt="">text</div>
-                <div class="item" style="--position: 2"><img src="images/slider1_2.png" alt="">text</div>
-                <div class="item" style="--position: 3"><img src="images/slider1_3.png" alt="">text</div>
-                <div class="item" style="--position: 4"><img src="images/slider1_4.png" alt="">text</div>
-                <div class="item" style="--position: 5"><img src="images/slider1_5.png" alt="">text</div>
-                <div class="item" style="--position: 6"><img src="images/slider1_6.png" alt="">text</div>
-                <div class="item" style="--position: 7"><img src="images/slider1_7.png" alt="">text</div>
-                <div class="item" style="--position: 8"><img src="images/slider1_8.png" alt="">text</div>
-                <div class="item" style="--position: 9"><img src="images/slider1_9.png" alt="">text</div>
-                <div class="item" style="--position: 10"><img src="images/slider1_10.png" alt="">text</div>
-            </div>
-        </div>
         </section>
-
-
     </main>
-
 
     <!-- footer -->
     <%- include('partials/footer') %>
@@ -116,7 +110,5 @@ slider.addEventListener("input", function () {
 
   frontImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
 });
-
-
 </script>
 </html>
