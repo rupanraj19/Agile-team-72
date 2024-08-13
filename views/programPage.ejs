@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program Page</title>
+    <link rel="icon" href="/assets/logo.png" type="image/png" />
     <link rel="stylesheet" href="/program.css">
 </head>
 <body>
@@ -34,11 +35,17 @@
                         <a class="nav-link" href="/contact">Contact</a>
                     </li>
                 </ul>
-                <!-- login button  -->
-                <a class="ms-auto" href="/login">
-                  <button class="login-btn"> LOGIN
-                  </button>
-                </a>
+                <!-- login button or username display -->
+                  <% if (user) { %>
+                    <div class="ms-auto">
+                        <span class="navbar-text">Welcome, <%= user.user_name %></span>
+                        <a href="/logout" class="btn btn-outline-danger ms-2">Logout</a>
+                    </div>
+                  <% } else { %>
+                      <a class="ms-auto" href="/login">
+                          <button class="login-btn">LOGIN</button>
+                      </a>
+                  <% } %>
                 </div>
             </div>
             </nav>
