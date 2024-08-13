@@ -12,47 +12,44 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Create articles table
--- This table stores articles created by users.
-CREATE TABLE IF NOT EXISTS articles (
-    article_id INTEGER PRIMARY KEY AUTOINCREMENT,      
-    title TEXT NOT NULL,                               
-    subtitle TEXT,                                  
-    content TEXT NOT NULL,                             
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,        
-    updated_at TEXT DEFAULT CURRENT_TIMESTAMP,       
-    user_id INTEGER,                                    
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+-- This table stores articles.
+-- Create cna_articles table
+CREATE TABLE IF NOT EXISTS cna_articles (
+    article_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    link TEXT NOT NULL,
+    category TEXT NOT NULL,
+    scraped_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create mhf_articles table
+CREATE TABLE IF NOT EXISTS mhf_articles (
+    article_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    link TEXT NOT NULL,
+    category TEXT NOT NULL,
+    description TEXT NOT NULL,
+    scraped_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Create comments table
 -- This table stores comments made on articles.
 CREATE TABLE IF NOT EXISTS comments (
-    comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    content TEXT NOT NULL,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    user_id INTEGER,
-    article_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (article_id) REFERENCES articles(article_id) ON DELETE CASCADE
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  cna_article_id INTEGER,
+  mhf_article_id INTEGER,
+  user_id INTEGER,
+  comment TEXT,
+  timestamp INTEGER DEFAULT (strftime('%s', 'now')),
+  FOREIGN KEY (cna_article_id) REFERENCES cna_articles(article_id) ON DELETE CASCADE,
+  FOREIGN KEY (mhf_article_id) REFERENCES mhf_articles(article_id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 -- Create likes table
 -- This table stores likes on articles by users.
 CREATE TABLE IF NOT EXISTS likes (
     like_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    article_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (article_id) REFERENCES articles(article_id) ON DELETE CASCADE
-);
-
--- Create reviews table
--- This table stores reviews on articles by users.
-CREATE TABLE IF NOT EXISTS reviews (
-    review_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    rating INTEGER NOT NULL,
-    comment TEXT,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     user_id INTEGER,
     article_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
