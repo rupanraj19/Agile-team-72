@@ -25,6 +25,10 @@ app.use(flash());
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // Database setup
 global.db = new sqlite3.Database("./database.db", (err) => {
