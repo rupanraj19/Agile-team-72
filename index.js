@@ -24,11 +24,6 @@ app.use(
 );
 app.use(flash());
 
-app.use((req, res, next) => {
-  console.log("User ID:", req.user ? req.user.user_id : "Not logged in");
-  next();
-});
-
 // Passport middleware
 passportConfig(passport);
 app.use(passport.initialize());
