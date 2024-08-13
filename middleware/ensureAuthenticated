@@ -1,7 +1,0 @@
-// Middleware to ensure the user is authenticated.
-module.exports = function(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next(); // User is authenticated, proceed to the next middleware or route handler
-  }
-  res.redirect('/auth/login'); // User is not authenticated, redirect to the login page
-};

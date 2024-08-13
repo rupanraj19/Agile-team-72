@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt');
 const sqlite3 = require("sqlite3").verbose();
 const crypto = require("crypto");
 const { scrapeChannelNewsAsia, scrapeMentalHealthFoundation } = require('./scraper');
+const chatbotRoutes = require('./routes/chatbot');
 
 const app = express();
 
@@ -237,6 +238,8 @@ const storeMhfArticlesInDb = async (articles) => {
       });
   });
 };
+
+app.use('/chatbot', chatbotRoutes);
 
 // Start the server
 const PORT = 3000;
