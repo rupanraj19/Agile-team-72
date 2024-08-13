@@ -34,17 +34,17 @@ CREATE TABLE IF NOT EXISTS mhf_articles (
 
 -- Create comments table
 -- This table stores comments made on articles.
+-- Create comments table
 CREATE TABLE IF NOT EXISTS comments (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  cna_article_id INTEGER,
-  mhf_article_id INTEGER,
+  article_id INTEGER,
+  article_type TEXT CHECK(article_type IN ('cna', 'mhf')),
   user_id INTEGER,
   comment TEXT,
   timestamp INTEGER DEFAULT (strftime('%s', 'now')),
-  FOREIGN KEY (cna_article_id) REFERENCES cna_articles(article_id) ON DELETE CASCADE,
-  FOREIGN KEY (mhf_article_id) REFERENCES mhf_articles(article_id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
+
 
 -- Create likes table
 -- This table stores likes on articles by users.
@@ -52,9 +52,11 @@ CREATE TABLE IF NOT EXISTS likes (
     like_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     article_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (article_id) REFERENCES articles(article_id) ON DELETE CASCADE
+    article_type TEXT CHECK(article_type IN ('cna', 'mhf')),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+    -- You might need application-level checks for article existence and type
 );
+
 
 -- Create programs table
 -- This table stores programs.

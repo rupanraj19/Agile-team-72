@@ -10,14 +10,16 @@ router.get("/login", (req, res) => {
   });
 });
 
-// Route for handling login POST request using Passport.js
-router.post("/login", (req, res, next) => {
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/auth/login",
-    failureFlash: true
-  })(req, res, next);
-});
+
+  // Route for handling login POST request using Passport.js
+  router.post("/login", (req, res, next) => {
+    req.session.user_id = user.user_id; // Store the user ID in the session
+    passport.authenticate("local", {
+      successRedirect: "/",
+      failureRedirect: "/auth/login",
+      failureFlash: true
+    })(req, res, next);
+  });
 
 // Route for displaying the registration page
 router.get("/register", (req, res) => {

@@ -4,11 +4,13 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require('passport-local').Strategy;
+const passportConfig = require('./config/passport');
 const bcrypt = require('bcrypt');
 const sqlite3 = require("sqlite3").verbose();
 const crypto = require("crypto");
 const { scrapeChannelNewsAsia, scrapeMentalHealthFoundation } = require('./scraper');
 const chatbotRoutes = require('./routes/chatbot');
+const commentRoutes = require('./routes/comments');
 
 const app = express();
 
@@ -23,6 +25,7 @@ app.use(
 app.use(flash());
 
 // Passport middleware
+passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
@@ -112,7 +115,16 @@ app.get('/articles', async (req, res) => {
           await storeMhfArticlesInDb(mhfArticles);
         }
 
-        res.render('articlesPage', { cnaArticles, mhfArticles });
+        // Fetch comments
+        global.db.all(`SELECT * FROM comments WHERE article_type = 'cna' OR article_type = 'mhf'`, (err, comments) => {
+          if (err) {
+            console.error("Error fetching comments:", err.message);
+            return res.status(500).send("Server Error");
+          }
+
+          // Render the articles page with articles and comments
+          res.render('articlesPage', { cnaArticles, mhfArticles, comments });
+        });
       });
     });
   } catch (error) {
@@ -121,16 +133,7 @@ app.get('/articles', async (req, res) => {
   }
 });
 
-app.get("/readArticle/:id", (req, res) => {
-  const { id } = req.params;
-  global.db.get("SELECT * FROM articles WHERE article_id = ?", [id], (err, article) => {
-    if (err) {
-      console.error(err);
-      return res.status(500).send("Server Error");
-    }
-    res.render("readArticle", { article });
-  });
-});
+
 
 app.get("/program", (req, res) => {
   res.render("programPage");
@@ -243,6 +246,8 @@ const storeMhfArticlesInDb = async (articles) => {
   });
 };
 
+// Use comments routes
+app.use('/comments', commentRoutes);
 app.use('/chatbot', chatbotRoutes);
 
 // Start the server
