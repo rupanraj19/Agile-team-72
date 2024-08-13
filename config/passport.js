@@ -1,6 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const db = require('../db'); // Adjust path to your SQLite database file
 
 module.exports = function(passport) {
   // Setting up the local strategy for username-password authentication
