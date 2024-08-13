@@ -28,6 +28,10 @@ app.use(flash());
 passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // Database setup
 global.db = new sqlite3.Database("./database.db", (err) => {
@@ -96,6 +100,12 @@ app.get('/articles', async (req, res) => {
         return res.status(500).send("Server Error");
       }
 
+      // If no CNA articles were found, scrape and store new ones
+      if (cnaArticles.length === 0) {
+        cnaArticles = await scrapeChannelNewsAsia();
+        await storeCnaArticlesInDb(cnaArticles);
+      }
+
       // Fetch MHF articles
       global.db.all(`SELECT * FROM mhf_articles WHERE scraped_at > ?`, [oneDayAgo], async (err, mhfArticles) => {
         if (err) {
@@ -103,7 +113,13 @@ app.get('/articles', async (req, res) => {
           return res.status(500).send("Server Error");
         }
 
-        // Fetch comments
+        // If no MHF articles were found, scrape and store new ones
+        if (mhfArticles.length === 0) {
+          mhfArticles = await scrapeMentalHealthFoundation();
+          await storeMhfArticlesInDb(mhfArticles);
+        }
+
+        // Fetch comments for both CNA and MHF articles
         global.db.all(`SELECT * FROM comments WHERE article_type = 'cna' OR article_type = 'mhf'`, (err, comments) => {
           if (err) {
             console.error("Error fetching comments:", err.message);
@@ -120,8 +136,6 @@ app.get('/articles', async (req, res) => {
     res.status(500).send('Error scraping articles');
   }
 });
-
-
 
 app.get("/program", (req, res) => {
   res.render("programPage");
@@ -210,7 +224,8 @@ app.get("/logout", (req, res) => {
       console.error(err);
       return res.status(500).send("Server Error");
     }
-    res.redirect('/');
+    req.flash("success_msg", "You are logged out");
+    res.redirect("/login");
   });
 });
 
