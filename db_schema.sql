@@ -11,6 +11,9 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT NOT NULL
 );
 
+ALTER TABLE users ADD COLUMN reset_token TEXT;
+ALTER TABLE users ADD COLUMN token_expiry TEXT;
+
 -- Create articles table
 -- This table stores articles.
 -- Create cna_articles table
