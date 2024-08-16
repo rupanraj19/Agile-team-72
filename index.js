@@ -87,7 +87,7 @@ passport.deserializeUser((id, done) => {
 
 // Define routes for each page
 app.get("/", (req, res) => {
-  res.render("homePage", { user: req.user });
+  res.render("homePage", { user: req.user, currentPath: req.path });
 });
 
 app.get('/articles', async (req, res) => {
@@ -131,7 +131,7 @@ app.get('/articles', async (req, res) => {
           }
 
           // Render the articles page with articles and comments
-          res.render('articlesPage', { cnaArticles, mhfArticles, comments });
+          res.render('articlesPage', { currentPath: req.path, cnaArticles, mhfArticles, comments });
         });
       });
     });
@@ -143,7 +143,7 @@ app.get('/articles', async (req, res) => {
 
 
 app.get("/program", (req, res) => {
-  res.render("programPage");
+  res.render('programPage', { user: req.user, currentPath: req.path });
 });
 
 app.get("/programGames", (req, res) => {
@@ -151,11 +151,11 @@ app.get("/programGames", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("aboutPage");
+  res.render("aboutPage",{ user: req.user, currentPath: req.path });
 });
 
 app.get("/contact", (req, res) => {
-  res.render("contactPage");
+  res.render("contactPage", {user: req.user, currentPath: req.path});
 });
 
 app.get("/login", (req, res) => {
@@ -259,6 +259,26 @@ app.use('/comments', commentRoutes);
 app.use('/chatbot', chatbotRoutes);
 app.use('/auth', authRoutes);
 
+// single articles
+app.get('/bipolar', (req, res) => {
+  res.render('articles/bipolar', {currentPath: req.path});
+});
+
+app.get('/schizo', (req, res) => {
+  res.render('articles/schizo', {currentPath: req.path});
+});
+
+app.get('/ptsd', (req, res) => {
+  res.render('articles/ptsd', {currentPath: req.path});
+});
+
+app.get('/anxiety', (req, res) => {
+  res.render('articles/anxiety', {currentPath: req.path});
+});
+
+app.get('/personality', (req, res) => {
+  res.render('articles/personality', {currentPath: req.path});
+});
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {
