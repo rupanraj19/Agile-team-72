@@ -17,6 +17,7 @@
   /* navbar */
   .navbar {
       box-shadow: var(--box-shadow);
+      height: 9.5vh;
   }
 
   .social-icons a {
@@ -60,6 +61,7 @@
 
   .navbar-brand img{
     height: 50px;
+    margin-left: -10px;
   }
 
   .navbar-brand .dot {

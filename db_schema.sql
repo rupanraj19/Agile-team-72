@@ -11,6 +11,11 @@ CREATE TABLE IF NOT EXISTS users (
     email TEXT NOT NULL
 );
 
+-- adminpass
+INSERT INTO users (user_name, password, email)
+VALUES
+('admin', '$2b$10$M0R32kVypC3o4r94l7EQse1FTgMEmGwSLZRogeBI2UjMcC9kHpiiy', 'admin@example.com');
+
 ALTER TABLE users ADD COLUMN reset_token TEXT;
 ALTER TABLE users ADD COLUMN token_expiry TEXT;
 
@@ -39,15 +44,14 @@ CREATE TABLE IF NOT EXISTS mhf_articles (
 -- This table stores comments made on articles.
 -- Create comments table
 CREATE TABLE IF NOT EXISTS comments (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  article_id INTEGER,
-  article_type TEXT CHECK(article_type IN ('cna', 'mhf')),
-  user_id INTEGER,
-  comment TEXT,
-  timestamp INTEGER DEFAULT (strftime('%s', 'now')),
-  FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    article_id INTEGER,
+    article_type TEXT CHECK(article_type IN ('cna', 'mhf')),
+    user_id INTEGER,
+    comment TEXT,
+    timestamp INTEGER DEFAULT (strftime('%s', 'now')),
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
-
 
 -- Create likes table
 -- This table stores likes on articles by users.

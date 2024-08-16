@@ -107,6 +107,7 @@
     border-radius: 17px;
     width: 100%;
     height: 100%;
+    padding: 10px 30px;
 }
 
 /* game section */
@@ -220,8 +221,8 @@
     left: 16px;
 }
 
- /* moments */
- .moments-item .iconbox{
+/* moments */
+.moments-item .iconbox{
 
     position: absolute;
     top: 50%;
