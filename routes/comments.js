@@ -21,6 +21,7 @@ router.post('/add-comment', (req, res) => {
                 console.error("Error inserting comment:", err.message);
                 return res.status(500).send("Server Error");
             }
+            console.log("testing")
             // Redirect back to the articles page after successful comment submission
             res.redirect('/articles');
         }

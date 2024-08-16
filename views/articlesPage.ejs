@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Articles Page</title>
     <link rel="icon" href="/assets/logo.png" type="image/png" />
+    <!-- <link rel="stylesheet" href="/main.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/article.css">
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!--  JS Script for searching and filtering  -->
     <script>
         function filterArticles() {
@@ -31,7 +35,47 @@
 </head>
 <body>
     <!-- header -->
-    <%- include('partials/header') %>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container">
+        <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/articles">Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/program">Program</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+              <!-- login button or username display -->
+              <% if (user) { %>
+                <div class="ms-auto">
+                    <span class="navbar-text">Welcome, <%= user.user_name %></span>
+                    <a href="/logout" class="btn btn-outline-danger ms-2">Logout</a>
+                </div>
+              <% } else { %>
+                  <a class="ms-auto" href="/login">
+                      <button class="login-btn">LOGIN</button>
+                  </a>
+              <% } %>
+            </div>
+        </div>
+        </nav>
+    </header>
     <!-- header end -->
 
     <main>
@@ -113,8 +157,7 @@
                   <% cnaArticles.forEach(article => { %>
                     <li class="article mb-4 p-3 border rounded" data-source="cna" data-category="<%= article.category %>">
                       <strong>Category:</strong> <%= article.category %><br>
-                      <strong>Title:</strong>
-                      <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
+                      <strong>Title:</strong> <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
 
                       <!-- Comment Box Toggle -->
                       <div class="row justify-content-left p-2">
@@ -143,16 +186,18 @@
                             <strong><%= comment.user_name || 'Anonymous' %>:</strong>
                             <p><%= comment.comment %></p>
                             <small><%= new Date(comment.timestamp * 1000).toLocaleString() %></small>
+
                           </div>
-                        <% }); %>
-                      </div>
-                    </li>
-                  <% }); %>
-                </ul>
+                      <% }); %>
+                  </div>
+                </li>
+            <% }); %>
+        </ul>
               </section>
 
 
               <section class="articles-section mt-4">
+
                 <div class="container">
                     <h2>Mental Health Foundation Articles</h2>
                     <ul class="list-unstyled">
@@ -198,11 +243,10 @@
                 </div>
             </section>
 
-
             </div>
           </div>
         </div>
-    </main>
+      </main>
 
     <!-- footer -->
     <%- include('partials/footer') %>
