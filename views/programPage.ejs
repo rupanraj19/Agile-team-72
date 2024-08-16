@@ -5,51 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program Page</title>
     <link rel="icon" href="/assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
     <link rel="stylesheet" href="/program.css">
 </head>
 <body>
+
     <!-- header -->
-    <header class="sticky-top">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-            <div class="container">
-            <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/articles">Articles</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/program">Program</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                </ul>
-                <!-- login button or username display -->
-                  <% if (user) { %>
-                    <div class="ms-auto">
-                        <span class="navbar-text">Welcome, <%= user.user_name %></span>
-                        <a href="/logout" class="btn btn-outline-danger ms-2">Logout</a>
-                    </div>
-                  <% } else { %>
-                      <a class="ms-auto" href="/login">
-                          <button class="login-btn">LOGIN</button>
-                      </a>
-                  <% } %>
-                </div>
-            </div>
-            </nav>
-    </header>
+    <%- include('partials/header') %>
     <!-- header end -->
 
     <main>
@@ -72,8 +34,8 @@
                         <img src="assets/conditions/bipolar.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6>Bipolar Disorder</h6>
-                    </div>
+                        <h6><a href="/bipolar">Bipolar Disorder</a></h6>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -84,8 +46,8 @@
                         <img src="assets/conditions/schizo.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6>Schizophrenia</h6>
-                    </div>
+                        <h6><a href="/schizo">Schizophrenia</a></h6>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -96,8 +58,8 @@
                         <img src="assets/conditions/disorder.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6>Personality Disorder</h6>
-                    </div>
+                        <h6><a href="/personality">Personality Disorder</a></h6>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -108,8 +70,8 @@
                         <img src="assets/conditions/ptsd.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6>PTSD</h6>
-                    </div>
+                        <h6><a href="/ptsd">PTSD</a></h6>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -120,7 +82,7 @@
                         <img src="assets/conditions/anxiety.png" class="img-fluid">
                       </div>
                       <div class="card-content">
-                        <h6>Anxiety disorders</h6>
+                        <h6><a href="/anxiety">Anxiety disorder</a></h6>
                     </div>
                     </div>
                   </div>
@@ -183,22 +145,92 @@
                     </div>
                   </div>
                   <div class="tab-pane fade" id="pills-podcast" role="tabpanel" aria-labelledby="pills-podcast-tab">
-                    <audio controls>
-                      <source src="assets/audio/mindfulness.mp3" type="audio/mpeg">
-                      Your browser does not support the audio element.
-                    </audio>
-                    <audio controls>
-                      <source src="assets/audio/stress.mp3" type="audio/mpeg">
-                      Your browser does not support the audio element.
-                    </audio>
-                    <source src="assets/audio/stress.mp3" type="audio/mpeg">
+                    <div class="podcast-section">
+                      <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="assets/podcast/mind.png" class="img-fluid rounded-start" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body border rounded">
+                              <h5 class="card-title">Mindfulness</h5>
+                              <p class="card-text"></p>
+                              <audio controls>
+                                <source src="assets/audio/mindfulness.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                              </audio>
+                              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="assets/podcast/stress.png" class="img-fluid rounded-start" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body border rounded">
+                              <h5 class="card-title">Stress</h5>
+                              <p class="card-text"></p>
+                              <audio controls>
+                                <source src="assets/audio/stress.mp3" type="audio/mpeg">
+                                Your browser does not support the audio element.
+                              </audio>
+                              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="tab-pane fade" id="pills-education" role="tabpanel" aria-labelledby="pills-education-tab">...</div>
-                  <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">...</div>
+                  <div class="tab-pane fade" id="pills-others" role="tabpanel" aria-labelledby="pills-others-tab">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-md-3" >
+                            <div class="moments-item image-zoom">
+                                <div class="image-zoom-wrapper">
+                                    <img class="side-img" src="assets/motivational/1.png" alt="Aguero's last min match winning goal to seal the premier league title">
+                                </div>
+                                <a href="assets/motivational/1.png" data-fancybox="gallery" class="iconbox"><i class="bi bi-search h1 text-warning"></i></a>
+                            </div>
+                            <div class="moments-item image-zoom mt-4">
+                              <div class="image-zoom-wrapper">
+                                  <img class="side-img" src="assets/motivational/4.png" alt="Aguero's last min match winning goal to seal the premier league title">
+                              </div>
+                              <a href="assets/motivational/4.png" data-fancybox="gallery" class="iconbox"><i class="bi bi-search h1 text-warning"></i></a>
+                          </div>
+                        </div>
+                        <div class="p-1 col-md-6"data-aos="fade-down" data-aos-delay="250">
+                            <div class="moments-item image-zoom">
+                                <div class="image-zoom-wrapper">
+                                    <img class="main-img"  src="assets/motivational/2.png" alt="FIFA 2022 winner Argentina celebration">
+                                </div>
+                                <a href="assets/motivational/2.png" data-fancybox="gallery" class="iconbox"><i class="bi bi-search h1 text-warning"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3" >
+                          <div class="moments-item image-zoom">
+                              <div class="image-zoom-wrapper">
+                                  <img class="side-img" src="assets/motivational/3.png" alt="Aguero's last min match winning goal to seal the premier league title">
+                              </div>
+                              <a href="assets/motivational/3.png" data-fancybox="gallery" class="iconbox"><i class="bi bi-search h1 text-warning"></i></a>
+                          </div>
+                          <div class="moments-item image-zoom mt-4">
+                            <div class="image-zoom-wrapper">
+                                <img class="side-img" src="assets/motivational/5.png" alt="Aguero's last min match winning goal to seal the premier league title">
+                            </div>
+                            <a href="assets/motivational/5.png" data-fancybox="gallery" class="iconbox"><i class="bi bi-search h1 text-warning"></i></a>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-           </div>
+          </div>
         </section>
 
         <section class="games-section">
@@ -221,7 +253,9 @@
     <%- include('partials/footer') %>
     <!-- footer end -->
 
-</body>
+
+<!-- fancybox link -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script src="/bootstrap.bundle.min.js"></script>
 <script>
   // carousel animation/slider
@@ -242,4 +276,5 @@ items.forEach((el) => {
     }
 })
 </script>
+</body>
 </html>
