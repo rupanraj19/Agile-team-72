@@ -131,7 +131,9 @@ app.get('/articles', async (req, res) => {
           }
 
           // Render the articles page with articles and comments
-          res.render('articlesPage', { cnaArticles, mhfArticles, comments });
+
+          res.render('articlesPage', {  user: req.user, currentPath: req.path, cnaArticles, mhfArticles, comments });
+
         });
       });
     });
