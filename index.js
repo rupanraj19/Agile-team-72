@@ -11,6 +11,7 @@ const crypto = require("crypto");
 const { scrapeChannelNewsAsia, scrapeMentalHealthFoundation } = require('./scraper');
 const chatbotRoutes = require('./routes/chatbot');
 const commentRoutes = require('./routes/comments');
+const authRoutes = require('./routes/authentication');
 
 const app = express();
 
@@ -256,6 +257,7 @@ const storeMhfArticlesInDb = async (articles) => {
 // Use comments routes
 app.use('/comments', commentRoutes);
 app.use('/chatbot', chatbotRoutes);
+app.use('/auth', authRoutes);
 
 // Start the server
 const PORT = 3000;

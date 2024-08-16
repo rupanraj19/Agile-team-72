@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const passport = require("passport");
+const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 
 // Route for displaying the login page
 router.get("/login", (req, res) => {
@@ -16,7 +17,7 @@ router.post("/login", (req, res, next) => {
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/auth/login",
-    failureFlash: true
+    failureFlash: true,
   })(req, res, next);
 });
 
@@ -83,5 +84,125 @@ router.get("/logout", (req, res, next) => {
     res.redirect("/auth/login");
   });
 });
+
+// Route to display the forgot password page
+router.get("/forgot-password", (req, res) => {
+  res.render("forgotPasswordPage", { errors: [] });
+});
+
+// Route to handle the forgot password form submission
+router.post("/forgot-password", (req, res) => {
+  const { email } = req.body;
+  let errors = [];
+
+  if (!email) {
+    errors.push("Please enter your email.");
+  }
+
+  if (errors.length > 0) {
+    return res.render("forgotPasswordPage", { errors });
+  }
+
+  const resetToken = crypto.randomBytes(32).toString('hex');
+  const tokenExpiry = Date.now() + 3600000; // Token valid for 1 hour
+
+  // Check if email exists
+  db.get("SELECT * FROM users WHERE email = ?", [email], (err, user) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Server Error");
+    }
+    if (!user) {
+      errors.push("No account with that email address exists.");
+      return res.render("forgotPasswordPage", { errors });
+    }
+
+    // Store reset token and expiry in the database
+    db.run("UPDATE users SET reset_token = ?, token_expiry = ? WHERE email = ?", [resetToken, tokenExpiry, email], (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("Server Error");
+      }
+
+      // Send reset email
+      const resetLink = `http://localhost:3000/auth/reset-password/${resetToken}`;
+      sendResetEmail(email, resetLink);
+
+      req.flash("success_msg", "Password reset link sent to your email.");
+      res.redirect("/auth/login");
+    });
+  });
+});
+
+// Route to display the reset password form
+router.get("/reset-password/:token", (req, res) => {
+  const { token } = req.params;
+  db.get("SELECT * FROM users WHERE reset_token = ? AND token_expiry > ?", [token, Date.now()], (err, user) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send("Server Error");
+    }
+    if (!user) {
+      req.flash("error", "Invalid or expired token.");
+      return res.redirect("/auth/login");
+    }
+    // Pass the token and an empty errors array to the EJS view
+    res.render("resetPasswordPage", { token, errors: [] });
+  });
+});
+
+
+// Route to handle password reset
+router.post("/reset-password/:token", async (req, res) => {
+  const { token } = req.params;
+  const { password, confirmPassword } = req.body;
+
+  if (password !== confirmPassword) {
+    req.flash("error", "Passwords do not match.");
+    return res.redirect(`/auth/reset-password/${token}`);
+  }
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    db.run("UPDATE users SET password = ?, reset_token = NULL, token_expiry = NULL WHERE reset_token = ? AND token_expiry > ?", [hashedPassword, token, Date.now()], (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("Server Error");
+      }
+      req.flash("success_msg", "Password has been reset.");
+      res.redirect("/auth/login");
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+});
+
+// Function to send reset email
+const sendResetEmail = (email, resetLink) => {
+  const transporter = nodemailer.createTransport({
+    service: 'outlook',
+    auth: {
+      user: 'aspteam72@outlook.com',
+      pass: 'password000.'
+    }
+  });
+
+  const mailOptions = {
+    from: 'aspteam72@outlook.com',
+    to: email,
+    subject: 'Password Reset',
+    text: `You requested a password reset. Click the following link to reset your password: ${resetLink}`
+  };
+
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) {
+      console.error('Error sending email:', err);
+    } else {
+      console.log('Email sent:', info.response);
+    }
+  });
+};
 
 module.exports = router;
