@@ -32,6 +32,16 @@
             });
         }
     </script>
+    <!--  JS Script for reloading  -->
+    <script> 
+      window.addEventListener('load', function () { 
+        // Check if the page has been reloaded already 
+        if (!sessionStorage.getItem('hasReloaded')) { 
+          sessionStorage.setItem('hasReloaded', 'true'); 
+          window.location.reload(); 
+        } 
+      }); 
+    </script>
 </head>
 <body>
     <!-- header -->
