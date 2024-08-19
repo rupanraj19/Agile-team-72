@@ -12,6 +12,7 @@ const { scrapeChannelNewsAsia, scrapeMentalHealthFoundation } = require('./scrap
 const chatbotRoutes = require('./routes/chatbot');
 const commentRoutes = require('./routes/comments');
 const authRoutes = require('./routes/authentication');
+const contactRoutes = require('./routes/contact');
 
 const app = express();
 
@@ -256,11 +257,15 @@ const storeMhfArticlesInDb = async (articles) => {
   });
 };
 
+app.get('/success', (req, res) => {
+  res.render('success');
+});
+
 // Use comments routes
 app.use('/comments', commentRoutes);
 app.use('/chatbot', chatbotRoutes);
 app.use('/auth', authRoutes);
-
+app.use('/contact', contactRoutes);
 
 // single articles
 app.get('/bipolar', (req, res) => {
