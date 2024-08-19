@@ -27,7 +27,7 @@
                     <div class="col-md-6">
                         <div class="form-card1">
                             <div class="form-card2">
-                              <form class="form">
+                              <form class="form" action="/auth/contact" method="post">
                                 <p class="form-heading fs-2 fw-bold">Get In Touch</p>
 
                                 <div class="form-field pt-2">
@@ -40,6 +40,8 @@
                                     placeholder="Email"
                                     class="input-field"
                                     type="email"
+                                    name="from"
+                                    id="from"
                                   />
                                 </div>
 
@@ -49,6 +51,8 @@
                                     placeholder="Subject"
                                     class="input-field"
                                     type="text"
+                                    name="subject"
+                                    id="subject"
                                   />
                                 </div>
 
@@ -59,6 +63,8 @@
                                     cols="30"
                                     rows="3"
                                     class="input-field"
+                                    name="message"
+                                    id="message"
                                   ></textarea>
                                 </div>
                                 <div class="col-12 text-center">
