@@ -83,12 +83,33 @@
                 </video>
             </div>
         </section>
+        <section class="chatbot">
+            <div class="chatbot-icon">
+                <i id="chat-icon" class="bi bi-chat-text"></i>
+            </div>
+
+            <div class="chatbox-window">
+                <div class="chatbox-header">
+                    Chatbox
+                </div>
+                <div class="chatbox-body" id="chatbox-body">
+                    <p>Welcome to the chatbot!</p>
+                    <!-- Chat messages will be appended here -->
+                </div>
+                <form id="chat-form" class="chatbox-form">
+                    <div class="input-group">
+                        <input type="text" id="chat-input" class="form-control" placeholder="Type your message..." required>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- footer end -->
-</body>
+
 
 <script>
     let items = document.querySelectorAll('.slider .item');
@@ -128,5 +149,50 @@
         loadShow();
     }
 </script>
+<!-- chatbot script -->
 
+<script>
+    const chatbotIcon = document.querySelector('.chatbot-icon');
+    const chatboxWindow = document.querySelector('.chatbox-window');
+    const chatIcon = document.getElementById('chat-icon');
+    const chatboxBody = document.getElementById('chatbox-body');
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+
+    // Toggle chatbox visibility
+    chatbotIcon.addEventListener('click', () => {
+        chatboxWindow.style.display = chatboxWindow.style.display === 'none' ? 'block' : 'none';
+        chatIcon.classList.toggle('bi-chat-text');
+        chatIcon.classList.toggle('bi-x');
+    });
+
+    // Handle chat form submission
+// JavaScript function to handle chat form submission
+chatForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const userMessage = chatInput.value.trim();
+    if (userMessage === '') return;
+
+    chatboxBody.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+    chatInput.value = '';
+
+    try {
+        const response = await fetch('/chatbot/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: userMessage }),
+        });
+
+        const data = await response.json();
+        chatboxBody.innerHTML += `<div><strong>Bot:</strong> ${data.botResponse}</div>`;
+    } catch (error) {
+        console.error('Error communicating with chatbot:', error);
+    }
+
+    chatboxBody.scrollTop = chatboxBody.scrollHeight;
+});
+</script>
+
+</body>
 </html>

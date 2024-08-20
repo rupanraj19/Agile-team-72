@@ -1,22 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-// GET route to render the chat page
-router.get('/chat', (req, res) => {
-    res.render('chatPage', { userMessage: null, botResponse: null });
-});
 
 // POST route to handle chat messages
 router.post('/chat', (req, res) => {
     const userMessage = req.body.message;
+    console.log("Received message:", userMessage);  // Log the received message
     const botResponse = generateResponse(userMessage);
-    res.render('chatPage', { userMessage, botResponse });
+    console.log("Bot response:", botResponse);  // Log the bot's response
+    res.json({botResponse });
 });
+
 
 // Enhanced response generation function
 function generateResponse(message) {
     const lowerCaseMessage = message.toLowerCase();
-    
+
     if (lowerCaseMessage.includes('sad')) {
         return "I'm sorry you're feeling sad. It's okay to feel this way. Can you share what's on your mind?";
     } else if (lowerCaseMessage.includes('anxious')) {
