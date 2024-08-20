@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
     // Set up mail options
     const mailOptions = {
       from: 'aspteam72@outlook.com',
-      to: 'aspteam72@outlook.com', // Your email to receive messages
+      to: 'aspteam72@outlook.com',
       subject: 'Contact Us',
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     };
