@@ -1,0 +1,20 @@
+body {
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+}
+
+.success {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 20px; /* Optional: add some padding */
+    border-radius: 10px; /* Optional: add rounded corners */
+}
+
+.success img {
+    display: block;
+    margin: 20px auto;
+}
