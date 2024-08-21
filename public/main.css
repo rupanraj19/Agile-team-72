@@ -94,16 +94,12 @@ video {
         position: fixed;
         bottom: 20px;
         right: 20px;
-        font-size: 30px;
-        background-color: #007bff;
-        color: white;
-        border-radius: 50%;
-        padding: 15px;
         cursor: pointer;
         z-index: 1000;
     }
 
     .chatbox-window {
+        display: none;
         position: fixed;
         bottom: 13%;
         right: 20px;
@@ -113,7 +109,6 @@ video {
         border: 1px solid #ddd;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        display: none;
         z-index: 999;
     }
 
@@ -130,20 +125,58 @@ video {
         overflow-y: auto;
     }
 
-/*
-    #chat-form {
+    /* From Uiverse.io by BHARGAVPATEL1244 */
+.chat-btn {
+        outline: none;
+        cursor: pointer;
+        border: none;
+        padding: 0.9rem 2rem;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        position: relative;
+        display: inline-block;
+        letter-spacing: 0.05rem;
+        font-weight: 700;
+        font-size: 17px;
+        border-radius: 500px;
+        overflow: hidden;
+        background: #66ff66;
+        color: ghostwhite;
+       }
+
+       .chat-btn span {
+        position: relative;
+        z-index: 10;
+        transition: color 0.4s;
+       }
+
+       .chat-btn:hover span {
+        color: black;
+       }
+
+       .chat-btn::before,
+       .chat-btn::after {
         position: absolute;
-        bottom: 0;
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: #fff;
-        border-top: 1px solid #ccc;
-    }
+        height: 100%;
+        z-index: 0;
+       }
 
-    #chat-input {
-        border: none;
-        outline: none;
-        box-shadow: none;
-        flex: 1;
-    } */
+       .chat-btn::before {
+        content: "";
+        background: #000;
+        width: 120%;
+        left: -10%;
+        transform: skew(30deg);
+        transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+       }
+
+       .chat-btn:hover::before {
+        transform: translate3d(100%, 0, 0);
+       }
+
+
 
