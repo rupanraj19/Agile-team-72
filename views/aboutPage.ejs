@@ -32,13 +32,14 @@
                 <div class="row align-items-center justify-content-between">
                     <div class="col-md p-5 text-dark">
                         <h2 class="hof-title">Our Story</h2>
-                        <p class="lead">
-                            Our team is passionate about empowering individuals to overcome mental health challenges and live a meaningful, vibrant life
+                        <p class="lead" id="story">
+                            Our team is deeply passionate about empowering individuals to navigate and overcome mental health challenges, fostering a meaningful and vibrant life for everyone. Our journey began with a strong motivation to support teenagers, who often face unique and difficult challenges in their mental health.
                         </p>
                         <p id="moretxt1" style="display: none;">
-                            add text
+                            We recognize the immense pressure young people endure in today’s fast-paced world, and our mission is to provide them with the tools, resources, and support they need to thrive. However, our commitment extends beyond teenagers—we are dedicated to helping anyone grappling with mental depression, offering a safe space for healing and growth. Our platform is built on the belief that with the right support, anyone can find their way to a brighter, healthier future.
+
                         </p>
-                        <a href="#" class="readmore">
+                        <a href="#story" class="readmore">
                             <button onclick="readMore('mybtn1', 'moretxt1');" id="mybtn1" class="rd-more-button">
                                 Read More
                             </button>
@@ -67,13 +68,13 @@
                     </div>
                     <div class="col-md p-5">
                         <h2 class="hof-title">Our Service</h2>
-                        <p class="lead">
-                            Our website provides personalized mental health coaching, and supportive resources to empower your journey towards wellness. Take the first step towards a healthier, happier you with our expert guidance and care.
+                        <p class="lead" id="service">
+                            Our website offers personalized mental health coaching and a wealth of supportive resources designed to empower your journey toward wellness. We understand that mental health is a deeply personal experience, and we are committed to providing tailored solutions that meet your unique needs.
                         </p>
                         <p id="moretxt2" style="display: none;">
-                            add more text
+                            Our services include interactive tools, and a comprehensive library of articles and videos, all aimed at helping you build resilience, develop coping strategies, and foster a positive mindset. With our expert guidance and compassionate care, you can take the first step toward a healthier, happier you. Whether you're looking for immediate support or long-term growth, our platform is here to guide you every step of the way.
                         </p>
-                        <a href="#" class="readmore">
+                        <a href="#service" class="readmore">
                             <button onclick="readMore('mybtn2', 'moretxt2');" id="mybtn2" class="rd-more-button">
                                 Read More
                             </button>
@@ -161,5 +162,33 @@
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- footer end -->
+
+    <script>
+        // add more hall of fame
+function addMore() {
+    document.getElementById("more").style.display = "block";
+    document.getElementById("morebtn").style.display = "none";
+  }
+
+function addLess() {
+    document.getElementById("more").style.display = "none";
+    document.getElementById("morebtn").style.display = "flex";
+  }
+
+
+
+function readMore(btnId, textId) {
+  var moreText = document.getElementById(textId);
+  var btnText = document.getElementById(btnId);
+
+  if (moreText.style.display === "none") {
+    moreText.style.display = "block";
+    btnText.innerHTML = "Read Less";
+  } else {
+    moreText.style.display = "none";
+    btnText.innerHTML = "Read More";
+  }
+}
+    </script>
 </body>
 </html>

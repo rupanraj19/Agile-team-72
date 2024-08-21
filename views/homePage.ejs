@@ -83,9 +83,13 @@
                 </video>
             </div>
         </section>
+
         <section class="chatbot">
             <div class="chatbot-icon">
-                <i id="chat-icon" class="bi bi-chat-text"></i>
+
+            <button id="chat-icon" class="chat-btn"> <span>Chat</span>
+            </button>
+            <!-- <i id="chat-icon" class="bi bi-chat-text"></i>  -->
             </div>
 
             <div class="chatbox-window">
@@ -161,10 +165,18 @@
 
     // Toggle chatbox visibility
     chatbotIcon.addEventListener('click', () => {
-        chatboxWindow.style.display = chatboxWindow.style.display === 'none' ? 'block' : 'none';
-        chatIcon.classList.toggle('bi-chat-text');
-        chatIcon.classList.toggle('bi-x');
-    });
+    const isChatboxVisible = chatboxWindow.style.display === 'block';
+
+    // Toggle chatbox visibility
+    chatboxWindow.style.display = isChatboxVisible ? 'none' : 'block';
+
+    // Change the button text or icon
+    if (isChatboxVisible) {
+        chatIcon.innerHTML = '<span>Chat</span>'; // Change to "Chat"
+    } else {
+        chatIcon.innerHTML = '<span>X</span>'; // Change to "X"
+    }
+});
 
     // Handle chat form submission
 // JavaScript function to handle chat form submission
