@@ -1,4 +1,9 @@
 # Agile-team-72
 
-## aspteam72@outlook.com
-## password000.
+## Email Account details
+### Email: aspteam72@outlook.com
+## Pass: password000.
+
+## User Account for web login
+### User: admin
+### Pass: adminpass
