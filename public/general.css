@@ -17,33 +17,14 @@
   /* navbar */
   .navbar {
       box-shadow: var(--box-shadow);
-      height: 9.5vh;
   }
-
-  .social-icons a {
-      width: 28px;
-      height: 28px;
-      display: inline-flex;
-      color: #fff;
-      background-color: rgba(255, 255, 255, 0.25);
-      text-decoration: none;
-      align-items: center;
-      justify-content: center;
-      border-radius: 100px;
-  }
-
-  .social-icons a:hover {
-      background-color: #fff;
-      color: var(--c-brand);
-  }
-
 
   .navbar .navbar-nav .nav-link {
     font-size: 20px;
     margin: 0 10px 0 10px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      font-family: 200;
-      color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 200;
+    color: black;
   }
 
   .navbar .navbar-nav .nav-link:hover {
@@ -59,14 +40,11 @@
       font-weight: 700;
   }
 
-  .navbar-brand img{
-    height: 50px;
+  .logo-img{
+    width: 140px;
     margin-left: -10px;
   }
 
-  .navbar-brand .dot {
-      color: var(--c-brand-light);
-  }
   .nav-link{
       position: relative;
   }
