@@ -11,6 +11,10 @@
     --transition: all 0.5s ease;
 }
 
+/* body */
+body{
+    overflow-x: hidden;
+}
 
 /* condition section */
 .condition-section {
@@ -18,7 +22,7 @@
 }
 
 /* condition cards */
-/* slider */
+/* carousel slider */
 @media (max-width: 767px) {
     .carousel-inner .carousel-item > div {
         display: none;
@@ -28,6 +32,18 @@
     }
 }
 
+.carousel-control-prev
+{
+  border-radius: 50%;
+  top: 50%;
+  transform: translateX(-60%);
+}
+
+.carousel-control-next{
+    border-radius: 50%;
+    top: 50%;
+    transform: translateX(60%);
+}
 
 .carousel-inner .carousel-item.active,
 .carousel-inner .carousel-item-next,
@@ -53,7 +69,7 @@
     transform: translateX(0);
 }
 
-  /* slider */
+/* slider */
 .slider .card-content {
     position: absolute;
     left: 2%;

@@ -12,51 +12,78 @@
 
 <body>
     <!-- header -->
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light ">
+    <%- include('partials/header') %>
+    <!-- header end -->
+    <main>
+        <section>
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/articles">Articles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/program">Program</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
-                        </li>
-                    </ul>
-                    <!-- login button or username display -->
-                    <% if (user) { %>
-                        <div class="ms-auto">
-                            <span class="navbar-text">Welcome, <%= user.user_name %></span>
-                            <a href="/logout" class="btn btn-outline-danger ms-2">Logout</a>
-                        </div>
-                    <% } else { %>
-                        <a class="ms-auto" href="/login">
-                            <button class="login-btn">LOGIN</button>
-                        </a>
-                    <% } %>
+                <div class="col-12">
+                    <div class="pt-4">
+                        <h1>Privacy Policy</h1>
+                    </div>
+                    <div>
+                        <p>
+                         At Mental health wellbeing, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect the information you provide to us through our website
+                        </p>
+                        <br>
+                        <h5>1.Information Collection</h5>
+                        <br>
+                        <p>
+                            We collect personal information such as your name, email address, and any information you voluntarily provide in your interactions with our site.
+                        </p>
+                        <br>
+                        <h5>2.Use of Information</h5>
+                        <br>
+                        <p>
+                            The information we collect is used to provide you with personalized support and resources. We may also use your data to improve our website, send you updates, and communicate with you about our services.
+                        </p>
+                        <br>
+                        <h5>3.Information Sharing</h5>
+                        <br>
+                        <p>
+                            We do not share your personal information with third parties except to provide services through trusted partners, comply with legal obligations, or protect our rights.
+                        </p>
+                        <br>
+                        <h5>4.Data Security</h5>
+                        <br>
+                        <p>
+                            We take reasonable measures to protect your information, including encryption and secure data storage. However, we encourage you to keep your login credentials safe.
+                        </p>
+                        <br>
+                        <h5>5.User Rights</h5>
+                        <br>
+                        <p>
+                            You have the right to access, correct, or delete your personal information. If you wish to exercise these rights, please contact us.
+                        </p>
+                        <br>
+                        <h5>6.Cookies and Tracking</h5><br>
+
+                        <p>
+                            We use cookies to enhance your experience on our site. You can choose to disable cookies through your browser settings, but this may affect the functionality of our site.
+                        </p>
+                        <br>
+                        <h5>7.Changes to Privacy Policy</h5> <br>
+
+                        <p>
+                            We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on our website.
+                        </p>
+                        <br>
+                        <h5>8.Contact Information</h5><br>
+
+                        <p>
+                            If you have any questions or concerns about our Privacy Policy, please contact us.
+                        </p>
+                        <br>
+                        <h5>9.Children's Privacy</h5><br>
+
+                        <p>We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it.</p>
+                    </div>
+
+                    <p></p>
                 </div>
             </div>
-        </nav>
-    </header>
-    <!-- header end -->
-    <div class="content">
-        <h1>Privacy Policy</h1>
-    </div>
+        </section>
+    </main>
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- footer end -->
