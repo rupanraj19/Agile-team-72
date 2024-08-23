@@ -11,26 +11,18 @@
     --transition: all 0.5s ease;
 }
 
-
-.first-section {
-    line-height: 1.7;
-    color: var(--c-body);
-     /* The image used */
-     background: url("assets/about.png");
-     /* Full height */
-     height: 100%;
-     /* Center and scale the image nicely */
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
-
-}
-
 .intro{
-    padding-left: 45%;
-
+    background-color: #000;
+    position: relative;
+    text-align: center;
+    color: white;
 }
 
+.about-text {
+    position: absolute;
+    top: 50%;
+    left: 53%;
+}
 
 h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
     font-weight: 500;
@@ -48,10 +40,11 @@ a:hover {
     color: var(--c-brand-light);
 }
 
-img{
+.about-img, .team-section img{
     max-width: 100%;
     height: auto;
 }
+
 
 .section-padding{
     padding-top: 200px;
@@ -104,42 +97,6 @@ img{
     transform: scale(1.1);
 
 }
-
-/* subscribe btn */
-.subscribe-btn {
-    position: relative;
-    font-size: 1.2em;
-    padding: 0.7em 1.4em;
-    background-color: #BF0426;
-    text-decoration: none;
-    border: none;
-    border-radius: 0.5em;
-    color: #DEDEDE;
-    box-shadow: 0.5em 0.5em 0.5em #F3C1EE;
-  }
-
-  .subscribe-btn::before {
-    position: absolute;
-    content: '';
-    height: 0;
-    width: 0;
-    top: 0;
-    left: 0;
-    background: linear-gradient(135deg, #F3C1EE 0%, #F3C1EE 50%, rgba(150,4,31,1) 50%, rgba(191,4,38,1) 60%);
-    border-radius: 0 0 0.5em 0;
-    box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
-    transition: 0.3s;
-  }
-
-  .subscribe-btn:hover::before {
-    width: 1.6em;
-    height: 1.6em;
-  }
-
-  .subscribe-btn:active {
-    box-shadow: 0.2em 0.2em 0.3em #F3C1EE;
-    transform: translate(0.1em, 0.1em);
-  }
 
 /* readmore btn */
 .rd-more-button {

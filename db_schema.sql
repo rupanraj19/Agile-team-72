@@ -64,15 +64,4 @@ CREATE TABLE IF NOT EXISTS likes (
     -- You might need application-level checks for article existence and type
 );
 
-
--- Create programs table
--- This table stores programs.
-CREATE TABLE IF NOT EXISTS programs (
-    program_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    description TEXT,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-);
-
 COMMIT;
