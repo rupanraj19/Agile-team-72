@@ -1,67 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Mental Health</title>  
+    <title>About Mental Health</title>
     <link rel="icon" href="/assets/logo.png" type="image/png" />
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
     <script src="/bootstrap.bundle.min.js"></script>
 </head>
+
 <body>
     <!-- header -->
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <div class="container">
-                <a class="navbar-brand" href="/"><img src="/assets/ASP.png" alt="Logo"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/articles">Articles</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/program">Program</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact</a>
-                        </li>
-                    </ul>
-                    <!-- login button or username display -->
-                    <% if (user) { %>
-                        <div class="ms-auto">
-                            <span class="navbar-text">Welcome, <%= user.user_name %></span>
-                            <a href="/logout" class="btn btn-outline-danger ms-2">Logout</a>
+    <%- include('partials/header') %>
+    <!-- header end -->
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <h1 class="text-center">About Mental Health</h1>
+        <p class="lead text-center">Understanding mental health is crucial for our overall well-being.</p>
+
+        <div class="row my-4">
+            <!-- Section 1: Introduction -->
+            <div class="col-lg-6 mb-4">
+                <h2>What is Mental Health?</h2>
+                <p>
+                    Mental health includes our emotional, psychological, and social well-being. It affects how we think, feel, and act. It also determines how we handle stress, relate to others, and make choices. Mental health is important at every stage of life, from childhood and adolescence through adulthood.
+                </p>
+            </div>
+
+            <!-- Section 2: Why Mental Health Matters -->
+            <div class="col-lg-6 mb-4">
+                <h2>Why Mental Health Matters</h2>
+                <p>
+                    Good mental health is essential to overall health and well-being. It can help you to:
+                </p>
+                <ul>
+                    <li>Cope with the stresses of life</li>
+                    <li>Be physically healthy</li>
+                    <li>Have good relationships</li>
+                    <li>Contribute to your community</li>
+                    <li>Work productively</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 3: Common Mental Health Conditions -->
+        <div class="row my-4">
+            <div class="col-lg-12">
+                <h2>Common Mental Health Conditions</h2>
+                <p>
+                    Some of the most common mental health conditions include:
+                </p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Depression</h5>
+                                <p class="card-text">A mood disorder that causes a persistent feeling of sadness and loss of interest.</p>
+                            </div>
                         </div>
-                    <% } else { %>
-                        <a class="ms-auto" href="/login">
-                            <button class="login-btn">LOGIN</button>
-                        </a>
-                    <% } %>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Anxiety Disorders</h5>
+                                <p class="card-text">A group of mental illnesses that cause constant fear and worry.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Bipolar Disorder</h5>
+                                <p class="card-text">A mental condition marked by alternating periods of elation and depression.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <!-- header end -->
-<body>
+        </div>
 
-    <div class="content">
-        <h1>About Mental Health</h1>
+        <!-- Section 4: Resources for Mental Health Support -->
+        <div class="row my-4">
+            <div class="col-lg-12">
+                <h2>Mental Health Support Resources</h2>
+                <p>If you or someone you know is struggling with mental health, there are resources available:</p>
+                <ul>
+                    <li>Institute of Mental Health (24-hour hotline)<br>Phone: +65 6389 2222</li>
+                    <li>Samaritans of Singapore (24-hour chatbox function)<br> <a href="https://www.sos.org.sg/" target="_blank">Care Text</a></li>
+                    <li>TOUCHline (TOUCH provides counselling support for youths facing emotional and mental health challenges)<br>Phone: 1800-377-2252</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- footer end -->
 
+    <script src="/bootstrap.bundle.min.js"></script>
 </body>
-<script src="/bootstrap.bundle.min.js"></script>
+
 </html>

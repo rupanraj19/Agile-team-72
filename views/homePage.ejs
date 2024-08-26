@@ -27,8 +27,8 @@
                         <p class="text-center mt-4">These guided activities are designed to support your overall well-being and help you develop healthy habits</p>
                         <div class="d-flex justify-content-center mt-4">
                             <img class="p-2 left-img img-fluid" src="assets/art.png" alt="art" >
-                            <img class="p-2 left-img img-fluid" src="assets/meditation.png" alt="meditation" >
-                            <img class="p-2 left-img img-fluid" src="assets/mindfulness.png" alt="mindfulness" >
+                            <img class="p-2 left-img img-fluid" src="assets/meditation.png" alt="meditation" data-bs-toggle="modal" data-bs-target="#meditationModal">
+                            <img class="p-2 left-img img-fluid" src="assets/mindfulness.png" alt="mindfulness" data-bs-toggle="modal" data-bs-target="#mindfulnessModal">
                         </div>
                     </div>
                 </div>
@@ -37,6 +37,48 @@
                 </div>
             </div>
         </section>
+
+        <!-- Meditation Modal -->
+        <div class="modal fade" id="meditationModal" tabindex="-1" aria-labelledby="meditationModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="meditationModalLabel">Guided Meditation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/cyMxWXlX9sU" title="Guided Meditation" allowfullscreen></iframe>
+                        </div>
+                        <!-- Copyright Notice -->
+                        <div class="text-center mt-3">
+                            <small>Video by <a href="https://youtube.com/@lavendaire" target="_blank">Lavendaire</a>. All rights reserved.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mindfulness Modal -->
+        <div class="modal fade" id="mindfulnessModal" tabindex="-1" aria-labelledby="mindfulnessModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mindfulnessModalLabel">Mindfulness Practice</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/mLY-VriCHG8" title="Mindfulness Practice" allowfullscreen></iframe>
+                        </div>
+                        <!-- Copyright Notice -->
+                        <div class="text-center mt-3">
+                            <small>Video by <a href="https://www.youtube.com/@GreatMeditation" target="_blank">Great Meditation</a>. All rights reserved.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <section class="third-section">
             <div><h2 class="text-center p-3">Featured Topics</h2></div>
