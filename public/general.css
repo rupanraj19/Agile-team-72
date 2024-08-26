@@ -280,6 +280,14 @@
       }
     }
 
+    .line{
+      width: 60px;
+      height: 4px;
+      background-color:  #a00c0c ;
+      margin-left: 10px;
+    }
+
+
   /* toggle switch for dark mode */
   /* The switch - the box around the slider */
   .switch {

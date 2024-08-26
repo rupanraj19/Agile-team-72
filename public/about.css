@@ -123,40 +123,18 @@ a:hover {
     box-shadow: none;
 }
 
-/* load more btn */
-
-.ld-btn {
-    cursor: pointer;
-    font-weight: 700;
-    font-family: Helvetica,"sans-serif";
-    transition: all .2s;
-    padding: 10px 20px;
-    border-radius: 100px;
-    background:  #a00c0c ;
-    border: 1px solid transparent;
-    display: flex;
-    align-items: center;
-    font-size: 15px;
+.about-line{
+    width: 60px;
+    height: 4px;
+    background-color:  #a00c0c ;
     margin-left: 48%;
-
 }
 
-.ld-btn:hover {
-    background: var(--c-brand-light);
-}
-
-.ld-btn  i {
-    width: 32px;
-    margin-left: 10px;
-    transition: transform .3s ease-in-out;
-}
-
-.ld-btn:hover i {
-    transform: translateX(5px);
-}
-
-.ld-btn:active {
-    transform: scale(0.95);
+.line1{
+    width: 60px;
+    height: 4px;
+    background-color:  #a00c0c ;
+    margin-left: 10%;
 }
 
 /* more */
