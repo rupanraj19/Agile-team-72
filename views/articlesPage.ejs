@@ -26,6 +26,18 @@
                 article.style.display = sourceMatch && categoryMatch && searchMatch ? '' : 'none';
             });
         }
+
+        function resetFilters() {
+            // Reset the source filter
+            document.querySelector('input[name="source"][value="all"]').checked = true;
+
+            // Uncheck all category filters
+            document.querySelectorAll('input[name="category"]').forEach(checkbox => {
+              checkbox.checked = false;
+            });
+
+            filterArticles();
+          }
     </script>
     <!--  JS Script for reloading  -->
     <script>
@@ -70,29 +82,32 @@
             </div>
         </section>
 
-        <div class="container-fluid">
-          <div class="row">
-            <!-- Sidebar for filters -->
-            <aside class="col-md-3 p-3 bg-white border-end">
-              <section class="filter-section">
-                <h2>Filter</h2>
+
+          <section>
+            <div class="filter-bar container">
+              <div class="d-flex flex-wrap align-items-center">
                 <!-- Source Dropdown -->
-                <div class="dropdown mb-3">
-                  <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="sourceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Source
+                <div class="dropdown ms-1">
+                  <button class="dropbtn btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="box">
+                      Source <i class="bi bi-arrow-down-short"></i>
+                    </span>
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="sourceDropdown">
+                  <ul class="dropdown-menu">
                     <li><label class="dropdown-item"><input type="radio" name="source" value="all" checked onclick="filterArticles()"> All</label></li>
                     <li><label class="dropdown-item"><input type="radio" name="source" value="cna" onclick="filterArticles()"> Channel News Asia</label></li>
                     <li><label class="dropdown-item"><input type="radio" name="source" value="mhf" onclick="filterArticles()"> Mental Health Foundation</label></li>
                   </ul>
                 </div>
+
                 <!-- Category Dropdown -->
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle w-100" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Category
+                <div class="dropdown ms-2">
+                  <button class="dropbtn btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="box">
+                      Category <i class="bi bi-arrow-down-short"></i>
+                    </span>
                   </button>
-                  <ul class="dropdown-menu overflow-auto" aria-labelledby="categoryDropdown" style="max-height: 200px;">
+                  <ul class="dropdown-menu overflow-auto" style="max-height: 200px;">
                     <% const categories = new Set(); %>
                     <% cnaArticles.forEach(article => categories.add(article.category)); %>
                     <% mhfArticles.forEach(article => categories.add(article.category)); %>
@@ -101,116 +116,133 @@
                     <% }); %>
                   </ul>
                 </div>
-              </section>
-            </aside>
-            <!-- Main content for articles -->
-            <div class="col-md-9">
-              <!-- Search Bar -->
-              <section class="search-bar py-5">
-                <div class="row height d-flex justify-content-center align-items-center">
-                  <div class="col-md-8">
-                    <div class="search">
-                      <input type="text" id="search" class="form-control" onkeyup="filterArticles()" placeholder="Search articles...">
+
+                <!-- Reset Filters Button -->
+                <div class="reset-filter ms-auto">
+                  <a href="">
+                    <button class="dropbtn btn btn-secondary" onclick="resetFilters()">
+                      <i class="bi bi-arrow-repeat"></i> Reset
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        <section>
+          <div class="container-fluid">
+            <div class="row">
+              <!-- Sidebar for filters -->
+              <div class="col-lg-2"></div>
+              <!-- Main content for articles -->
+              <div class="col-lg-8 col-md-8">
+                <!-- Search Bar -->
+                <section class="search-bar py-5">
+                  <div class="row height d-flex justify-content-center align-items-center">
+                    <div class="col-md-8">
+                      <div class="search">
+                        <input type="text" id="search" class="form-control" onkeyup="filterArticles()" placeholder="Search articles...">
+                      </div>
                     </div>
                   </div>
-                </div>
-              </section>
-              <!-- Articles Sections -->
-              <section class="articles-section mt-4">
-                <h2>Channel News Asia Articles</h2>
-                <ul class="list-unstyled">
-                  <% cnaArticles.forEach(article => { %>
-                    <li class="article mb-4 p-3 border rounded" data-source="cna" data-category="<%= article.category %>">
-                      <strong>Category:</strong> <%= article.category %><br>
-                      <strong>Title:</strong> <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
+                </section>
+                <!-- Articles Sections -->
+                <section class="articles-section mt-4">
+                  <h2>Channel News Asia Articles</h2>
+                  <ul class="list-unstyled">
+                    <% cnaArticles.forEach(article => { %>
+                      <li class="article mb-4 p-3 border rounded" data-source="cna" data-category="<%= article.category %>">
+                        <strong>Category:</strong> <%= article.category %><br>
+                        <strong>Title:</strong> <a class="title" href="<%= article.link %>" target="_blank"><%= article.title %></a>
 
-                      <!-- Comment Box Toggle -->
-                      <div class="row justify-content-left p-2">
-                        <div class="col-12">
-                          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comment-form-<%= article.article_id %>" aria-expanded="false" aria-controls="comment-form-<%= article.article_id %>">
-                            <i class="bi bi-chat-square-text"></i> Comment
-                          </button>
-                          <div class="collapse mt-2" id="comment-form-<%= article.article_id %>">
-                            <form action="/comments/add-comment" method="post">
-                              <input type="hidden" name="articleId" value="<%= article.article_id %>">
-                              <input type="hidden" name="articleType" value="cna">
-                              <div class="form-group">
-                                <textarea class="form-control" name="comment" rows="3" placeholder="Enter your comment" required></textarea>
-                              </div>
-                              <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                            </form>
+                        <!-- Comment Box Toggle -->
+                        <div class="row justify-content-left p-2">
+                          <div class="col-12">
+                            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comment-form-<%= article.article_id %>" aria-expanded="false" aria-controls="comment-form-<%= article.article_id %>">
+                              <i class="bi bi-chat-square-text"></i> Comment
+                            </button>
+                            <div class="collapse mt-2" id="comment-form-<%= article.article_id %>">
+                              <form action="/comments/add-comment" method="post">
+                                <input type="hidden" name="articleId" value="<%= article.article_id %>">
+                                <input type="hidden" name="articleType" value="cna">
+                                <div class="form-group">
+                                  <textarea class="form-control" name="comment" rows="3" placeholder="Enter your comment" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                              </form>
+                            </div>
                           </div>
                         </div>
-                      </div>
 
-                      <!-- Display Comments -->
-                      <div class="mt-4">
-                        <h5>Comments:</h5>
-                        <% comments.filter(c => c.article_id === article.article_id && c.article_type === 'cna').forEach(comment => { %>
-                          <div class="comment mb-2">
-                            <strong><%= comment.user_name || 'Anonymous' %>:</strong>
-                            <p><%= comment.comment %></p>
-                            <small><%= new Date(comment.timestamp * 1000).toLocaleString() %></small>
+                        <!-- Display Comments -->
+                        <div class="mt-4">
+                          <h5>Comments:</h5>
+                          <% comments.filter(c => c.article_id === article.article_id && c.article_type === 'cna').forEach(comment => { %>
+                            <div class="comment mb-2">
+                              <strong><%= comment.user_name || 'Anonymous' %>:</strong>
+                              <p><%= comment.comment %></p>
+                              <small><%= new Date(comment.timestamp * 1000).toLocaleString() %></small>
 
-                          </div>
-                      <% }); %>
-                  </div>
-                </li>
-            <% }); %>
-        </ul>
-              </section>
-
-
-              <section class="articles-section mt-4">
-
-                <div class="container">
-                    <h2>Mental Health Foundation Articles</h2>
-                    <ul class="list-unstyled">
-                        <% mhfArticles.forEach(article => { %>
-                            <li class="article" data-source="mhf" data-category="<%= article.category %>">
-                                <strong>Category:</strong> <%= article.category %><br>
-                                <strong>Description:</strong> <span class="description"><%= article.description %></span><br>
-                                <a href="<%= article.link %>" target="_blank">Read more</a>
-
-                                <!-- Comment Box Toggle -->
-                                <div class="row justify-content-left p-2">
-                                    <div class="col-12">
-                                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comment-form-<%= article.article_id %>" aria-expanded="false" aria-controls="comment-form-<%= article.article_id %>">
-                                            <i class="bi bi-chat-square-text"></i> Comment
-                                        </button>
-                                        <div class="collapse mt-2" id="comment-form-<%= article.article_id %>">
-                                            <form action="/comments/add-comment" method="post">
-                                                <input type="hidden" name="articleId" value="<%= article.article_id %>">
-                                                <input type="hidden" name="articleType" value="mhf">
-                                                <div class="form-group">
-                                                    <textarea class="form-control" name="comment" rows="3" placeholder="Enter your comment" required></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary mt-2">Submit</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Display Comments -->
-                                <div class="mt-4">
-                                    <h5>Comments:</h5>
-                                    <% comments.filter(c => c.article_id === article.article_id && c.article_type === 'mhf').forEach(comment => { %>
-                                        <div class="comment mb-2">
-                                            <strong><%= comment.user_name || 'Anonymous' %>:</strong>
-                                            <p><%= comment.comment %></p>
-                                            <small><%= new Date(comment.timestamp * 1000).toLocaleString() %></small>
-                                        </div>
-                                    <% }); %>
-                                </div>
-                            </li>
+                            </div>
                         <% }); %>
-                    </ul>
-                </div>
-            </section>
+                    </div>
+                  </li>
+              <% }); %>
+          </ul>
+                </section>
 
+                <!-- mha articles -->
+                <section class="articles-section mt-4">
+                  <div class="container">
+                      <h2>Mental Health Foundation Articles</h2>
+                      <ul class="list-unstyled">
+                          <% mhfArticles.forEach(article => { %>
+                              <li class="article" data-source="mhf" data-category="<%= article.category %>">
+                                  <strong>Category:</strong> <%= article.category %><br>
+                                  <strong>Description:</strong> <span class="description"><%= article.description %></span><br>
+                                  <a href="<%= article.link %>" target="_blank">Read more</a>
+
+                                  <!-- Comment Box Toggle -->
+                                  <div class="row justify-content-left p-2">
+                                      <div class="col-12">
+                                          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#comment-form-<%= article.article_id %>" aria-expanded="false" aria-controls="comment-form-<%= article.article_id %>">
+                                              <i class="bi bi-chat-square-text"></i> Comment
+                                          </button>
+                                          <div class="collapse mt-2" id="comment-form-<%= article.article_id %>">
+                                              <form action="/comments/add-comment" method="post">
+                                                  <input type="hidden" name="articleId" value="<%= article.article_id %>">
+                                                  <input type="hidden" name="articleType" value="mhf">
+                                                  <div class="form-group">
+                                                      <textarea class="form-control" name="comment" rows="3" placeholder="Enter your comment" required></textarea>
+                                                  </div>
+                                                  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
+
+                                  <!-- Display Comments -->
+                                  <div class="mt-4">
+                                      <h5>Comments:</h5>
+                                      <% comments.filter(c => c.article_id === article.article_id && c.article_type === 'mhf').forEach(comment => { %>
+                                          <div class="comment mb-2">
+                                              <strong><%= comment.user_name || 'Anonymous' %>:</strong>
+                                              <p><%= comment.comment %></p>
+                                              <small><%= new Date(comment.timestamp * 1000).toLocaleString() %></small>
+                                          </div>
+                                      <% }); %>
+                                  </div>
+                              </li>
+                          <% }); %>
+                      </ul>
+                  </div>
+                </section>
+
+              </div>
             </div>
           </div>
-        </div>
+        </section>
+
       </main>
 
     <!-- footer -->
