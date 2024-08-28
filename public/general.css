@@ -341,3 +341,6 @@
     box-shadow: inset 15px -4px 0px 15px #fff000;
   }
 
+  a {
+    text-decoration: none;
+  }

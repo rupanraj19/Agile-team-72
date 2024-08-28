@@ -23,11 +23,13 @@
             <div class="row">
                 <div class="col-8">
                     <div class="container">
-                        <h4 class="text-center mt-4">Activities Guidance</h4>
-                        <div class="line1"></div>
-                        <p class="text-center mt-4">These guided activities are designed to support your overall well-being and help you develop healthy habits</p>
-                        <div class="d-flex justify-content-center mt-4">
-                            <img class="p-2 left-img img-fluid" src="assets/art.png" alt="art" >
+                        <div class="activity-section">
+                            <h4 class="text-center mt-4">Activities Guidance</h4>
+                            <div class="line1"></div>
+                            <p class="text-center mt-4">These guided activities are designed to support your overall well-being and help you develop healthy habits</p>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4 activities">
+                            <img class="p-2 left-img img-fluid" src="assets/art.png" alt="art" data-href="/drawingapp">
                             <img class="p-2 left-img img-fluid" src="assets/meditation.png" alt="meditation" data-bs-toggle="modal" data-bs-target="#meditationModal">
                             <img class="p-2 left-img img-fluid" src="assets/mindfulness.png" alt="mindfulness" data-bs-toggle="modal" data-bs-target="#mindfulnessModal">
                         </div>
@@ -89,23 +91,23 @@
                 <div class="slider">
                     <div class="item">
                         <img class="img-fluid" src="assets/home/mental.png" alt="">
-                        <h4 class="text-center">Mental well being</h4>
+                        <h4 class="text-center"><a href="/mentalwellbeing" class="text-dark">Mental well being</a></h4>
                     </div>
                     <div class="item">
                         <img class="img-fluid" src="assets/home/signs.png" alt="">
-                        <h4 class="text-center">Signs & symptoms</h4>
+                        <h4 class="text-center"><a href="/stress" class="text-dark">Stress</a></h4>
                     </div>
                     <div class="item">
                         <img class="img-fluid"  src="assets/home/burnout.png" alt="">
-                        <h4 class="text-center">Burnout</h4>
+                        <h4 class="text-center"><a href="/burnout" class="text-dark">Burnout</a></h4>
                     </div>
                     <div class="item">
                         <img class="img-fluid"  src="assets/home/peace.png" alt="">
-                        <h4 class="text-center">Peace</h4>
+                        <h4 class="text-center"><a href="/peace" class="text-dark">Peace</a></h4>
                     </div>
                     <div class="item">
                         <img class="img-fluid" src="assets/home/bed.png" alt="">
-                        <h4 class="text-center">Procastination</h4>
+                        <h4 class="text-center"><a href="/procastination" class="text-dark">Procastination</a></h4>
                     </div>
                     <button id="prev"><</button>
                     <button id="next">></button>
@@ -245,6 +247,21 @@ chatForm.addEventListener('submit', async (e) => {
 
     chatboxBody.scrollTop = chatboxBody.scrollHeight;
 });
+</script>
+
+
+<script>
+    // Select all images with the data-href attribute
+    document.querySelectorAll('img[data-href]').forEach(img => {
+        img.style.cursor = 'pointer'; // Optional: Change cursor to pointer on hover
+
+        img.addEventListener('click', () => {
+            const href = img.getAttribute('data-href');
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
 </script>
 
 </body>

@@ -177,6 +177,7 @@ const staticRoutes = [
   { path: "/privacyPolicy", view: "privacyPolicy" },
   { path: "/termsOfUse", view: "termsOfUse" },
   { path: "/selftest", view: "selftest" },
+  { path: "/drawingapp", view: "drawingapp"},
 ];
 
 staticRoutes.forEach(({ path, view, options = {} }) => {
@@ -235,6 +236,11 @@ const articleRoutes = [
   { path: "/ptsd", view: "articles/ptsd" },
   { path: "/anxiety", view: "articles/anxiety" },
   { path: "/personality", view: "articles/personality" },
+  { path: "/burnout", view: "articles/burnout" },
+  { path: "/peace", view: "articles/peace"},
+  { path: "/stress", view: "articles/stress"},
+  { path: "/procastination", view: "articles/procastination"},
+  { path: "/mentalwellbeing", view: "articles/mentalwellbeing"},
 ];
 
 articleRoutes.forEach(({ path, view }) => {
