@@ -12,9 +12,7 @@
 }
 
 /*  home page */
-/* body {
-        overflow-x: hidden;
-} */
+
 
 .second-section {
         background-color: #FBFEEB;
@@ -94,6 +92,23 @@
         height: 4px;
         background-color:  #a00c0c ;
         margin-left: 48%;
+}
+
+.activity-section {
+        background-color:rgb(179, 177, 177);
+        border-radius: 10px;
+        font-size: larger;
+        padding: 10px 0px;
+}
+
+.activities{
+        cursor: pointer;
+}
+
+
+.activities a img {
+        width: 50%;
+        height: auto;
 }
 
 video {
