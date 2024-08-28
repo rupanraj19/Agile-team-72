@@ -50,7 +50,7 @@
       });
     </script>
 </head>
-<body>
+<body style="background-color: #dddebb;">
     <!-- header -->
     <%- include('partials/header') %>
     <!-- header end -->
@@ -84,7 +84,7 @@
 
 
           <section>
-            <div class="filter-bar container">
+            <div class="filter-bar container bg-white">
               <div class="d-flex flex-wrap align-items-center">
                 <!-- Source Dropdown -->
                 <div class="dropdown ms-1">
@@ -120,7 +120,7 @@
                 <!-- Reset Filters Button -->
                 <div class="reset-filter ms-auto">
                   <a href="">
-                    <button class="dropbtn btn btn-secondary" onclick="resetFilters()">
+                    <button class="dropbtn btn btn-danger p-2" onclick="resetFilters()">
                       <i class="bi bi-arrow-repeat"></i> Reset
                     </button>
                   </a>
@@ -130,7 +130,7 @@
           </section>
 
         <section>
-          <div class="container-fluid">
+          <div class="container mt-4 border border-2 bg-white">
             <div class="row">
               <!-- Sidebar for filters -->
               <div class="col-lg-2"></div>
