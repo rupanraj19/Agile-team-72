@@ -29,7 +29,7 @@
                             <p class="text-center mt-4">These guided activities are designed to support your overall well-being and help you develop healthy habits</p>
                         </div>
                         <div class="d-flex justify-content-center mt-4 activities">
-                            <img class="p-2 left-img img-fluid" src="assets/art.png" alt="art" data-href="/drawingapp">
+                            <img class="p-2 left-img img-fluid" src="assets/art.png" alt="art" data-bs-toggle="modal" data-bs-target="#artModal">
                             <img class="p-2 left-img img-fluid" src="assets/meditation.png" alt="meditation" data-bs-toggle="modal" data-bs-target="#meditationModal">
                             <img class="p-2 left-img img-fluid" src="assets/mindfulness.png" alt="mindfulness" data-bs-toggle="modal" data-bs-target="#mindfulnessModal">
                         </div>
@@ -40,6 +40,31 @@
                 </div>
             </div>
         </section>
+
+        <!-- Art Modal -->
+        <div class="modal fade" id="artModal" tabindex="-1" aria-labelledby="artModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="artModalLabel">Art Therapy</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/4BZynyGzyow" title="What is Art Therapy?" allowfullscreen></iframe>
+                        </div>
+                        <!-- Link to Drawing App -->
+                        <div class="text-end mt-3">
+                            <a href="/drawingapp" class="btn btn-outline-primary">Go to Drawing App</a>
+                        </div>
+                        <!-- Copyright Notice -->
+                        <div class="text-center mt-2">
+                            <small>Video by <a href="https://www.youtube.com/@uqfacultyofmedicine5981" target="_blank">UQ Faculty of Medicine</a>. All rights reserved.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Meditation Modal -->
         <div class="modal fade" id="meditationModal" tabindex="-1" aria-labelledby="meditationModalLabel" aria-hidden="true">
