@@ -28,17 +28,22 @@ To get started with the website, follow these steps:
 3. **Register or Log In**: Create an account or log in to access personalized features and track your progress.
 4. **Engage and Seek Help**: Utilize the resources available and reach out for help if needed.
 
-## Contributing
+## Getting Started
 
-We welcome contributions to enhance the website. If you would like to contribute, please follow these steps:
+- **Clone the Repository**: Use the `git clone` command with the repository link, or download and extract the ZIP file from GitHub.
 
-1. **Fork the Repository**: Create a personal copy of the repository.
-2. **Create a Branch**: Develop your changes in a separate branch.
-3. **Submit a Pull Request**: Share your changes with us by submitting a pull request.
+- **Navigate to the Project Directory**: Change to the project directory on your local machine.
+
+- **Install Dependencies**: Run `npm install` to install the necessary packages.
+
+- **Build the Database** (Windows): Use the `npm run build-db-win` command to set up the database.
+
+- **Run the Project**: Start the project with the `npm run` command.
+
 
 ## Contact
 
-For any questions or feedback, please reach out to us at [your contact information].
+For any questions or feedback, please reach out to us at [aspteam72@outlook.com].
 
 ## License
 
