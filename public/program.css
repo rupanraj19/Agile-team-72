@@ -92,42 +92,43 @@ body{
 }
 
 /* resource section */
-
 .resource-section {
     background-color: var(--c-brand-light);
 }
 
 
 .resource-nav-link.active {
-    background-color: #198754 !important; /* Bootstrap's 'success' green color */
-    color: #fff !important; /* Ensure text is white */
+    background-color: #198754 !important;
+    color: #fff !important;
 }
 
 .resource-nav-link {
-    color: #198754; /* Bootstrap's 'success' green color */
+    color: #198754;
 }
 
 .resource-nav-link:hover {
-    background-color: #198754 !important; /* Ensure hover state is green as well */
-    color: #fff !important; /* Ensure text is white on hover */
+    background-color: #198754 !important;
+    color: #fff !important;
 }
 
 /* selftest-card */
 .selftest-card {
-    width: 600px;
-    height: 500px;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
     border-radius: 20px;
     padding: 5px;
     box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
     background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
-  }
+    margin: 0 auto;
+}
 
 .selftest-card-content {
     background: #B8F2E3;
     border-radius: 17px;
     width: 100%;
     height: 100%;
-    padding: 10px 30px;
+    padding: 10px 15px;
 }
 
 /* game section */
@@ -144,10 +145,12 @@ body{
 /* game card */
 .one-div {
     position: absolute;
-    left: 75%;
-    bottom: 35%;
-    height: 300px;
-    width: 250px;
+    left: 70%;
+    bottom: 30%;
+    transform: translateX(-50%);
+    height: 50%;
+    width: 100%;
+    max-width: 250px;
     background-color: rgb(15, 15, 15);
     transform-style: preserve-3d;
     animation: rot 0.5s infinite ease;
@@ -156,36 +159,54 @@ body{
     color: white;
     transition: 1.5s;
     overflow: hidden;
+}
 
-  }
-
-  .one-div .text {
+.one-div .text {
     opacity: 0;
     transition: all 0.5s;
-  }
+}
 
-  .one-div:hover.one-div .text {
+.one-div:hover .text {
     scale: 1.2;
     opacity: 0.7;
-  }
+}
 
-  .one-div:hover {
+.one-div:hover {
     box-shadow: 0 0 30px 100px black, inset 5px 5px 5px 0px rgb(31, 31, 31);
-  }
+}
 
-  @keyframes rot {
+@keyframes rot {
     0% {
-      transform: rotateX(-15deg) translateY(0px);
+        transform: rotateX(-15deg) translateY(0px);
     }
 
     50% {
-      transform: rotateX(-15deg) translateY(-10px);
+        transform: rotateX(-15deg) translateY(-10px);
     }
 
     100% {
-      transform: rotateX(-15deg) translateY(0px);
+        transform: rotateX(-15deg) translateY(0px);
     }
-  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .selftest-card {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .selftest-card-content {
+        padding: 15px;
+    }
+
+    .one-div {
+        left: 50%;
+        bottom: 20%;
+        width: 80%;
+        max-width: 200px;
+    }
+}
 
 /* game on button */
 .game-button {
@@ -281,14 +302,14 @@ body{
 .side-img{
     width:  100%;
     height: 40%;
-  }
+}
 
-  .main-img{
+.main-img{
     width: 100%;
     height: 50%;
-  }
+}
 
-  .extras-img{
+.extras-img{
     width: 100%;
     height: 200px;
-  }
+}

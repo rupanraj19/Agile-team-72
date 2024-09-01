@@ -10,8 +10,8 @@ body {
     margin-right: auto;
     text-align: center;
     background-color: aliceblue;
-    padding: 20px; /* Optional: add some padding */
-    border-radius: 10px; /* Optional: add rounded corners */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .success img {

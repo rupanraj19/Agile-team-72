@@ -1,8 +1,9 @@
+/* variables */
 :root {
---c-brand:  #4ed670;
---c-brand-light: #b7e1c5;
---c-body: #727272;
---c-bg4: #dddebb;
+    --c-brand:  #4ed670;
+    --c-brand-light: #b7e1c5;
+    --c-body: #727272;
+    --c-bg4: #dddebb;
 }
 
 body{
@@ -13,9 +14,11 @@ body{
 .faq-section {
     height: 200vh;
 }
+
 .faq-section h1{
     font-size: 4rem;
 }
+
 .hover-text{
     font-size: 10rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

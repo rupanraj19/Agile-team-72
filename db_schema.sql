@@ -53,15 +53,4 @@ CREATE TABLE IF NOT EXISTS comments (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
--- Create likes table
--- This table stores likes on articles by users.
-CREATE TABLE IF NOT EXISTS likes (
-    like_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER,
-    article_id INTEGER,
-    article_type TEXT CHECK(article_type IN ('cna', 'mhf')),
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
-    -- You might need application-level checks for article existence and type
-);
-
 COMMIT;
