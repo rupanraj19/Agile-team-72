@@ -11,6 +11,8 @@
         --transition: all 0.5s ease;
 }
 
+
+
 /*  home page */
 
 
@@ -80,18 +82,21 @@
         background-color: var(--c-bg4);
 }
 
-.line1{
-        width: 60px;
-        height: 4px;
-        background-color:  #a00c0c ;
-        margin-left: 47%;
+.activity-section {
+        background-color:rgb(179, 177, 177);
+        border-radius: 10px;
+        font-size: larger;
+        padding: 10px 0px;
 }
 
-.home-line{
-        width: 60px;
-        height: 4px;
-        background-color:  #a00c0c ;
-        margin-left: 48%;
+.activities{
+        cursor: pointer;
+}
+
+
+.activities a img {
+        width: 50%;
+        height: auto;
 }
 
 .activity-section {

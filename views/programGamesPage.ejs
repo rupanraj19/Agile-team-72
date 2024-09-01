@@ -13,93 +13,100 @@
     <!-- header end -->
 
     <main>
+        <!-- Before-After Image Slider Section -->
         <section class="before-after">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <img class="img back-img" src="assets/game2.png" alt="before" />
-                    <img class="img front-img" src="assets/game1.png" alt="after" />
-                    <input type="range" min="1" max="100" value="50" class="game-img-slider d-flex justify-content-center align-items-center" name="game-img-slider" id="game-img-slider" />
+                        <!-- Background Image -->
+                        <img class="img back-img" src="assets/game2.png" alt="before" />
+                        <!-- Foreground Image -->
+                        <img class="img front-img" src="assets/game1.png" alt="after" />
+                        <!-- Image Slider -->
+                        <input type="range" min="1" max="100" value="50" class="game-img-slider position-absolute top-50 start-50 translate-middle w-50" name="game-img-slider" id="game-img-slider" />
                 </div>
             </div>
         </section>
         <br><br><br>
 
+        <!-- Games Section -->
         <section class="p-4 gameplay">
             <div class="container">
-              <div class="row m-4">
-                <div class="col-lg-12 col-md-12 mb-4">
-                    <h1 class="text-center">Games</h1>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <div class="game-card">
-                            <div class="game-card-image"></div>
-                            <p class="game-card-title">Card title</p>
-                            <p class="game-card-body">
-                                Nullam ac tristique nulla, at convallis quam. Integer consectetur mi nec magna tristique, non lobortis.
-                            </p>
-                            <p class="game-footer">Written by <span class="by-name">John Doe</span> on <span class="date">25/05/23</span></p>
+                <div class="row m-4">
+                    <div class="col-12 mb-4">
+                        <!-- Section Title -->
+                        <h1 class="text-center">Games</h1>
+                    </div>
+                    <!-- Games Cards -->
+                    <div class="row">
+                        <!-- Game 1: Mental Rush -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="game-card">
+                                <!-- Game Image -->
+                                <div class="game-card-image">
+                                    <img class="img img-fluid" src="assets/rush.png" alt="mental rush game cover image">
+                                </div>
+                                <!-- Game Title -->
+                                <p class="game-card-title">Mental Rush</p>
+                                <!-- Game Status -->
+                                <p class="game-card-body">
+                                    <button class="btn btn-warning">Coming Soon</button>
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-4">
-                        <div class="game-card">
-                            <div class="game-card-image"><img class="img img-fluid" src="assets/game.png" alt="game cover image"></div>
-                            <p class="game-card-title">Pathway to Light</p>
-                            <p class="game-card-body text-white">
-                                pathway to Light is a journey of helping a character overcome depression and find their way to joy. The game is divided into four stages, each representing a step toward healing. To clear a level, you must collect all the bubbles. <br>
-                                <center><button class="btn btn-danger mt-1"><a class="text-white text-bold text-center" href="https://ruby-19.itch.io/pathway-to-light">Play</a></button></center>
-                            </p>
-                            <!-- <p class="game-footer"><span class="by-name"></span> on <span class="date"></span></p> -->
+                        <!-- Game 2: Pathway to Light -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="game-card">
+                                <!-- Game Image -->
+                                <div class="game-card-image">
+                                    <img class="img img-fluid" src="assets/game.png" alt="game cover image">
+                                </div>
+                                <!-- Game Title -->
+                                <p class="game-card-title">Pathway to Light</p>
+                                <!-- Game Description -->
+                                <p class="game-card-body text-white">
+                                    Pathway to Light is a journey of helping a character overcome depression and find their way to joy. The game is divided into four stages, each representing a step toward healing. To clear a level, you must collect all the bubbles. <br>
+                                    <center><button class="btn btn-danger mt-1"><a class="text-white text-bold text-center" href="https://ruby-19.itch.io/pathway-to-light">Play</a></button></center>
+                                </p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-4">
-                        <div class="game-card">
-                            <div class="game-card-image"></div>
-                            <p class="game-card-title">Cheer Chase</p>
-                            <p class="game-card-body">
-                                <button class="btn btn-warning">Coming soon</button>
-                            </p>
+                        <!-- Game 3: Cheer Chase -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                            <div class="game-card">
+                                <!-- Game Image -->
+                                <div class="game-card-image">
+                                    <img src="assets/chase.png" class="img img-fluid" alt="cheer chase game cover image">
+                                </div>
+                                <!-- Game Title -->
+                                <p class="game-card-title">Cheer Chase</p>
+                                <!-- Game Status -->
+                                <p class="game-card-body">
+                                    <button class="btn btn-warning">Coming soon</button>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-              </div>
-            </div>
-          </section>
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title pt-2">
-                        <h1 class="text-center">More games</h1>
-                    </div>
-                </div>
-                <div class="">
-                    <div class="breathing-game d-flex justify-content-center align-items-center">
-                        <div class="circle breathe-in-circle d-flex justify-content-center align-items-center" id="breathe-in-circle">Breathe In</div>
-                        <div class="circle breathe-out-circle d-flex justify-content-center align-items-center" id="breathe-out-circle">Breathe Out</div>
-                        <div class="instructions" id="instructions">Inhale... Hold... Exhale...</div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- footer end -->
 
-    <script src="/breathingGame.js"></script>
+    <!-- Image Slider Script -->
+    <script>
+        const slider = document.getElementById("game-img-slider");
+        slider.addEventListener("input", function () {
+        const frontImage = document.querySelector(".front-img");
+        const value = this.value;
+
+        frontImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
+        });
+    </script>
+
 </body>
-
-<script>
-const slider = document.getElementById("game-img-slider");
-slider.addEventListener("input", function () {
-  const frontImage = document.querySelector(".front-img");
-  const value = this.value;
-
-  frontImage.style.clipPath = `polygon(0 0, ${value}% 0, ${value}% 100%, 0 100%)`;
-});
-</script>
-
 </html>

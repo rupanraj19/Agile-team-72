@@ -16,6 +16,10 @@ body{
     overflow-x: hidden;
 }
 
+.a {
+    color:#000;
+}
+
 /* condition section */
 .condition-section {
     background-color: var(--c-bg3);

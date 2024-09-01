@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
     <link rel="icon" href="/assets/logo.png" type="image/png" />
-    <link rel="stylesheet" href="/general.css">
     <link rel="stylesheet" href="/contact.css">
 </head>
 <body>
-    <!-- header -->
+    <!-- Header -->
     <%- include('partials/header') %>
-    <!-- header end -->
+    <!-- Header End -->
 
     <main>
+        <!-- Contact Section -->
         <section>
             <div class="contact">
+                <!-- Contact Image -->
                 <img class="img-fluid contact-img" src="/assets/contact.png" alt="Contact">
-                <h1 class="contact-text">Contact Us</h1>
+                <!-- Contact Heading -->
+                <h1 class="contact-text text-white">Contact Us</h1>
             </div>
         </section>
 
+        <!-- Contact Form Section -->
         <section class="contact-form">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
@@ -29,8 +32,8 @@
                             <div class="form-card2">
                                 <!-- Contact Form -->
                                 <form class="form" action="/contact" method="post">
-
-                                    <p class="form-heading fs-2 fw-bold">Get In Touch</p>
+                                    <!-- Form Heading -->
+                                    <h3 class="form-heading fs-2 fw-bold">Get In Touch</h3>
 
                                     <!-- Name Field -->
                                     <div class="form-field pt-2">
@@ -54,7 +57,7 @@
 
                                     <!-- Submit Button -->
                                     <div class="col-12 text-center">
-                                        <button class="sendMessage-btn mt-4" type="submit" onclick="submitInputs()";>Send Message</button>
+                                        <button class="sendMessage-btn mt-4" type="submit" onclick="submitInputs();">Send Message</button>
                                     </div>
                                 </form>
                             </div>
@@ -65,8 +68,8 @@
         </section>
     </main>
 
-    <!-- footer -->
+    <!-- Footer -->
     <%- include('partials/footer') %>
-    <!-- footer end -->
+    <!-- Footer End -->
 </body>
 </html>

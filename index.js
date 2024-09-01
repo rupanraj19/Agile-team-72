@@ -178,6 +178,7 @@ const staticRoutes = [
   { path: "/termsOfUse", view: "termsOfUse" },
   { path: "/selftest", view: "selftest" },
   { path: "/drawingapp", view: "drawingapp"},
+  { path: "/breathingexercise", view: "breathingexercise"},
 ];
 
 staticRoutes.forEach(({ path, view, options = {} }) => {

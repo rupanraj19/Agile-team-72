@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breathing Exercise</title>
+    <link rel="icon" href="/assets/logo.png" type="image/png" />
+    <link rel="stylesheet" href="/game.css">
+</head>
+<body>
+    <!-- header -->
+    <%- include('partials/header') %>
+    <!-- header end -->
+    </section>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="section-title pt-2">
+                <h1 class="text-center">Breathing Exercise</h1>
+            </div>
+        </div>
+        <div class="">
+            <div class="breathing-game d-flex justify-content-center align-items-center">
+                <div class="circle breathe-in-circle d-flex justify-content-center align-items-center" id="breathe-in-circle">Breathe In</div>
+                <div class="circle breathe-out-circle d-flex justify-content-center align-items-center" id="breathe-out-circle">Breathe Out</div>
+                <div class="instructions" id="instructions">Inhale... Hold... Exhale...</div>
+            </div>
+        </div>
+    </div>
+    </section>
+  <!-- footer -->
+  <%- include('partials/footer') %>
+  <!-- footer end -->
+
+  <script src="/breathingGame.js"></script>
+</body>
+</html>
