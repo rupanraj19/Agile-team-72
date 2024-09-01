@@ -11,6 +11,8 @@
         --transition: all 0.5s ease;
 }
 
+
+
 /*  home page */
 
 
@@ -78,20 +80,6 @@
 
 .fourth-section {
         background-color: var(--c-bg4);
-}
-
-.line1{
-        width: 60px;
-        height: 4px;
-        background-color:  #a00c0c ;
-        margin-left: 47%;
-}
-
-.home-line{
-        width: 60px;
-        height: 4px;
-        background-color:  #a00c0c ;
-        margin-left: 48%;
 }
 
 .activity-section {

@@ -10,6 +10,22 @@
     --transition: all 0.5s ease;
   }
 
+
+  h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: var(--c-dark);
+  }
+
+  p, ul, li, button{
+    font-family: sans-serif;
+  }
+
+  a:hover
+  {
+    color:#00bd09;
+  }
+
   header{
     background-color: var(--c-brand);
   }
@@ -118,7 +134,7 @@
 
   /* footer */
   footer {
-      padding-top: 120px;
+      padding-top: 60px;
       background-color: var(--c-footer-body);
   }
 
@@ -129,7 +145,7 @@
 
   .footer-bottom{
       padding-top: 40px;
-      padding-bottom: 40px;
+      padding-bottom: 20px;
   }
 
   footer li, footer p, footer a {
