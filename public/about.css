@@ -11,11 +11,19 @@
     --transition: all 0.5s ease;
 }
 
+/* Intro section styling  */
+.intro{
+    background-color: #000;
+    position: relative;
+    text-align: center;
+    color: rgb(10, 9, 9);
+}
+
 /* About text positioning */
 .about-text {
     position: absolute;
     top: 50%;
-    left: 53%;
+    left: 60%;
 }
 
 /* Link styling */

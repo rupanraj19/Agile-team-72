@@ -22,7 +22,10 @@
                         <!-- Foreground Image -->
                         <img class="img front-img" src="assets/game1.png" alt="after" />
                         <!-- Image Slider -->
-                        <input type="range" min="1" max="100" value="50" class="game-img-slider position-absolute top-50 start-50 translate-middle w-50" name="game-img-slider" id="game-img-slider" />
+                        <label>
+                            Adjust game image size
+                            <input type="range" min="1" max="100" value="50" class="game-img-slider position-absolute top-50 start-50 translate-middle w-50" name="game-img-slider" id="game-img-slider">
+                        </label>
                 </div>
             </div>
         </section>
@@ -37,10 +40,10 @@
                         <h1 class="text-center">Games</h1>
                     </div>
                     <!-- Games Cards -->
-                    <div class="row">
+                    <div class="row d-flex justify-content-center">
                         <!-- Game 1: Mental Rush -->
                         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            <div class="game-card">
+                            <div class="game-card mx-auto">
                                 <!-- Game Image -->
                                 <div class="game-card-image">
                                     <img class="img img-fluid" src="assets/rush.png" alt="mental rush game cover image">
@@ -56,7 +59,7 @@
 
                         <!-- Game 2: Pathway to Light -->
                         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            <div class="game-card">
+                            <div class="game-card mx-auto">
                                 <!-- Game Image -->
                                 <div class="game-card-image">
                                     <img class="img img-fluid" src="assets/game.png" alt="game cover image">
@@ -66,14 +69,14 @@
                                 <!-- Game Description -->
                                 <p class="game-card-body text-white">
                                     Pathway to Light is a journey of helping a character overcome depression and find their way to joy. The game is divided into four stages, each representing a step toward healing. To clear a level, you must collect all the bubbles. <br>
-                                    <center><button class="btn btn-danger mt-1"><a class="text-white text-bold text-center" href="https://ruby-19.itch.io/pathway-to-light">Play</a></button></center>
+                                    <center><button class="btn btn-danger mt-1" onclick="window.location.href='https://ruby-19.itch.io/pathway-to-light'">Play</button></center>
                                 </p>
                             </div>
                         </div>
 
                         <!-- Game 3: Cheer Chase -->
                         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                            <div class="game-card">
+                            <div class="game-card mx-auto">
                                 <!-- Game Image -->
                                 <div class="game-card-image">
                                     <img src="assets/chase.png" class="img img-fluid" alt="cheer chase game cover image">

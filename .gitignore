@@ -1,6 +1,7 @@
 # Ignore database file
-# database.db
+database.db
 
 # Ignore node_modules folder
-node_modules/package.lock.json
+node_modules/
+package.lock.json
 

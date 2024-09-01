@@ -253,7 +253,6 @@ app.use("/comments", commentRoutes);
 app.use("/chatbot", chatbotRoutes);
 app.use("/auth", authRoutes);
 app.use("/contact", contactRoutes);
-
 app.get("/success", (req, res) => res.render("success"));
 
 // Start the server
