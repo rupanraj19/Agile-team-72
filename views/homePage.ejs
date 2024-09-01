@@ -129,6 +129,7 @@
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="slider-section container mt-4">
+
                     <div class="slider">
                         <!-- Slider Items -->
                         <div class="item">
@@ -312,6 +313,21 @@
             });
         });
     </script>
+
+
+<script>
+    // Select all images with the data-href attribute
+    document.querySelectorAll('img[data-href]').forEach(img => {
+        img.style.cursor = 'pointer'; // Optional: Change cursor to pointer on hover
+
+        img.addEventListener('click', () => {
+            const href = img.getAttribute('data-href');
+            if (href) {
+                window.location.href = href;
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

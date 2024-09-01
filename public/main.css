@@ -99,6 +99,23 @@
         height: auto;
 }
 
+.activity-section {
+        background-color:rgb(179, 177, 177);
+        border-radius: 10px;
+        font-size: larger;
+        padding: 10px 0px;
+}
+
+.activities{
+        cursor: pointer;
+}
+
+
+.activities a img {
+        width: 50%;
+        height: auto;
+}
+
 video {
         padding: 50px;
         width: 60%;
