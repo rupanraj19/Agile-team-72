@@ -12,8 +12,6 @@
 }
 
 /*  home page */
-
-
 .second-section {
         background-color: #FBFEEB;
 }
@@ -35,6 +33,7 @@
         background-color: #91CBA4;
         z-index: -1;
 }
+
 .slider-section {
         position: relative;
         z-index: 1;
@@ -46,6 +45,7 @@
         height: 370px;
         overflow: hidden;
 }
+
 .item{
         position: absolute;
         width: 200px;
@@ -58,6 +58,7 @@
         left: calc(50% - 110px);
         top: 0;
 }
+
 #next, #prev{
         position: absolute;
         top: 40%;
@@ -68,30 +69,40 @@
         font-size: xxx-large;
         font-family: monospace;
         font-weight: bold;
-        left: 20%;
 }
+
 #next{
         position: absolute;
         left: unset;
-        right: 20%;
+        right: 22%;
+}
+
+#prev{
+        position: absolute;
+        left: 20%;
+        right: unset;
+        z-index: 999;
 }
 
 .fourth-section {
         background-color: var(--c-bg4);
 }
 
-.line1{
-        width: 60px;
-        height: 4px;
-        background-color:  #a00c0c ;
-        margin-left: 47%;
+.activity-section {
+        background-color:rgb(179, 177, 177);
+        border-radius: 10px;
+        font-size: larger;
+        padding: 10px 0px;
 }
 
-.home-line{
-        width: 60px;
-        height: 4px;
-        background-color:  #a00c0c ;
-        margin-left: 48%;
+.activities{
+        cursor: pointer;
+}
+
+
+.activities a img {
+        width: 50%;
+        height: auto;
 }
 
 .activity-section {
@@ -113,21 +124,20 @@
 
 video {
         padding: 50px;
-        width: 60%;
-        height: 50%;
+        width: 90%;
+        height: 40%;
 }
 
 /* chatbot */
-
 .chatbot-icon {
         position: fixed;
         bottom: 20px;
         right: 20px;
         cursor: pointer;
         z-index: 1000;
-    }
+}
 
-    .chatbox-window {
+.chatbox-window {
         display: none;
         position: fixed;
         bottom: 13%;
@@ -139,20 +149,20 @@ video {
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         z-index: 999;
-    }
+}
 
-    .chatbox-header {
+.chatbox-header {
         background-color: #007bff;
         color: white;
         padding: 10px;
         border-radius: 10px 10px 0 0;
-    }
+}
 
-    .chatbox-body {
+.chatbox-body {
         padding: 10px;
         height: calc(100% - 50px);
         overflow-y: auto;
-    }
+}
 
 
 .chat-btn {

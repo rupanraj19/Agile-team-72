@@ -14,21 +14,27 @@
     <!-- header -->
     <%- include('partials/header') %>
     <!-- header end -->
-    <main>
-        <section class="first-section">
-                    <img src="assets/home.png" alt="you are not alone" class="img-fluid home">
-        </section>
 
+    <main>
+        <!-- First Section -->
+        <section class="first-section">
+            <img src="assets/home.png" alt="you are not alone" class="img-fluid home">
+        </section>
+        <!-- End of First Section -->
+
+        <!-- Second Section -->
         <section class="second-section p-3">
             <div class="row">
-                <div class="col-8">
+                <div class="col-lg-8 col-md-8 col-sm-2">
                     <div class="container">
                         <div class="activity-section">
                             <h4 class="text-center mt-4">Activities Guidance</h4>
-                            <div class="line1"></div>
-                            <p class="text-center mt-4">These guided activities are designed to support your overall well-being and help you develop healthy habits</p>
+                            <p class="text-center mt-4">
+                                These guided activities are designed to support your overall well-being and help you develop healthy habits
+                            </p>
                         </div>
                         <div class="d-flex justify-content-center mt-4 activities">
+                            <!-- Activity Images -->
                             <img class="p-2 left-img img-fluid" src="assets/art.png" alt="art" data-bs-toggle="modal" data-bs-target="#artModal">
                             <img class="p-2 left-img img-fluid" src="assets/meditation.png" alt="meditation" data-bs-toggle="modal" data-bs-target="#meditationModal">
                             <img class="p-2 left-img img-fluid" src="assets/mindfulness.png" alt="mindfulness" data-bs-toggle="modal" data-bs-target="#mindfulnessModal">
@@ -36,10 +42,11 @@
                     </div>
                 </div>
                 <div class="col-4 p-4">
-                    <img class="happy-img img-fluid" src="assets/behappy.png" alt="girl sitting alone" >
+                    <img class="happy-img img-fluid" src="assets/behappy.png" alt="girl sitting alone">
                 </div>
             </div>
         </section>
+        <!-- End of Second Section -->
 
         <!-- Art Modal -->
         <div class="modal fade" id="artModal" tabindex="-1" aria-labelledby="artModalLabel" aria-hidden="true">
@@ -65,6 +72,7 @@
                 </div>
             </div>
         </div>
+        <!-- End of Art Modal -->
 
         <!-- Meditation Modal -->
         <div class="modal fade" id="meditationModal" tabindex="-1" aria-labelledby="meditationModalLabel" aria-hidden="true">
@@ -78,6 +86,10 @@
                         <div class="ratio ratio-16x9">
                             <iframe src="https://www.youtube.com/embed/cyMxWXlX9sU" title="Guided Meditation" allowfullscreen></iframe>
                         </div>
+                        <!-- Link to Breathing Exercise App -->
+                        <div class="text-end mt-3">
+                            <a href="/breathingexercise" class="btn btn-outline-primary">Breathing exercise</a>
+                        </div>
                         <!-- Copyright Notice -->
                         <div class="text-center mt-3">
                             <small>Video by <a href="https://youtube.com/@lavendaire" target="_blank">Lavendaire</a>. All rights reserved.</small>
@@ -86,6 +98,7 @@
                 </div>
             </div>
         </div>
+        <!-- End of Meditation Modal -->
 
         <!-- Mindfulness Modal -->
         <div class="modal fade" id="mindfulnessModal" tabindex="-1" aria-labelledby="mindfulnessModalLabel" aria-hidden="true">
@@ -107,57 +120,71 @@
                 </div>
             </div>
         </div>
+        <!-- End of Mindfulness Modal -->
 
+        <!-- Third Section -->
         <section class="third-section">
-            <div><h2 class="text-center p-3">Featured Topics</h2></div>
-            <div class="home-line"></div>
-            <div class="d-flex justify-content-center align-items-center">
-                <div class="slider-section container mt-4">
-                <div class="slider">
-                    <div class="item">
-                        <img class="img-fluid" src="assets/home/mental.png" alt="">
-                        <h4 class="text-center"><a href="/mentalwellbeing" class="text-dark">Mental well being</a></h4>
+            <div>
+                <h2 class="text-center p-3">Featured Topics</h2>
+            </div>
+            <div class="col-lg-12 col-md-8 col-sm-4">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="slider-section container mt-4">
+
+                        <div class="slider">
+                            <!-- Slider Items -->
+                            <div class="item">
+                                <img class="img-fluid" src="assets/home/mental.png" alt="">
+                                <h4 class="text-center"><a href="/mentalwellbeing" class="text-dark">Mental well being</a></h4>
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid" src="assets/home/signs.png" alt="">
+                                <h4 class="text-center"><a href="/stress" class="text-dark">Stress</a></h4>
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid" src="assets/home/burnout.png" alt="">
+                                <h4 class="text-center"><a href="/burnout" class="text-dark">Burnout</a></h4>
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid" src="assets/home/peace.png" alt="">
+                                <h4 class="text-center"><a href="/peace" class="text-dark">Peace</a></h4>
+                            </div>
+                            <div class="item">
+                                <img class="img-fluid" src="assets/home/bed.png" alt="">
+                                <h4 class="text-center"><a href="/procastination" class="text-dark">Procastination</a></h4>
+                            </div>
+                            <!-- Navigation Buttons -->
+                            <button id="prev"><</button>
+                            <button id="next">></button>
+                        </div>
                     </div>
-                    <div class="item">
-                        <img class="img-fluid" src="assets/home/signs.png" alt="">
-                        <h4 class="text-center"><a href="/stress" class="text-dark">Stress</a></h4>
-                    </div>
-                    <div class="item">
-                        <img class="img-fluid"  src="assets/home/burnout.png" alt="">
-                        <h4 class="text-center"><a href="/burnout" class="text-dark">Burnout</a></h4>
-                    </div>
-                    <div class="item">
-                        <img class="img-fluid"  src="assets/home/peace.png" alt="">
-                        <h4 class="text-center"><a href="/peace" class="text-dark">Peace</a></h4>
-                    </div>
-                    <div class="item">
-                        <img class="img-fluid" src="assets/home/bed.png" alt="">
-                        <h4 class="text-center"><a href="/procastination" class="text-dark">Procastination</a></h4>
-                    </div>
-                    <button id="prev"><</button>
-                    <button id="next">></button>
-                </div>
                 </div>
             </div>
         </section>
+        <!-- End of Third Section -->
 
+        <!-- Fourth Section -->
         <section class="fourth-section">
-            <div class="text-center pt-3"> <h2>Story Video</h2> </div>
-            <div class="home-line"></div>
-            <div class="d-flex justify-content-center">
-                <video controls>
-                <source src="assets/video/Team72.mp4" type="video/mp4">
-                Your browser does not support HTML video.
-                </video>
+            <div class="text-center pt-3">
+                <h2>Story Video</h2>
             </div>
+                <div class="col-lg-12 col-md-8 col-sm-4">
+                    <div class="d-flex justify-content-center">
+                        <video controls>
+                            <source src="assets/video/Team72.mp4" type="video/mp4">
+                            Your browser does not support HTML video.
+                        </video>
+                    </div>
+                </div>
         </section>
+        <!-- End of Fourth Section -->
 
+        <!-- Chatbot Section -->
         <section class="chatbot">
             <div class="chatbot-icon">
-
-            <button id="chat-icon" class="chat-btn"> <span>Chat</span>
-            </button>
-            <!-- <i id="chat-icon" class="bi bi-chat-text"></i>  -->
+                <button id="chat-icon" class="chat-btn">
+                    <span>Chat</span>
+                </button>
             </div>
 
             <div class="chatbox-window">
@@ -176,103 +203,120 @@
                 </form>
             </div>
         </section>
+        <!-- End of Chatbot Section -->
     </main>
 
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- footer end -->
 
+    <!-- featured topics slider script -->
+    <script>
+        let items = document.querySelectorAll('.slider .item');
+        let next = document.getElementById('next');
+        let prev = document.getElementById('prev');
 
-<script>
-    let items = document.querySelectorAll('.slider .item');
-    let next = document.getElementById('next');
-    let prev = document.getElementById('prev');
-
-    let active = 2;
-    function loadShow(){
-        let stt = 0;
-        items[active].style.transform = `none`;
-        items[active].style.zIndex = 1;
-        items[active].style.filter = 'none';
-        items[active].style.opacity = 1;
-        for(var i = active + 1; i < items.length; i++){
-            stt++;
-            items[i].style.transform = `translateX(${120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
-            items[i].style.zIndex = -stt;
-            items[i].style.filter = 'blur(5px)';
-            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        let active = 2; // starting slider
+        function loadShow(){
+            let stt = 0;
+            items[active].style.transform = `none`;
+            items[active].style.zIndex = 1;
+            items[active].style.filter = 'none';
+            items[active].style.opacity = 1;
+            for(var i = active + 1; i < items.length; i++){
+                stt++;
+                items[i].style.transform = `translateX(${120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
+                items[i].style.zIndex = -stt;
+                items[i].style.filter = 'blur(5px)';
+                items[i].style.opacity = stt > 2 ? 0 : 0.6;
+            }
+            stt = 0;
+            for(var i = active - 1; i >= 0; i--){
+                stt++;
+                items[i].style.transform = `translateX(${-120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
+                items[i].style.zIndex = -stt;
+                items[i].style.filter = 'blur(5px)';
+                items[i].style.opacity = stt > 2 ? 0 : 0.6;
+            }
         }
-        stt = 0;
-        for(var i = active - 1; i >= 0; i--){
-            stt++;
-            items[i].style.transform = `translateX(${-120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
-            items[i].style.zIndex = -stt;
-            items[i].style.filter = 'blur(5px)';
-            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        loadShow();
+        next.onclick = function(){
+            active = active + 1 < items.length ? active + 1 : active;
+            loadShow();
         }
-    }
-    loadShow();
-    next.onclick = function(){
-        active = active + 1 < items.length ? active + 1 : active;
-        loadShow();
-    }
-    prev.onclick = function(){
-        active = active - 1 >= 0 ? active - 1 : active;
-        loadShow();
-    }
-</script>
-<!-- chatbot script -->
+        prev.onclick = function(){
+            active = active - 1 >= 0 ? active - 1 : active;
+            loadShow();
+        }
+    </script>
 
-<script>
-    const chatbotIcon = document.querySelector('.chatbot-icon');
-    const chatboxWindow = document.querySelector('.chatbox-window');
-    const chatIcon = document.getElementById('chat-icon');
-    const chatboxBody = document.getElementById('chatbox-body');
-    const chatForm = document.getElementById('chat-form');
-    const chatInput = document.getElementById('chat-input');
 
-    // Toggle chatbox visibility
-    chatbotIcon.addEventListener('click', () => {
-    const isChatboxVisible = chatboxWindow.style.display === 'block';
+    <!-- chatbot script -->
+    <script>
+        const chatbotIcon = document.querySelector('.chatbot-icon');
+        const chatboxWindow = document.querySelector('.chatbox-window');
+        const chatIcon = document.getElementById('chat-icon');
+        const chatboxBody = document.getElementById('chatbox-body');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
 
-    // Toggle chatbox visibility
-    chatboxWindow.style.display = isChatboxVisible ? 'none' : 'block';
+        // Toggle chatbox visibility
+        chatbotIcon.addEventListener('click', () => {
+        const isChatboxVisible = chatboxWindow.style.display === 'block';
 
-    // Change the button text or icon
-    if (isChatboxVisible) {
-        chatIcon.innerHTML = '<span>Chat</span>'; // Change to "Chat"
-    } else {
-        chatIcon.innerHTML = '<span>X</span>'; // Change to "X"
-    }
-});
+        // Toggle chatbox visibility
+        chatboxWindow.style.display = isChatboxVisible ? 'none' : 'block';
+
+        // Change the button text or icon
+        if (isChatboxVisible) {
+            chatIcon.innerHTML = '<span>Chat</span>'; // Change to "Chat"
+        } else {
+            chatIcon.innerHTML = '<span>X</span>'; // Change to "X"
+        }
+    });
 
     // Handle chat form submission
-// JavaScript function to handle chat form submission
-chatForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    // JavaScript function to handle chat form submission
+    chatForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    const userMessage = chatInput.value.trim();
-    if (userMessage === '') return;
+        const userMessage = chatInput.value.trim();
+        if (userMessage === '') return;
 
-    chatboxBody.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
-    chatInput.value = '';
+        chatboxBody.innerHTML += `<div><strong>You:</strong> ${userMessage}</div>`;
+        chatInput.value = '';
 
-    try {
-        const response = await fetch('/chatbot/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: userMessage }),
+        try {
+            const response = await fetch('/chatbot/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessage }),
+            });
+
+            const data = await response.json();
+            chatboxBody.innerHTML += `<div><strong>Bot:</strong> ${data.botResponse}</div>`;
+        } catch (error) {
+            console.error('Error communicating with chatbot:', error);
+        }
+
+        chatboxBody.scrollTop = chatboxBody.scrollHeight;
+    });
+    </script>
+
+    <!-- Href on image hover script -->
+    <script>
+        // Select all images with the data-href attribute
+        document.querySelectorAll('img[data-href]').forEach(img => {
+            img.style.cursor = 'pointer';
+
+            img.addEventListener('click', () => {
+                const href = img.getAttribute('data-href');
+                if (href) {
+                    window.location.href = href;
+                }
+            });
         });
-
-        const data = await response.json();
-        chatboxBody.innerHTML += `<div><strong>Bot:</strong> ${data.botResponse}</div>`;
-    } catch (error) {
-        console.error('Error communicating with chatbot:', error);
-    }
-
-    chatboxBody.scrollTop = chatboxBody.scrollHeight;
-});
-</script>
+    </script>
 
 
 <script>

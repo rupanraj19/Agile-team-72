@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program Page</title>
     <link rel="icon" href="/assets/logo.png" type="image/png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css"> <!-- fancy box js for gallery style-->
     <link rel="stylesheet" href="/program.css">
 </head>
 <body>
 
-    <!-- header -->
-    <%- include('partials/header') %>
-    <!-- header end -->
+  <!-- header -->
+  <%- include('partials/header') %>
+  <!-- header end -->
 
-    <main>
+  <main>
+        <!-- conditions section -->
         <section class="condition-section">
             <div class="container">
                 <div class="row">
@@ -34,7 +35,7 @@
                         <img src="assets/conditions/bipolar.png" class="img-fluid" alt="Illustration representing bipolar disorder">
                       </div>
                       <div class="card-content">
-                        <h6><a href="/bipolar">Bipolar Disorder</a></h6>
+                        <h6><a href="/bipolar" class="a">Bipolar Disorder</a></h6>
                       </div>
                     </div>
                   </div>
@@ -46,7 +47,7 @@
                         <img src="assets/conditions/schizo.png" class="img-fluid" alt="Illustration representing schizophrenia">
                       </div>
                       <div class="card-content">
-                        <h6><a href="/schizo">Schizophrenia</a></h6>
+                        <h6><a href="/schizo" class="a">Schizophrenia</a></h6>
                       </div>
                     </div>
                   </div>
@@ -58,7 +59,7 @@
                         <img src="assets/conditions/disorder.png" class="img-fluid" alt="Illustration representing a mental health disorder">
                       </div>
                       <div class="card-content">
-                        <h6><a href="/personality">Personality Disorder</a></h6>
+                        <h6><a href="/personality" class="a">Personality Disorder</a></h6>
                       </div>
                     </div>
                   </div>
@@ -70,7 +71,7 @@
                         <img src="assets/conditions/ptsd.png" class="img-fluid" alt="Illustration representing PTSD (Post-Traumatic Stress Disorder)">
                       </div>
                       <div class="card-content">
-                        <h6><a href="/ptsd">PTSD</a></h6>
+                        <h6><a href="/ptsd" class="a">PTSD</a></h6>
                       </div>
                     </div>
                   </div>
@@ -82,7 +83,7 @@
                         <img src="assets/conditions/anxiety.png" class="img-fluid" alt="Illustration representing Anxiety">
                       </div>
                       <div class="card-content">
-                        <h6><a href="/anxiety">Anxiety disorder</a></h6>
+                        <h6><a href="/anxiety" class="a">Anxiety disorder</a></h6>
                     </div>
                     </div>
                   </div>
@@ -99,6 +100,7 @@
             </div>
         </section>
 
+        <!-- useful resources section -->
         <section class="resource-section p-4">
           <div class="container">
             <div class="row">
@@ -126,7 +128,7 @@
                 </ul>
                 <div class="tab-content mt-2 text-center d-inline-block" id="pills-tabContent">
                   <div class="tab-pane fade show active" id="pills-selftest" role="tabpanel" aria-labelledby="pills-selftest-tab">
-                    <div class="selftest-card">
+                    <div class="selftest-card"> <!--- self test card-->
                       <div class="selftest-card-content text-center">
                         <br>
                         <h1>Self Assessment Quiz</h1>
@@ -139,20 +141,20 @@
                         <p>Your score will be automatically calculated and shown to you after you submit this questionnaire</p>
                         <br>
                         <a href="/selftest">
-                          <button class="btn btn-warning rounded-pill">START</button>
+                          <button class="btn btn-warning">START</button>
                         </a>
                       </div>
                     </div>
                   </div>
                   <div class="tab-pane fade" id="pills-podcast" role="tabpanel" aria-labelledby="pills-podcast-tab">
-                    <div class="podcast-section">
+                    <div class="podcast-section"> <!-- podcast section-->
                       <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4">
-                            <img src="assets/podcast/mind.png" class="img-fluid rounded-start" alt="...">
+                            <img src="assets/podcast/mind.png" class="img-fluid rounded-start" alt="mindfulness logo">
                           </div>
                           <div class="col-md-8">
-                            <div class="card-body border rounded h-100">
+                            <div class="card-body border rounded h-100"> <!--podcast 1-->
                               <h5 class="card-title">Mindfulness</h5>
                               <p class="card-text"></p>
                               <audio controls>
@@ -167,10 +169,10 @@
                       <div class="card mb-3" style="max-width: 540px;">
                         <div class="row g-0">
                           <div class="col-md-4">
-                            <img src="assets/podcast/stress.png" class="img-fluid rounded-start" alt="...">
+                            <img src="assets/podcast/stress.png" class="img-fluid rounded-start" alt="stress logo">
                           </div>
                           <div class="col-md-8">
-                            <div class="card-body border rounded h-100">
+                            <div class="card-body border rounded h-100"> <!--podcast 2-->
                               <h5 class="card-title">Stress</h5>
                               <p class="card-text"></p>
                               <audio controls>
@@ -185,15 +187,15 @@
                     </div>
                   </div>
                   <div class="tab-pane fade" id="pills-education" role="tabpanel" aria-labelledby="pills-education-tab">
-                    <div class="row ">
+                    <div class="row "> <!--Educational Video section-->
                       <div class="col-lg-4 col-md-8 col-sm-12">
-                        <iframe width="420" height="315" src="https://www.youtube.com/embed/oxx564hMBUI?si=2KDIdSjXyJ28w2E-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/oxx564hMBUI?si=2KDIdSjXyJ28w2E-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                       </div>
                       <div class="col-lg-4 col-md-8 col-sm-12 ">
-                        <iframe width="420" height="315" src="https://www.youtube.com/embed/5bNI_NloNa8?si=s8sdd2RGNgTDt1RH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/5bNI_NloNa8?si=s8sdd2RGNgTDt1RH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                       </div>
                       <div class="col-lg-4 col-md-8 col-sm-12">
-                        <iframe width="420" height="315" src="https://www.youtube.com/embed/3QIfkeA6HBY?si=3fnjiteHknDQK_Gn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/3QIfkeA6HBY?si=3fnjiteHknDQK_Gn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                       </div>
                     </div>
                   </div>
@@ -207,7 +209,7 @@
                                 </div>
                                 <a href="assets/motivational/1.png" data-fancybox="gallery" class="iconbox" previewlistener="true" aria-label="View motivational image 1">
                                   <i class="bi bi-search h1 text-warning"></i>
-                                </a>                              
+                                </a>
                             </div>
                             <div class="moments-item image-zoom mt-4">
                               <div class="image-zoom-wrapper">
@@ -225,7 +227,7 @@
                                 </div>
                                 <a href="assets/motivational/2.png" data-fancybox="gallery" class="iconbox" previewlistener="true" aria-label="View motivational image 2">
                                   <i class="bi bi-search h1 text-warning"></i>
-                                </a>                                
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-3" >
@@ -235,7 +237,7 @@
                               </div>
                               <a href="assets/motivational/3.png" data-fancybox="gallery" class="iconbox" previewlistener="true" aria-label="View motivational image 3">
                                 <i class="bi bi-search h1 text-warning"></i>
-                              </a>                              
+                              </a>
                           </div>
                           <div class="moments-item image-zoom mt-4">
                             <div class="image-zoom-wrapper">
@@ -255,8 +257,8 @@
           </div>
         </section>
 
+        <!-- Games section -->
         <section class="games-section">
-          <div class="row">
             <div class="col-12 position-relative">
               <img class="games-section-img img-fluid" src="assets/game3.png" alt="">
                   <div class="one-div d-flex justify-content-center align-items-center">
@@ -267,35 +269,36 @@
                     </div>
                   </div>
             </div>
-          </div>
         </section>
-    </main>
+  </main>
 
-    <!-- footer -->
-    <%- include('partials/footer') %>
-    <!-- footer end -->
+  <!-- footer -->
+  <%- include('partials/footer') %>
+  <!-- footer end -->
 
 
-<!-- fancybox link -->
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-<script>
-  // carousel animation/slider
+  <!-- fancybox link -->
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
-let items = document.querySelectorAll('.carousel .carousel-item')
+  <!-- carousel animation/slider -->
+  <script>
 
-items.forEach((el) => {
-    const minPerSlide = 4
-    let next = el.nextElementSibling
-    for (let i=1; i<minPerSlide; i++) {
-        if (!next) {
-            // wrap carousel by using first child
-            next = items[0]
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+    items.forEach((el) => {
+        const minPerSlide = 4
+        let next = el.nextElementSibling
+        for (let i=1; i<minPerSlide; i++) {
+            if (!next) {
+                // wrap carousel by using first child
+                next = items[0]
+            }
+            let cloneChild = next.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next.nextElementSibling
         }
-        let cloneChild = next.cloneNode(true)
-        el.appendChild(cloneChild.children[0])
-        next = next.nextElementSibling
-    }
-})
-</script>
+    })
+  </script>
+
 </body>
 </html>

@@ -1,16 +1,16 @@
-/* main display */
-
-/* main-display */
-#main-display{
+/* Main display section */
+#main-display {
     margin-top: -60px;
 }
 
+/* Area section styling */
 .area {
     top: 0;
     left: 0;
     z-index: 1;
 }
 
+/* Circles animation */
 .circles {
     position: absolute;
     top: 0;
@@ -21,7 +21,8 @@
     z-index: 2;
 }
 
-.circles li{
+/* Circle elements */
+.circles li {
     position: absolute;
     display: block;
     list-style: none;
@@ -30,18 +31,17 @@
     background: rgba(248, 248, 248, 0.705);
     animation: animate 5s linear infinite;
     bottom: 0px;
-
 }
 
-.circles li:nth-child(1){
+/* Specific circle configurations */
+.circles li:nth-child(1) {
     left: 25%;
     width: 80px;
     height: 80px;
     animation-delay: 0s;
 }
 
-
-.circles li:nth-child(2){
+.circles li:nth-child(2) {
     left: 10%;
     width: 20px;
     height: 20px;
@@ -49,14 +49,14 @@
     animation-duration: 3s;
 }
 
-.circles li:nth-child(3){
+.circles li:nth-child(3) {
     left: 70%;
     width: 20px;
     height: 20px;
     animation-delay: 4s;
 }
 
-.circles li:nth-child(4){
+.circles li:nth-child(4) {
     left: 40%;
     width: 60px;
     height: 60px;
@@ -64,28 +64,28 @@
     animation-duration: 2s;
 }
 
-.circles li:nth-child(5){
+.circles li:nth-child(5) {
     left: 65%;
     width: 20px;
     height: 20px;
     animation-delay: 0s;
 }
 
-.circles li:nth-child(6){
+.circles li:nth-child(6) {
     left: 75%;
     width: 110px;
     height: 110px;
     animation-delay: 3s;
 }
 
-.circles li:nth-child(7){
+.circles li:nth-child(7) {
     left: 35%;
     width: 150px;
     height: 150px;
     animation-delay: 7s;
 }
 
-.circles li:nth-child(8){
+.circles li:nth-child(8) {
     left: 50%;
     width: 25px;
     height: 25px;
@@ -93,7 +93,7 @@
     animation-duration: 45s;
 }
 
-.circles li:nth-child(9){
+.circles li:nth-child(9) {
     left: 20%;
     width: 15px;
     height: 15px;
@@ -101,7 +101,7 @@
     animation-duration: 35s;
 }
 
-.circles li:nth-child(10){
+.circles li:nth-child(10) {
     left: 85%;
     width: 150px;
     height: 150px;
@@ -109,22 +109,19 @@
     animation-duration: 11s;
 }
 
-
-
+/* Circles animation keyframes */
 @keyframes animate {
-
-    0%{
+    0% {
         transform: translateY(0) rotate(0deg);
         opacity: 1;
         border-radius: 0;
     }
 
-    100%{
+    100% {
         transform: translateY(-600px) rotate(720deg);
         opacity: 0;
         border-radius: 50%;
     }
-
 }
 
 /* Content styles */
@@ -140,13 +137,12 @@
     margin-bottom: 15px;
 }
 
-.filter-section .dropdown-menu{
+.filter-section .dropdown-menu {
     width: 500px;
     overflow-y: auto;
 }
 
-
-/* Articles styles */
+/* Articles section styles */
 ul {
     list-style: none;
     padding-left: 0;
@@ -156,7 +152,6 @@ ul {
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
-
 
 .article strong {
     display: block;
@@ -176,133 +171,130 @@ ul {
     margin-top: 10px;
 }
 
-.article:hover{
-    background: linear-gradient(to right, #C1FF72 , #FFDE59);
+.article:hover {
+    background: linear-gradient(to right, #C1FF72, #FFDE59);
     color: black;
 }
-/* search bar */
 
-
-.search{
+/* Search bar styling */
+.search {
     position: relative;
     box-shadow: 0 0 40px rgba(51, 51, 51, .1);
-    }
+}
 
-    .search input{
-     width: 100%;
-     height: 60px;
-     text-indent: 25px;
-     border: 2px solid #d6d4d4;
+.search input {
+    width: 100%;
+    height: 60px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4;
+}
 
-    }
+.search input:focus {
+    box-shadow: none;
+    border: 2px solid rgb(166, 255, 0);
+}
 
+.search .fa-search {
+    position: absolute;
+    top: 20px;
+    left: 16px;
+}
 
-    .search input:focus{
-     box-shadow: none;
-     border: 2px solid rgb(166, 255, 0);
-    }
+.search button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 110px;
+    background: blue;
+}
 
-    .search .fa-search{
-     position: absolute;
-     top: 20px;
-     left: 16px;
-    }
+/* Filter bar styling */
+.filter-bar {
+    border: var(--c-body) 1px double;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    color: var(--c-dark);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    z-index: 1001;
+}
 
-    .search button{
-     position: absolute;
-     top: 5px;
-     right: 5px;
-     height: 50px;
-     width: 110px;
-     background: blue;
-
-    }
-
-    .filter-bar{
-        border:var(--c-body) 1px double;
-        border-radius: 10px;
-        padding: 10px;
-        text-align: center;
-        color: var(--c-dark);
-        box-shadow: var(--box-shadow);
-        position: relative;
-        z-index: 1001;
-    }
-
-    @media (max-width: 767px) {
-        .filter-bar {
-          width: 100%;
-        }
-    }
-
-
-    /* dropbtn */
-
-    .box {
-        width: 140px;
-        height: auto;
-        float: left;
-        transition: .5s linear;
-        position: relative;
-        display: block;
-        overflow: hidden;
-        padding: 15px;
-        text-align: center;
-        margin: 0 5px;
-        background: transparent;
-        text-transform: uppercase;
-        font-weight: 900;
-    }
-
-    .box:before {
-        position: absolute;
-        content: '';
-        left: 0;
-        bottom: 0;
-        height: 4px;
+/* Filter bar responsiveness */
+@media (max-width: 767px) {
+    .filter-bar {
         width: 100%;
-        border-bottom: 4px solid transparent;
-        border-left: 4px solid transparent;
-        box-sizing: border-box;
-        transform: translateX(100%);
     }
+}
 
-    .box:after {
-        position: absolute;
-        content: '';
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        border-top: 4px solid transparent;
-        border-right: 4px solid transparent;
-        box-sizing: border-box;
-        transform: translateX(-100%);
-    }
+/* Drop button styling */
+.box {
+    width: 140px;
+    height: auto;
+    float: left;
+    transition: .5s linear;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    margin: 0 5px;
+    background: transparent;
+    text-transform: uppercase;
+    font-weight: 900;
+}
 
-    .box:hover {
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    }
+.box:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+}
 
-    .box:hover:before {
-        border-color: var(--c-brand);
-        height: 100%;
-        transform: translateX(0);
-        transition: .3s transform linear, .3s height linear .3s;
-    }
+.box:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+}
 
-    .box:hover:after {
-        border-color: var(--c-brand-light);
-        height: 100%;
-        transform: translateX(0);
-        transition: .3s transform linear, .3s height linear .5s;
-    }
+.box:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
 
-    .dropbtn {
-        color: var(--c-dark);
-        text-decoration: none;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        background: transparent;
-    }
+.box:hover:before {
+    border-color: var(--c-brand);
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+}
+
+.box:hover:after {
+    border-color: var(--c-brand-light);
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+}
+
+/* Drop button appearance */
+.dropbtn {
+    color: var(--c-dark);
+    text-decoration: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: transparent;
+}

@@ -5,189 +5,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Page</title>
     <link rel="icon" href="/assets/logo.png" type="image/png" />
-    <!-- <link rel="stylesheet" href="/general.css"> -->
-    <!-- <link rel="stylesheet" href="/main.css"> -->
     <link rel="stylesheet" href="/about.css">
 </head>
 <body>
-    <!-- header -->
+    <!-- Header section -->
     <%- include('partials/header') %>
-    <!-- header end -->
+    <!-- Header end -->
 
-    <!-- main section  -->
+    <!-- Main content section -->
     <main class="main-section">
-    <section class="first-section">
-           <div class="intro">
-            <img class="img-fluid about-img" src="/assets/about.png" alt="about">
-            <h1 class="about-text text-dark">ABOUT US</h1>
-           </div>
-    </section>
 
-    <section class="middle-section">
-        <section  class=" p-5">
-            <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md p-5 text-dark">
-                        <h1 class="hof-title">Our Story</h1>
-                        <div class="line1 mb-2"></div>
-                        <p class="lead" id="story">
-                            Our team is deeply passionate about empowering individuals to navigate and overcome mental health challenges, fostering a meaningful and vibrant life for everyone. Our journey began with a strong motivation to support teenagers, who often face unique and difficult challenges in their mental health.
-                        </p>
-                        <p id="moretxt1" style="display: none;">
-                            We recognize the immense pressure young people endure in today’s fast-paced world, and our mission is to provide them with the tools, resources, and support they need to thrive. However, our commitment extends beyond teenagers—we are dedicated to helping anyone grappling with mental depression, offering a safe space for healing and growth. Our platform is built on the belief that with the right support, anyone can find their way to a brighter, healthier future.
+        <!-- First section: Introduction -->
+        <section class="first-section">
+            <div class="intro">
+                <img class="img-fluid about-img" src="/assets/about.png" alt="about">
+                <h1 class="about-text text-dark">ABOUT US</h1>
+            </div>
+        </section>
 
-                        </p>
-                        <a href="#story" class="readmore">
-                            <button onclick="readMore('mybtn1', 'moretxt1');" id="mybtn1" class="rd-more-button">
-                                Read More
-                            </button>
-                        </a>
-                    </div>
-                    <div class="col-md">
-                        <div class="hof-item image-zoom">
-                            <div class="image-zoom-wrapper">
-                                <img src="assets/story.png" alt="forest">
+        <!-- Middle section: Story and Service -->
+        <section class="middle-section">
+
+            <!-- Our Story section -->
+            <section class="p-5">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-md p-5 text-dark">
+                            <h1>Our Story</h1>
+                            <p class="lead" id="story">
+                                Our team is deeply passionate about empowering individuals to navigate and overcome mental health challenges, fostering a meaningful and vibrant life for everyone. Our journey began with a strong motivation to support teenagers, who often face unique and difficult challenges in their mental health.
+                            </p>
+                            <p id="moretxt1" style="display: none;">
+                                We recognize the immense pressure young people endure in today’s fast-paced world, and our mission is to provide them with the tools, resources, and support they need to thrive. However, our commitment extends beyond teenagers—we are dedicated to helping anyone grappling with mental depression, offering a safe space for healing and growth. Our platform is built on the belief that with the right support, anyone can find their way to a brighter, healthier future.
+                            </p>
+                            <a href="#story" class="readmore">
+                                <button onclick="readMore('mybtn1', 'moretxt1');" id="mybtn1" class="rd-more-button">
+                                    Read More
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md">
+                            <div class="image-zoom">
+                                <div class="image-zoom-wrapper">
+                                    <img src="assets/story.png" alt="forest">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Our Service section -->
+            <section class="p-5 text-dark">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-md">
+                            <div class="image-zoom">
+                                <div class="image-zoom-wrapper">
+                                    <img src="assets/service.png" alt="pen and paper">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md p-5">
+                            <h1>Our Service</h1>
+                            <p class="lead" id="service">
+                                Our website offers personalized mental health coaching and a wealth of supportive resources designed to empower your journey toward wellness. We understand that mental health is a deeply personal experience, and we are committed to providing tailored solutions that meet your unique needs.
+                            </p>
+                            <p id="moretxt2" style="display: none;">
+                                Our services include interactive tools, and a comprehensive library of articles and videos, all aimed at helping you build resilience, develop coping strategies, and foster a positive mindset. With our expert guidance and compassionate care, you can take the first step toward a healthier, happier you. Whether you're looking for immediate support or long-term growth, our platform is here to guide you every step of the way.
+                            </p>
+                            <a href="#service" class="readmore">
+                                <button onclick="readMore('mybtn2', 'moretxt2');" id="mybtn2" class="rd-more-button">
+                                    Read More
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
 
-        <section  class="p-5 text-dark">
+        <!-- Team section -->
+        <section class="team-section">
             <div class="container">
-                <div class="row align-items-center justify-content-between">
-                    <div class="col-md">
-                        <div class="hof-item image-zoom">
-                            <div class="image-zoom-wrapper">
-                                <img src="assets/service.png" alt="pen and paper">
+                <div class="row mt-0 mb-0">
+                    <div class="col-sm-12 pb-md-4 pb-lg-3 pb-xl-3">
+                        <div class="col-12 pt-4">
+                            <div class="section-title">
+                                <h1 class="text-center">Our Team</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md p-5">
-                        <h1 class="hof-title">Our Service</h1>
-                        <div class="line1 mb-2"></div>
-                        <p class="lead" id="service">
-                            Our website offers personalized mental health coaching and a wealth of supportive resources designed to empower your journey toward wellness. We understand that mental health is a deeply personal experience, and we are committed to providing tailored solutions that meet your unique needs.
-                        </p>
-                        <p id="moretxt2" style="display: none;">
-                            Our services include interactive tools, and a comprehensive library of articles and videos, all aimed at helping you build resilience, develop coping strategies, and foster a positive mindset. With our expert guidance and compassionate care, you can take the first step toward a healthier, happier you. Whether you're looking for immediate support or long-term growth, our platform is here to guide you every step of the way.
-                        </p>
-                        <a href="#service" class="readmore">
-                            <button onclick="readMore('mybtn2', 'moretxt2');" id="mybtn2" class="rd-more-button">
-                                Read More
-                            </button>
-                        </a>
+                    <div class="col-lg-1"></div>
+
+                    <!-- Team member 1 -->
+                    <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
+                        <img src="assets/team/kai.png" alt="Kai avatar" class="avatar-img">
+                        <div class="row pt-1">
+                            <div class="col-sm-12">
+                                <div class="section-link text-center">
+                                    CAO KAIBO
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Team member 2 -->
+                    <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
+                        <img src="assets/team/charissa.png" alt="charissa avatar" class="avatar-img">
+                        <div class="row pt-1">
+                            <div class="col-sm-12 pt-3">
+                                <div class="section-link text-center">
+                                    CHARISSA WEN
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team member 3 -->
+                    <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
+                        <img src="assets/team/kyaw_Thu.png" alt="Kyaw Thu avatar" class="avatar-img">
+                        <div class="row pt-1">
+                            <div class="col-sm-12 pt-2">
+                                <div class="section-link text-center">
+                                    KYAW THU
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team member 4 -->
+                    <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
+                        <img src="assets/team/ying_xuan.png" alt="ying xuan avatar" class="avatar-img">
+                        <div class="row pt-1">
+                            <div class="col-sm-12 pt-3">
+                                <div class="section-link text-center">
+                                    YING XUAN
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Team member 5 -->
+                    <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
+                        <img src="assets/team/lokesh.png" alt="lokesh avatar" class="avatar-img">
+                        <div class="row pt-1">
+                            <div class="col-sm-12">
+                                <div class="section-link text-center">
+                                    LOKESH
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2"></div>
                 </div>
             </div>
         </section>
-    </section>
-
-    <section class="team-section">
-        <div class="container ">
-            <div class="row mt-0 mb-0 ">
-                <div class="col-sm-12 pb-md-4 pb-lg-3 pb-xl-3">
-                <div class="col-12 pt-4" >
-                    <div class="section-title">
-                        <h1 class="text-center">Our Team</h1>
-                        <div class="about-line"></div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
-                <img src="assets/team/kai.png"
-                    alt="Kai avatar" class="avatar-img">
-                <div class="row pt-1">
-                    <div class="col-sm-12">
-                        <div class="section-link text-center">
-                            CAO KAIBO
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
-                <img src="assets/team/charissa.png"
-                    alt="charissa avatar" class="avatar-img">
-                <div class="row pt-1">
-                    <div class="col-sm-12 pt-3">
-                        <div class="section-link text-center">
-                            CHARISSA WEN
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
-                <img src="assets/team/kyaw_Thu.png"
-                    alt="Kyaw Thu avatar" class="avatar-img">
-                <div class="row pt-1">
-                    <div class="col-sm-12 pt-2">
-                        <div class="section-link text-center">
-                            KYAW THU
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
-                <img src="assets/team/ying_xuan.png"
-                    alt="ying xuan avatar" class="avatar-img">
-                <div class="row pt-1">
-                    <div class="col-sm-12 pt-3">
-                        <div class="section-link text-center">
-                            YING XUAN
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-2 col-md-6 col-sm-12 mt-3 mt-md-0 mt-lg-0">
-                <img src="assets/team/lokesh.png"
-                    alt="lokesh avatar" class="avatar-img">
-                <div class="row pt-1">
-                    <div class="col-sm-12">
-                        <div class="section-link text-center">
-                            LOKESH
-                        </div>
-                    </div>
-                </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-    </section>
     </main>
-    <!-- main section end -->
+    <!-- Main content end -->
 
-    <!-- footer -->
+    <!-- Footer section -->
     <%- include('partials/footer') %>
-    <!-- footer end -->
+    <!-- Footer end -->
 
+    <!-- JavaScript for "Read More" functionality -->
     <script>
-        // add more hall of fame
-function addMore() {
-    document.getElementById("more").style.display = "block";
-    document.getElementById("morebtn").style.display = "none";
-  }
+        // Function to display more content
+        function addMore() {
+            document.getElementById("more").style.display = "block";
+            document.getElementById("morebtn").style.display = "none";
+        }
 
-function addLess() {
-    document.getElementById("more").style.display = "none";
-    document.getElementById("morebtn").style.display = "flex";
-  }
+        // Function to hide extra content
+        function addLess() {
+            document.getElementById("more").style.display = "none";
+            document.getElementById("morebtn").style.display = "flex";
+        }
 
+        // Function to toggle "Read More" and "Read Less" for different sections
+        function readMore(btnId, textId) {
+            var moreText = document.getElementById(textId);
+            var btnText = document.getElementById(btnId);
 
-
-function readMore(btnId, textId) {
-  var moreText = document.getElementById(textId);
-  var btnText = document.getElementById(btnId);
-
-  if (moreText.style.display === "none") {
-    moreText.style.display = "block";
-    btnText.innerHTML = "Read Less";
-  } else {
-    moreText.style.display = "none";
-    btnText.innerHTML = "Read More";
-  }
-}
+            if (moreText.style.display === "none") {
+                moreText.style.display = "block";
+                btnText.innerHTML = "Read Less";
+            } else {
+                moreText.style.display = "none";
+                btnText.innerHTML = "Read More";
+            }
+        }
     </script>
 </body>
 </html>
