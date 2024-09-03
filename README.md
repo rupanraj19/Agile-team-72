@@ -45,15 +45,19 @@ To get started with the website, follow these steps:
 
 For any questions or feedback, please reach out to us at [aspteam72@outlook.com].
 
-## License
+## References
 
-This project is licensed under the [Your License] - see the [LICENSE](LICENSE) file for details.
+- **Images:** Canva - [https://www.canva.com/](https://www.canva.com/)
+- **Drawing App:** GeeksforGeeks - [https://www.geeksforgeeks.org/build-a-drawing-app-using-javascript/](https://www.geeksforgeeks.org/build-a-drawing-app-using-javascript/)
+- **Podcast:** gTTS - [https://gtts.readthedocs.io/en/latest/module.html#localized-accents](https://gtts.readthedocs.io/en/latest/module.html#localized-accents)
+- **Game Assets:** Unity Assets - [https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360)
+- **Game Music:** Pixabay - [https://pixabay.com/](https://pixabay.com/)
 
 
 ## Email Account details
-### Email: aspteam72@outlook.com
-## Pass: password000.
+# Email: aspteam72@outlook.com
+# Pass: password000.
 
 ## User Account for web login
-### User: admin
-### Pass: adminpass
+# User: admin
+# Pass: adminpass
