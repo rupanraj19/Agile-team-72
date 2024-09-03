@@ -55,9 +55,9 @@ For any questions or feedback, please reach out to us at [aspteam72@outlook.com]
 
 
 ## Email Account details
-# Email: aspteam72@outlook.com
-# Pass: password000.
+Email: aspteam72@outlook.com
+Pass: password000.
 
 ## User Account for web login
-# User: admin
-# Pass: adminpass
+User: admin
+Pass: adminpass
