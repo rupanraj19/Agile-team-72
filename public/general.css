@@ -296,66 +296,14 @@ footer .line{
     }
   }
 
-  .line{
+.line{
     width: 60px;
     height: 4px;
     background-color:  #a00c0c ;
     margin-left: 10px;
-  }
-
-
-/* toggle switch for dark mode */
-/* The switch - the box around the slider */
-.switch {
-  font-size: 12px;
-  position: relative;
-  display: inline-block;
-  width: 3.5em;
-  height: 2em;
 }
 
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
 
-/* The slider */
-.switchslider {
-  --background: black;
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: var(--background);
-  transition: .5s;
-  border-radius: 30px;
-}
-
-.switchslider:before {
-  position: absolute;
-  content: "";
-  height: 1.4em;
-  width: 1.4em;
-  border-radius: 50%;
-  left: 10%;
-  bottom: 15%;
-  box-shadow: inset 8px -4px 0px 0px #fff000;
-  background: var(--background);
-  transition: .5s;
-}
-
-input:checked + .switchslider {
-  background-color: #af1f27;
-}
-
-input:checked + .switchslider:before {
-  transform: translateX(100%);
-  box-shadow: inset 15px -4px 0px 15px #fff000;
-}
 
 a {
   text-decoration: none;
