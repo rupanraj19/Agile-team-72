@@ -21,15 +21,6 @@ This website was developed in response to the increasing need for mental health 
 
 ## Getting Started
 
-To get started with the website, follow these steps:
-
-1. **Visit the Website**: Navigate to the website's URL.
-2. **Explore Features**: Browse through the games, guided exercises, chatbot, videos, podcasts, self-assessment tests, and articles.
-3. **Register or Log In**: Create an account or log in to access personalized features and track your progress.
-4. **Engage and Seek Help**: Utilize the resources available and reach out for help if needed.
-
-## Getting Started
-
 - **Clone the Repository**: Use the `git clone` command with the repository link, or download and extract the ZIP file from GitHub.
 
 - **Navigate to the Project Directory**: Change to the project directory on your local machine.
