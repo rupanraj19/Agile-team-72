@@ -240,7 +240,7 @@ const articleRoutes = [
   { path: "/burnout", view: "articles/burnout" },
   { path: "/peace", view: "articles/peace"},
   { path: "/stress", view: "articles/stress"},
-  { path: "/procastination", view: "articles/procastination"},
+  { path: "/procrastination", view: "articles/procrastination"},
   { path: "/mentalwellbeing", view: "articles/mentalwellbeing"},
 ];
 
