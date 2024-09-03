@@ -139,11 +139,9 @@
 
                     <!-- Reset Filters Button -->
                     <div class="reset-filter ms-auto">
-                        <a href="">
                             <button class="dropbtn btn btn-danger p-2" onclick="resetFilters()">
                                 <i class="bi bi-arrow-repeat"></i> Reset
                             </button>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -219,7 +217,7 @@
                                 <h2>Mental Health Foundation Articles</h2>
                                 <ul class="list-unstyled">
                                     <% mhfArticles.forEach(article => { %>
-                                        <li class="article" data-source="mhf" data-category="<%= article.category %>">
+                                        <li class="article mb-4 border rounded p-2" data-source="mhf" data-category="<%= article.category %>">
                                             <strong>Category:</strong> <%= article.category %><br>
                                             <strong>Description:</strong> <span class="description"><%= article.description %></span>
                                             <div class="row justify-content-left p-2">
