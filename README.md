@@ -43,6 +43,7 @@ For any questions or feedback, please reach out to us at aspteam72@outlook.com.
 - **Podcast:** gTTS - [https://gtts.readthedocs.io/en/latest/module.html#localized-accents](https://gtts.readthedocs.io/en/latest/module.html#localized-accents)
 - **Game Assets:** Unity Assets - [https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360](https://assetstore.unity.com/packages/2d/characters/pixel-adventure-1-155360)
 - **Game Music:** Pixabay - [https://pixabay.com/](https://pixabay.com/)
+- **Animated Background:** codepen - [https://codepen.io/mohaiman/pen/MQqMyo](https://codepen.io/mohaiman/pen/MQqMyo)
 
 
 ## Email Account details
